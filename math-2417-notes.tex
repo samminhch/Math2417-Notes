@@ -1,7 +1,7 @@
 %----------------------Pre-Amble-------------------------
 \documentclass{MathNotes}
 %----------------------Author Information-----------------
-\title{Math-2417.001 Notes}
+\title{MATH-2417.001 Notes}
 \author{Minh Nguyen}
 
 %---------------------Document Begin-----------------------
@@ -21,7 +21,7 @@ the notes that I poured my blood, sweat, and tears into \emoji{sob}
 \br
 These notes are based off of the textbook \textit{Calculus 11e} by 
 \textit{Ron Larson} and \textit{Bruce Edwards}, as well as the lectures of 
-professor \textit{Carlos Arreche}.
+professor \textit{Carlos Arreche} from the \textit{Fall 2023} semester.
 \br
 If you have any complaints, or suggestions regarding these notes, please
 email me at \href{mailto:minh.nguyen7@utdallas.edu}{mdn220004@utdallas.edu}
@@ -520,7 +520,7 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
     \begin{multicols}{2}{
             Vertical asymptote are when:
             \begin{displaymath}
-                \lim_{x\to c}f(x)=\pm\infty
+                \lim_{x\to c^\pm}f(x)=\pm\infty
             \end{displaymath}
             \\
         }
@@ -773,7 +773,7 @@ problems I'll be putting in this section, but here are the rules in short:
 \begin{table}[h]
     \label{tab:2.2}
     \begin{center}
-        \begin{tabular}{ |c|c| }
+        \begin{tabular}{ |l|l| }
             \hline
             Rule & Math Expression\\
             \hline
@@ -827,8 +827,23 @@ problems I'll be putting in this section, but here are the rules in short:
 \begin{example}{Find Horizontal Tangents}
     Find the horizontal tangents of $f(x)=x^4-2x^2+3$:
     \br
-    The question is essentially asking us when the slope of the functions are
-    equal to 0
+    The question is essentially asking us to find the tangent lines whose
+    slopes are equal to 0: $f'(x)=0$
+    \begin{align*}
+        \frac{d}{dy}f(x)&=0\\
+        \frac{d}{dy}(x^4-2x^2+3)&=0\\
+        4x^3-4x &=0\\
+        4x(x^2-1)&=0\\
+        \\
+        x=\{0, \pm 1\}\\
+    \end{align*}
+    Now we plug in these values into $f(x)$ to get the tangent lines:
+    \begin{align*}
+        f(0)&=(0)^4-2(x)^2+3&=3\\
+        f(-1)&=(-1)^4-2(-1)^2+3&=2\\
+        f(1)&=(1)^4-2(1)^2+3&=2\\
+    \end{align*}
+    So the horizontal tangent lines are at $y=3$ and $y=2$
 \end{example}
 
 \newpage
