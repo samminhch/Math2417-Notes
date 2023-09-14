@@ -20,6 +20,8 @@
 \RequirePackage{pstricks}
 \RequirePackage{hyperref}
 \RequirePackage{multicol}
+\RequirePackage{xifthen}
+\RequirePackage{hyperref}
 
 
 \RequirePackage{amsmath, amssymb, amsthm, amsfonts}
@@ -83,20 +85,3 @@
         #2
     }
 }
-
-\newenvironment{example}[1]
-{\begin{BlueBox}{Example}{#1}}{\end{BlueBox}}
-
-\newenvironment{definition}[1]
-{\begin{RedBox}{Definition}{#1}}{\end{RedBox}}
-    
-\newenvironment{note}[1]
-{\begin{YellowBox}{Note}{#1}}{\end{YellowBox}}
-
-\newenvironment{theorem}[1]
-{\begin{GrayBox}{Theorem}{#1}}{\end{GrayBox}}
-
-\newcommand{\br}{
-\begin{center}
-\line(1,0){4ex}
-\end{center}}

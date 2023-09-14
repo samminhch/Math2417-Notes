@@ -1,5 +1,24 @@
 %----------------------Pre-Amble-------------------------
 \documentclass{MathNotes}
+\newenvironment{example}[1]
+{\begin{BlueBox}{Example}{#1}}{\end{BlueBox}}
+
+\newenvironment{definition}[1]
+{\begin{RedBox}{Definition}{#1}}{\end{RedBox}}
+    
+\newenvironment{note}[1]
+{\begin{YellowBox}{Note}{#1}}{\end{YellowBox}}
+
+\newenvironment{theorem}[1]
+{\begin{GrayBox}{Theorem}{#1}}{\end{GrayBox}}
+
+\newenvironment{practice}[2]
+{\begin{PurpleBox}{\texorpdfstring{#1}\Big|You Try}{#2}}{\end{PurpleBox}}
+
+\newcommand{\br}{
+\begin{center}
+\line(1,0){4ex}
+\end{center}}
 %----------------------Author Information-----------------
 \title{MATH-2417.001 Notes}
 \author{Minh Nguyen}
@@ -22,6 +41,10 @@ the notes that I poured my blood, sweat, and tears into \emoji{sob}
 These notes are based off of the textbook \textit{Calculus 11e} by 
 \textit{Ron Larson} and \textit{Bruce Edwards}, as well as the lectures of 
 professor \textit{Carlos Arreche} from the \textit{Fall 2023} semester.
+\br
+Practice problems are also found within the notes. The answers for the practice
+problems are found at the end of the notes. Please try them yourself so that
+you can get a hang of the subject!
 \br
 If you have any complaints, or suggestions regarding these notes, please
 email me at \href{mailto:minh.nguyen7@utdallas.edu}{mdn220004@utdallas.edu}
@@ -187,26 +210,12 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
 \end{itemize}
 
 
-\begin{example}{Proving Limits via. $\varepsilon-\delta$ Definition}
+\begin{practice}{\hyperref[ans:1.2.2-1]{1.2.2-1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
+    \label{prac:1.2.2-1}
     Consider $f(x)=10x-6$, prove that $\lim_{x\to 3}f(x)=24$ using the 
-    $\epsilon-\delta$ definition:
-    \br
-    The first thing we would have to do is to find $\delta$:
-    \begin{align*}
-        \lvert (10x-6)-(24) \rvert &<\varepsilon  \\
-        \lvert 10x-30 \rvert &<\varepsilon \\
-        10\lvert x-3 \rvert &<\varepsilon \\
-        \lvert x-3 \rvert &<\frac{\varepsilon}{10}
-    \end{align*}
-    \begin{align*}
-        0 < \lvert x - (3)\rvert &< \delta
-    \end{align*}
+    $\epsilon-\delta$ definition
+\end{practice}
 
-    Notice how $\delta=\frac{\epsilon}{10}$. This guarantees that
-    $\lvert f(x)-L \rvert < \epsilon$ whenever $0<\lvert x-c \rvert<\delta$
-\end{example}
-
-\newpage
 \subsection{Evaluating Limits Analytically}
 
 \subsubsection{Properties of Limits}
@@ -254,13 +263,10 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
 \end{theorem}
 
 \begin{example}{Limit of Polynomial}
-    Evaluate $\lim_{x\to 5}\lbrack 3x^3 + 4 \rbrack$:
-    \br
     \begin{align*}
         \lim_{x\to 5}\l[ 3x^3+4 \r] &= \lim_{x\to 5} 3x^3 + \lim_{x\to 5}4\\
         &= 3 \cdot \lim_{x\to 5}x^3 + \lim_{x\to 5}4\\
-        &= 3 \cdot (5)^3 + 4 \\
-        &=379
+        &= 3 \cdot (5)^3 + 4=379
     \end{align*}
 \end{example}
 
@@ -278,7 +284,6 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
     \end{displaymath}
 \end{theorem}
 
-\newpage
 \subsubsection{Squeeze Theorem}\label{sec:1.3.2}
 
 \marginpar{
@@ -291,7 +296,7 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
         \textit{except} when $x=c$
         \br
 
-        Also suppose that $\lim_{x\to c}h(x)=L=\lim_{x\to c}g(x)$ i.e. they share
+        Also suppose that $\displaystyle\lim_{x\to c}h(x)=L=\lim_{x\to c}g(x)$ i.e. they share
         the same limit.
         \br
 
@@ -300,8 +305,8 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
 
     \begin{theorem}{Trigonomic Limits}
         \begin{enumerate}
-            \item $\lim_{x\to 0}\frac{\sin x}{x}$
-            \item $\lim_{x\to 0}\frac{1 - \cos x}{x} = 1$
+            \item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x}$
+            \item $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x} = 1$
         \end{enumerate}
     \end{theorem}
 
@@ -361,10 +366,23 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
             \end{axis}
         \end{tikzpicture}
     \end{center}
+
 \end{multicols}
+\begin{practice}{\hyperref[ans:1.3.2-1]{1.3.2-1}}{Squeeze Theorem}\label{prac:1.3.2-1}
+    Show that
+    $\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
+    using the Squeeze Theorem
+\end{practice}
+\begin{practice}{\hyperref[ans:1.3.2-2]{1.3.2-2}}{Trigonomic Limit}\label{prac:1.3.2-1}
+    Evaluate:
+    $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
+    \textbf{Hint:} Break it down to the trigonomic functions you know
+    how to take a limit of!
+\end{practice}
 
 \subsection{Continuity}
 
+\begin{multicols}{2}
 \begin{definition}{Definition of Continuity}
     A function $f$ is continuous if:
     \begin{enumerate}
@@ -374,38 +392,10 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
     \end{enumerate}
 \end{definition}
 
-\marginpar{$\therefore$ means "therefore"}
-\begin{example}{Determine Continuity}
+\begin{practice}{\hyperref[ans:1.4-1]{1.4-1}}{Determine Continuity}\label{prac:1.4-1}
     Determine if the function is continuous at $x=2$
-
-    \begin{displaymath}
-        f(x) = \begin{cases}
-            \frac{x^2-x-2}{x-2} &\text{for } x\neq 2\\
-            1 &\text{for } x=2
-        \end{cases}
-    \end{displaymath}
-    \br
-
-    We should probably start by plugging in $x=2$ for the case that
-    $x\neq2$ to see if it equals the case where $x=2$:
-    \begin{displaymath}
-        \frac{x^2-x-2}{x-2}=\frac{(2)^2-(2)-2}{(2)-2}=\frac{0}{0}
-    \end{displaymath}
-
-    That's so \textit{uncool}. Let's factor it out and try again!
-    \begin{align*}
-        \frac{x^2-x-2}{x-2} = \frac{(x-2)(x+1)}{x-2} &= x+1\\
-        &=(2)+1\\
-        &=3
-    \end{align*}
-
-    Now, we compare both that with the case where $x=2$ to see if they
-    are the same: $3\neq2$
-
-    $\therefore f(x)$ is \textit{not continuous} at $x=2$!
-
-\end{example}
-\newpage
+\end{practice}
+\end{multicols}
 
 \begin{note}{Continuous Functions}
     The following functions are always continuous \textit{everywhere
@@ -434,6 +424,11 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
     between $f(a)$ and $f(b)$, then there exists a number $c$ in
     $[a, b]$ such that: $$f(c)=k$$
 \end{theorem}
+
+\begin{practice}{\hyperref[ans:1.4.1-1]{1.4.1-1}}{Intermediate Value Thorem}\label{prac:1.4.1-1}
+    Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
+    one solution on the interval $(-1, 2)$
+\end{practice}
 
 \subsubsection{Discontinuities}
 
@@ -614,34 +609,19 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
     is negative, then $f(x)$ will approach $-\infty$
 \end{note}
 
-\begin{example}{Curveball Asymptote}
+\begin{practice}{\hyperref[ans:1.4.3-1]{1.4.3-1}}{Curveball Asymptote}\label{prac:1.4.3-1}
     Find the asymptotes:
     \begin{displaymath}
         f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
     \end{displaymath}
-    \br
-    You'd \textit{think} that the asymptotes are $x=\{2, 4\}$, but you must
-    consider the \textit{domain} at which $f(x)$ exists.
-    \\
-    Because this is a square root function, $(x-1)(x-3)$ \textit{cannot be a 
-    negative number}. Plugging in $x=2$ would result in a negative square root.
-\end{example}
+\end{practice}
 
-\marginpar{Moral of the story: double-check your answers!}
-\begin{example}{Curveball Trigonometry}
+\begin{practice}{\hyperref[ans:1.4.3-2]{1.4.3-2}}{Curveball Trigonometry}\label{prac:1.4.3-2}
     Find the asymptotes:
     \begin{displaymath}
         f(x)=\frac{\sin(x)}{x^3-x}
     \end{displaymath}
-    \br
-    Let's start by factoring out the denominator:
-    \begin{displaymath}
-        f(x)=\frac{\sin(x)}{x(x-1)(x+1)}
-    \end{displaymath}
-    You'd \textit{think} that the asymptotes are $x=\{-1, 0, 1\}$. However,
-    $\lim_{x\to 0}f(x)=1$ --- $f(x)$ can also be re-written as this:
-    $\lim_{x\to 0}[\frac{\sin x}{x}] \cdot \lim_{x\to 0}[\frac{1}{(x-1)^2}]=-1$
-\end{example}
+\end{practice}
 
 \newpage
 \section{Differentiation}
@@ -730,42 +710,10 @@ mathematicians may express derivatives
     \textit{also continuous} at $x=c$
 \end{theorem}
 
-\begin{example}{Finding the Tangent Line}
-    Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$:
-    \br
-    Let's start by finding the derivative of the function at $x=-2$:
-    \begin{align*}
-        f'(-2)&=\lim_{h\to 0}\frac{f(-2+h)-f(-2)}{h} \\
-        &=\lim_{h\to 0}\frac{\bigl((-2+h)^2+1\bigr)-(5)}{h} \\
-        &=\lim_{h\to 0}\frac{h^2-4h}{h} \\
-        &=\lim_{h\to 0}-4+h = -4 + (0)\\
-        &=-4\\
-    \end{align*}
-    Now we must write a point-slope equation with that derivative. 
-    \begin{align*}
-        y-y_1&=m(x-x_1) \\
-        y-(5)&=(-4)(x-(-2)) \\
-        y-5&=-4(x+2)
-    \end{align*}
+\begin{practice}{\hyperref[ans:2.1-1]{2.1-1}}{Finding the Tangent Line}\label{prac:2.1-1}
+    Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$
+\end{practice}
 
-    Tangent line to $f(x)=x^2+1$ at $(-2, 5)$ has equation: $$y-5=-4(x+2)$$
-\end{example}
-
-Another way to find the derivative of the function would be to find the limit
-of $f(x)$ when $x=c$ and then plugging in $c$ with any number that you want:
-\begin{align*}
-    f'(c)&=\lim_{h\to 0}\frac{f(c+h)-f(c)}{h} \\
-    &=\lim_{h\to 0}\frac{\bigl((c+h)^2+1\bigr)-(c^2+1)}{h} \\
-    &=\lim_{h\to 0}\frac{(c^2+2ch+h^2+1)-(c^2+1)}{h} \\
-    &=\lim_{h\to 0}\frac{2ch+h^2}{h} = \lim_{h\to 0}\frac{h(2c+h)}{h}\\
-    &=\lim_{h\to 0} 2c+h=2c+(0)\\
-    &=2c\\
-    \\
-    c&=2\\
-    f'(-2)&=2(-2)=-4
-\end{align*}
-
-\newpage
 \subsection{Rules of Derivatives}
 Finding derivatives with the limit definition can get pretty exhausting, so
 mathematicians came up with a lot of shortcuts to evaluate derivatives much
@@ -837,6 +785,21 @@ problems I'll be putting in this section, but here are the rules in short:
 \end{example}
 
 \newpage
+\marginpar{$u$-substitution is a good method for solving chain rule problems:}
+\begin{example}{Chain Rule}
+    $$
+    \frac{d}{dx}\sin(x^2+1) \\
+    $$
+    \begin{align*}
+        u&=x^2+1,&v&=\sin(u)\\
+        u'&=2x,&v'&=\cos(u)\\
+        &&v'&=\cos(x^2+1)\\
+    \end{align*}
+    \begin{align*}
+        &=u'\cdot v'\\
+        &=2x\cdot\cos(x^2+1)
+    \end{align*}
+\end{example}
 \marginpar{Remember: $\sin^2(\theta)+\cos^2(\theta)=1$}
 \begin{example}{$\sin$ and $\cos$ Rule}
     \begin{enumerate}
@@ -852,33 +815,299 @@ problems I'll be putting in this section, but here are the rules in short:
     \end{enumerate}
 \end{example}
 
-\begin{example}{Find Horizontal Tangents}
-    Find the horizontal tangents of $f(x)=x^4-2x^2+3$:
-    \br
-    The question is essentially asking us to find the tangent lines whose
-    slopes are equal to 0: $f'(x)=0$
+\begin{practice}{\hyperref[ans:2.2-1]{2.2-1}}{Find Horizontal Tangents}
+    \label{prac:2.2-1}
+    Find the horizontal tangents of $f(x)=x^4-2x^2+3$
+\end{practice}
+
+\subsection{Higher Order Derivatives}
+You can take a derivative of derivative:
+\begin{displaymath}
+    \frac{d}{dx}\big[\frac{d}{dx}f(x)\big]=\frac{d^2}{dx^2}\big[f(x)\big]
+    =f''(x)
+\end{displaymath}
+\begin{example}{Finding the Second Derivative}
+    Finding $f''(x)$ when $f(x)=\frac{2x}{x+1}$:
     \begin{align*}
-        \frac{d}{dy}f(x)&=0\\
-        \frac{d}{dy}(x^4-2x^2+3)&=0\\
-        4x^3-4x &=0\\
-        4x(x^2-1)&=0\\
+        f'(x)&=\frac{2\cdot(x+1)-(2x)\cdot 1}{(x+1)^2}\\
+        &=\frac{2}{(x+1)^2}\\
         \\
-        x=\{0, \pm 1\}\\
+        f''(x)&=-\frac{4(x+1)}{(x+4)^4}
     \end{align*}
-    Now we plug in these values into $f(x)$ to get the tangent lines:
-    \begin{align*}
-        f(0)&=(0)^4-2(x)^2+3&=3\\
-        f(-1)&=(-1)^4-2(-1)^2+3&=2\\
-        f(1)&=(1)^4-2(1)^2+3&=2\\
-    \end{align*}
-    So the horizontal tangent lines are at $y=3$ and $y=2$
 \end{example}
+You can do this for however many times you want to!
+\begin{practice}{\hyperref[ans:2.3-1]{2.3-1}}{Velocity and Acceleration}
+    \label{prac:2.3.1-1}
+    A ball is thrown up into the air, and its position can be modeled into
+    of feet as a function of time: $f(t)=-5(t-2)^2+20$. Find the acceleration
+    of the ball just as it's about to hit the ground again.
+\end{practice}
+\begin{note}{Taking Beyond the Third Derivative}
+    Taking $f'''(x)$ and beyond, it'll start to be tedious writing all of those
+    apostrophes. Mathematicians often write it like this:
+    $$\frac{d^n}{dx^n}\big[f(x)\big]=f^{(n)}(x)$$
+\end{note}
+
+\subsection{Implicit Differentiation}
+
+
+\begin{practice}{\hyperref[prac:2.4-1]{2.4-1}}{Tangent Lines and Circles}
+    \label{prac:2.4-1}
+    Find the slope of the tangent line at $(4,-3)$ of \textit{the circle}
+    $$x^2+y^2=5^2$$
+\end{practice}
 
 \newpage
-\section{Cheat Sheet}
-\begin{multicols}{2}
-    \begin{GrayBox}{Limits}{}
-        $\lim_{x\to c}f(x)=L$
-    \end{GrayBox}
-\end{multicols}
+
+\section{Practice Problem Answers}
+
+\subsection*{\ref{prac:1.2.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
+\label{ans:1.2.2-1}
+Consider $f(x)=10x-6$, prove that $\lim_{x\to 3}f(x)=24$ using the 
+$\epsilon-\delta$ definition:
+\br
+The first thing we would have to do is to find $\delta$:
+\begin{align*}
+    \lvert (10x-6)-(24) \rvert &<\varepsilon  \\
+    \lvert 10x-30 \rvert &<\varepsilon \\
+    10\lvert x-3 \rvert &<\varepsilon \\
+    \lvert x-3 \rvert &<\frac{\varepsilon}{10}
+\end{align*}
+\begin{align*}
+    0 < \lvert x - (3)\rvert &< \delta
+\end{align*}
+
+Notice how $\delta=\frac{\epsilon}{10}$. This guarantees that
+$\lvert f(x)-L \rvert < \epsilon$ whenever $0<\lvert x-c \rvert<\delta$
+
+\subsection*{\ref{prac:1.3.2-1}---Squeeze Theorem}\label{ans:1.3.2-1}
+Show that
+$\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
+using the Squeeze Theorem
+\br
+We know that $\displaystyle-1\leq\cos(\frac{2\pi}{3x})\leq 1$:
+\begin{align*}
+    -\sqrt{x^3+x^2} &\leq\cos(\frac{2\pi}{3x})\sqrt{x^3+x^2}&&\leq
+    \sqrt{x^3+x^2}\\
+    \lim_{x\to 0}-\sqrt{x^3+x^2}&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
+    \sqrt{x^3+x^2}&&\leq\lim_{x\to 0}\sqrt{x^3+x^2}\\
+    -\sqrt{(0)^3+(0)^2}&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
+    \sqrt{x^3+x^2}&&\leq\sqrt{(0)^3+(0)^2}\\
+    0&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})&&\leq 0 
+\end{align*}
+
+Because of the Squeeze Theorem, $\displaystyle\lim_{x\to 0}\cos(\frac{2\pi}{3x})=0$
+
+\subsection*{\ref{prac:1.3.2-1}---Trigonomic Limit}\label{ans:1.3.2-2}
+Evaluate:
+$$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
+\br
+
+Let's start by breaking down $\tan$ into $\sin$ and $\cos$:
+\begin{align*}
+    \lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}
+    &=\lim_{x\to 0}\frac{\sin(3x)}{\cos(3x)\cdot(4x+\sin(2x))}\\
+    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\cos(3x)+\sin(2x)\cos(3x)}
+\end{align*}
+Note that we can further break down $\cos(3x)$ into $\cos(2x+x)$, which can 
+be converted to the trigonomic identity:$\cos(2x)\cos(x)-\sin(2x)\sin(x)$
+
+\begin{align*}
+    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\big(\cos(2x)\cos(x)-\sin(2x)\sin(x)\big)+\sin(2x)\cos(3x)}\\
+    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\cos(2x)\cos(x)-4x\sin(2x)\sin(x)+\sin(2x)\cos(3x)}
+\end{align*}
+
+Next, you multiply by a \textit{big 1}. In this case it would be
+$\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$:
+
+\begin{align*}
+    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\cos(2x)\cos(x)-4x\sin(2x)\sin(x)+\sin(2x)\cos(3x)}\\
+    &=\lim_{x\to 0}\frac{\frac{\sin(3x)}{x}}{\frac{4x\cos(2x)\cos(x)}{x}-\frac{4x\sin(2x)\sin(x)}{x}+\frac{\sin(2x)\cos(3x)}{x}}\\
+    &=\lim_{x\to 0}\frac{\frac{\sin(3x)}{x}}{4\cos(2x)\cos(x)-4\sin(2x)\sin(x)+\cos(3x)\cdot\frac{\sin(2x)}{x}}\\
+    &=\frac{\lim_{x\to 0}\frac{\sin(3x)}{x}}{\lim_{x\to 0}4\cos(2x)\cos(x)-\lim_{x\to 0}4\sin(2x)\sin(x)+\lim_{x\to 0}\cos(3x)\frac{\sin(2x)}{x}}\\
+    &=\frac{(3)}{4\cos\big(2(0)\big)\cos\big((0)\big)-4\sin\big(2(0)\big)\sin\big((0)\big)+\cos\big(3(0)\big)(2)}\\
+    &=\frac{3}{4(1)(1)-4(0)(0)+(1)\cdot 2}\\
+    &=\frac{3}{4+2}=\frac{3}{6}\\
+    &=\frac{1}{2}
+\end{align*}
+
+That problem was quite lengthy, but we did it \emoji{smiling-face-with-hearts}
+
+\subsection*{\ref{prac:1.4-1}---Determine Continuity}\label{ans:1.4-1}
+Determine if the function is continuous at $x=2$
+
+\begin{displaymath}
+    f(x) = \begin{cases}
+        \frac{x^2-x-2}{x-2} &\text{for } x\neq 2\\
+        1 &\text{for } x=2
+    \end{cases}
+\end{displaymath}
+\br
+
+Let's start by plugging in $x=2$ for the case that $x\neq2$ to see if it equals
+the case where $x=2$:
+\begin{displaymath}
+    \frac{x^2-x-2}{x-2}=\frac{(2)^2-(2)-2}{(2)-2}=\frac{0}{0}
+\end{displaymath}
+
+That's so \textit{uncool}. Let's factor it out and try again!
+\begin{align*}
+    \frac{x^2-x-2}{x-2} = \frac{(x-2)(x+1)}{x-2} &= x+1\\
+    &=(2)+1\\
+    &=3
+\end{align*}
+
+Now, we compare both that with the case where $x=2$ to see if they
+are the same: $3\neq2$
+
+\marginpar{$\therefore$ means "therefore"}
+$\therefore f(x)$ is \textit{not continuous} at $x=2$!
+
+\subsection*{\ref{prac:1.4.1-1}---Intermediate Value Theorem}\label{ans:1.4.1-1}
+Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
+one solution on the interval $(-1, 2)$
+\br
+Let's treat $x^3+x^2$ as a function $f(x)$. We know that the function is 
+continuous on the interval $[-1, 2]$. The next thing we have to do is to 
+evaluate $f(-1)$ and $f(2)$ to compare if they are equal:
+\begin{align*}
+    f(-1)&=(-1)^3+(-1)^2
+    f(2)&=(2)^3+(2)^2
+    f(-1)&\neq f(2)
+\end{align*}
+
+Now that we know that $f(-1)$ and $f(2)$ are not equal, and $f(-1)<1<f(2)$, we
+can conclude that there is a number '$c$' in the interval $(-1, 2)$ such that 
+$f(c)=1$
+
+\subsection*{\ref{prac:1.4.3-1}---Curveball Asymptote}\label{ans:1.4.3-1}
+Find the asymptotes:
+\begin{displaymath}
+    f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
+\end{displaymath}
+\br
+You'd \textit{think} that the asymptotes are $x=\{2, 4\}$, but you must
+consider the \textit{domain} at which $f(x)$ exists.
+\\
+Because this is a square root function, $(x-1)(x-3)$ \textit{cannot be a 
+negative number}. Plugging in $x=2$ would result in a negative square root.
+
+\subsection*{\ref{prac:1.4.3-2}---Curveball Trigonometry}\label{ans:1.4.3-2}
+Find the asymptotes:
+\begin{displaymath}
+    f(x)=\frac{\sin(x)}{x^3-x}
+\end{displaymath}
+\br
+Let's start by factoring out the denominator:
+\begin{displaymath}
+    f(x)=\frac{\sin(x)}{x(x-1)(x+1)}
+\end{displaymath}
+\marginpar{Moral of the story: double-check your answers!}
+You'd \textit{think} that the asymptotes are $x=\{-1, 0, 1\}$. However,
+$\lim_{x\to 0}f(x)=1$ --- $f(x)$ can also be re-written as this:
+$\lim_{x\to 0}[\frac{\sin x}{x}] \cdot \lim_{x\to 0}[\frac{1}{(x-1)^2}]=-1$
+
+\subsection*{\ref{prac:2.1-1}---Finding the Tangent Line}\label{ans:2.1-1}
+Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$:
+\br
+Let's start by finding the derivative of the function at $x=-2$:
+\begin{align*}
+    f'(-2)&=\lim_{h\to 0}\frac{f(-2+h)-f(-2)}{h} \\
+    &=\lim_{h\to 0}\frac{\bigl((-2+h)^2+1\bigr)-(5)}{h} \\
+    &=\lim_{h\to 0}\frac{h^2-4h}{h} \\
+    &=\lim_{h\to 0}-4+h = -4 + (0)\\
+    &=-4\\
+\end{align*}
+Now we must write a point-slope equation with that derivative. 
+\begin{align*}
+    y-y_1&=m(x-x_1) \\
+    y-(5)&=(-4)(x-(-2)) \\
+    y-5&=-4(x+2)
+\end{align*}
+
+Tangent line to $f(x)=x^2+1$ at $(-2, 5)$ has equation: $$y-5=-4(x+2)$$
+
+\begin{note}{Alternative Route}
+    Another way to solve this would be to find the limit of $f(x)$ when $x=c$ 
+    and then plugging in $c$ with any number that you want:
+    \begin{align*}
+        f'(c)&=\lim_{h\to 0}\frac{f(c+h)-f(c)}{h} \\
+        &=\lim_{h\to 0}\frac{\bigl((c+h)^2+1\bigr)-(c^2+1)}{h} \\
+        &=\lim_{h\to 0}\frac{(c^2+2ch+h^2+1)-(c^2+1)}{h} \\
+        &=\lim_{h\to 0}\frac{2ch+h^2}{h} = \lim_{h\to 0}\frac{h(2c+h)}{h}\\
+        &=\lim_{h\to 0} 2c+h=2c+(0)\\
+        &=2c\\
+        \\
+        c&=2\\
+        f'(-2)&=2(-2)=-4
+    \end{align*}
+\end{note}
+
+\subsection*{\ref{prac:2.2-1}---Find Horizontal Tangents}\label{ans:2.2-1}
+Find the horizontal tangents of $f(x)=x^4-2x^2+3$:
+\br
+The question is essentially asking us to find the tangent lines whose
+slopes are equal to 0: $f'(x)=0$
+\begin{align*}
+    \frac{d}{dy}f(x)&=0\\
+    \frac{d}{dy}(x^4-2x^2+3)&=0\\
+    4x^3-4x &=0\\
+    4x(x^2-1)&=0\\
+    \\
+    x=\{0, \pm 1\}\\
+\end{align*}
+Now we plug in these values into $f(x)$ to get the tangent lines:
+\begin{align*}
+    f(0)&=(0)^4-2(x)^2+3&=3\\
+    f(-1)&=(-1)^4-2(-1)^2+3&=2\\
+    f(1)&=(1)^4-2(1)^2+3&=2\\
+\end{align*}
+So the horizontal tangent lines are at $y=3$ and $y=2$
+
+\newpage
+
+\subsection*{\ref{prac:2.3.1-1}---Velocity and Acceleration}
+A ball is thrown up into the air, and its position can be modeled into
+of feet as a function of time: $p(t)=-5(t-2)^2+20$. Find the velocity and
+acceleration of the ball just as it's about to hit the ground again.
+\br
+To find when the ball reaches the ground, we must find when $p(t)=0$:
+\begin{align*}
+    p(t)&=-5(t-2)^2+20\\
+       0&=-5(t-2)^2+20\\
+    5(t-2)^2&=20\\
+    (t-2)^2&=4\\
+    t-2&=2\\
+    t&=4\\
+\end{align*}
+Now that we have this, we need to take the derivative of $p(t)$ to get the
+function of the ball's instantaneous velocity $v(t)$, and the second derivative
+to get the instantaneous acceleration of the ball, $a(t)$:
+\begin{align*}
+    v(4)&=p'(4)\\
+    &=\frac{d}{dx}\big(-5(t-2)^2+20\big)\Big|_{t=4}\\
+    &=\frac{d}{dx}\big(-5(t^2-4t+4)+20\big)\Big|_{t=4}\\
+    &=\frac{d}{dx}(-5t^2+20t+24)\Big|_{t=4}\\
+    &=-10t+20\Big|_{t=4}\\
+    &=-10(4)+20=-20\frac{\text{ft}}{\text{s}}\\
+    \\
+    a(4)&=v'(4)\\
+    &=\frac{d}{dx}(-10t+20)\\
+    &=-10\frac{\text{ft}}{\text{s}^2}
+\end{align*}
+
+The velocity of the ball just when it hits the ground is -20 
+$\displaystyle\frac{\text{ft}}{\text{s}}$, and the acceleration of the ball as 
+it hits the ground is -10 $\displaystyle\frac{\text{ft}}{\text{s}^2}$
+
+\subsection*{\ref{prac:2.4-1}---Tangent Lines and Circles}\label{ans:2.4-1}
+
+
+% \newpage
+% \section{Cheat Sheet}
+% \begin{multicols}{2}
+%     \begin{GrayBox}{Limits}{}
+%         $\lim_{x\to c}f(x)=L$
+%     \end{GrayBox}
+% \end{multicols}
 \end{document}
