@@ -212,7 +212,7 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
 
 \begin{practice}{\hyperref[ans:1.2.2-1]{1.2.2-1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
     \label{prac:1.2.2-1}
-    Consider $f(x)=10x-6$, prove that $\lim_{x\to 3}f(x)=24$ using the 
+    Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the 
     $\epsilon-\delta$ definition
 \end{practice}
 
@@ -508,7 +508,6 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
     }
 \end{multicols}
 
-\newpage
 \subsubsection{Asymptotes}
 \begin{multicols}{2}[
 \begin{definition}{Asymptotes}
@@ -609,6 +608,7 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
     is negative, then $f(x)$ will approach $-\infty$
 \end{note}
 
+\begin{multicols}{2}
 \begin{practice}{\hyperref[ans:1.4.3-1]{1.4.3-1}}{Curveball Asymptote}\label{prac:1.4.3-1}
     Find the asymptotes:
     \begin{displaymath}
@@ -622,8 +622,8 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
         f(x)=\frac{\sin(x)}{x^3-x}
     \end{displaymath}
 \end{practice}
+\end{multicols}
 
-\newpage
 \section{Differentiation}
 
 Derivatives are essentially the \textit{slope} of the function at a
@@ -720,48 +720,30 @@ mathematicians came up with a lot of shortcuts to evaluate derivatives much
 quicker. This is a pretty lengthy section, because of the many practice example 
 problems I'll be putting in this section, but here are the rules in short:
 
-\begin{align*}
-    \text{let: } f(x)&= \text{a function}\\
-                 g(x)&= \text{another function}\\
-                   c &= \text{a constant}
-\end{align*}
-\begin{table}[h]
-    \label{tab:2.2}
-    \begin{center}
-        \begin{tabular}{ |l|l| }
-            \hline
-            Rule & Math Expression\\
-            \hline
-            \hline
-            Constant & $\frac{d}{dx}c=0$\\
-            \hline
-            Power & $\frac{d}{dx}x^n=nx^{n-1}$\\
-            \hline
-            Sum and Difference & $\frac{d}{dx}[f(x)\pm g(x)]=f'(x)\pm g'(x)$\\
-            \hline
-            Product& 
-                $\frac{d}{dx}[f(x)g(x)]=f(x)g'(x)+g(x)f'(x)$\\
-            \hline
-            Quotient& 
-                $\frac{d}{dx}[\frac{f(x)}{g(x)}]=
-                 \frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{\bigl(g(x)\bigr)^2}$\\
-            \hline
-            Trigonometry& $\frac{d}{dx}\sin(x)=\cos(x)$\\
-            & $\frac{d}{dx}\cos(x)=-\sin(x)$\\
-            
-            & $\frac{d}{dx}\tan(x)=\sec^2(x)$\\
-            
-            & $\frac{d}{dx}\cot(x)=-\csc^2(x)$\\
-            
-            & $\frac{d}{dx}\sec(x)=\sec(x)\tan(x)$\\
-            
-            & $\frac{d}{dx}\csc(x)=-\csc(x)\cot(x)$\\
-            \hline
-            Chain & $\frac{d}{dx}f(g(x))=g'(x)\cdot f'(g(x))$\\
-            \hline
-        \end{tabular}
-    \end{center}
-\end{table}
+\begin{theorem}{Derivative Rules}
+    \begin{align*}
+        \text{Let: } f(x)&= \text{a function}\\
+                     g(x)&= \text{another function}\\
+                       c &= \text{a constant}
+    \end{align*}
+    \begin{tabular}{ cll }
+        1. & Constant & $\frac{d}{dx}c=0$\\
+        2. & Power & $\frac{d}{dx}x^n=nx^{n-1}$\\
+        3. & Sum and Difference & $\frac{d}{dx}[f(x)\pm g(x)]=f'(x)\pm g'(x)$\\
+        4. & Product& 
+            $\frac{d}{dx}[f(x)g(x)]=f(x)g'(x)+g(x)f'(x)$\\
+        5. & Quotient& 
+            $\frac{d}{dx}[\frac{f(x)}{g(x)}]=
+             \frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{\bigl(g(x)\bigr)^2}$\\
+        6. & Trigonometry& $\frac{d}{dx}\sin(x)=\cos(x)$\\
+        && $\frac{d}{dx}\cos(x)=-\sin(x)$\\
+        && $\frac{d}{dx}\tan(x)=\sec^2(x)$\\
+        && $\frac{d}{dx}\cot(x)=-\csc^2(x)$\\
+        && $\frac{d}{dx}\sec(x)=\sec(x)\tan(x)$\\
+        && $\frac{d}{dx}\csc(x)=-\csc(x)\cot(x)$\\
+        7. & Chain & $\frac{d}{dx}f(g(x))=g'(x)\cdot f'(g(x))$\\
+    \end{tabular}
+\end{theorem}
 
 \marginpar{You don't have to simplify completely on open-ended questions!}
 \begin{example}{Power Rule}
@@ -815,10 +797,16 @@ problems I'll be putting in this section, but here are the rules in short:
     \end{enumerate}
 \end{example}
 
-\begin{practice}{\hyperref[ans:2.2-1]{2.2-1}}{Find Horizontal Tangents}
-    \label{prac:2.2-1}
-    Find the horizontal tangents of $f(x)=x^4-2x^2+3$
-\end{practice}
+\begin{multicols}{2}
+    \begin{practice}{\hyperref[ans:2.2-1]{2.2-1}}{Find Horizontal Tangents}
+        \label{prac:2.2-1}
+        Find the horizontal tangents of $f(x)=x^4-2x^2+3$
+    \end{practice}
+    \begin{practice}{\hyperref[ans:2.2-2]{2.2-2}}{Find the Derivative}
+        \label{prac:2.2-2}
+        Find the derivative of $\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
+    \end{practice}
+\end{multicols}
 
 \subsection{Higher Order Derivatives}
 You can take a derivative of derivative:
@@ -849,21 +837,59 @@ You can do this for however many times you want to!
 \end{note}
 
 \subsection{Implicit Differentiation}
+So far, we've been using \textit{explicit differentiation}, which is when $y$
+can be isolated on one side of the equation where $y$ is a function of $x$.
 
+What if that's not possible?
 
-\begin{practice}{\hyperref[prac:2.4-1]{2.4-1}}{Tangent Lines and Circles}
+That's where \textit{implicit differentiation comes through}. Here are the 
+steps on how to do that:
+
+\begin{note}{Steps for Implicit Differentiation}
+    \begin{enumerate}
+        \item For all terms of $x$ and $y$, derive in respect to $x$:
+            ($\frac{d}{dx}$) 
+        \item Isolate all terms with $\frac{dy}{dx}$
+        \item Factor out $\frac{dy}{dx}$ where the terms with $\frac{dy}{dx}$
+            are isolated
+        \item Solve for $\frac{dy}{dx}$
+    \end{enumerate}
+\end{note}
+It's also important to understand that derivative rules don't have to just
+apply to terms of $x$. The example on the next page shows an implicit
+differentiation using the product rule on \textit{x and y}:
+\newpage
+\begin{example}{Implicit Differentiation with Product Rule}
+    Let's follow those steps to find the derivative of $$x^2y+y^2x=-2$$
+
+    Begin by deriving all terms in respect to $x$:
+    \begin{align*}
+        x^2y+y^2x&=-2\\
+        \frac{d}{dx}x^2y+\frac{d}{dx}y^2x&=\frac{d}{dx}-2\\
+        (x^2\cdot 1\frac{dy}{dx}+y\cdot2x\frac{dx}{dx})
+            +(y^2\cdot1\frac{dx}{dx}+x\cdot2y\frac{dy}{dx})&=0\\
+        x^2\frac{dy}{dx}+2xy+y^2+2yx\frac{dy}{dx}&=0\\
+    \end{align*}
+    Next, isolate terms with $\frac{dy}{dx}$:
+    $$x^2\frac{dy}{dx}+2yx\frac{dy}{dx}=-2xy-y^2$$
+    Factor out $\frac{dy}{dx}$
+    $$(x^2+2yx)\frac{dy}{dx}=-2xy-y^2$$
+    Solve for $\frac{dy}{dx}$
+    $$\frac{dy}{dx}=\frac{-2xy-y^2}{x^2+2yx}$$
+\end{example}
+
+\begin{practice}{\hyperref[ans:2.4-1]{2.4-1}}{Tangent Lines and Circles}
     \label{prac:2.4-1}
-    Find the slope of the tangent line at $(4,-3)$ of \textit{the circle}
+    Find the tangent line at $(4,-3)$ of \textit{the circle}
     $$x^2+y^2=5^2$$
 \end{practice}
 
 \newpage
-
 \section{Practice Problem Answers}
 
 \subsection*{\ref{prac:1.2.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
 \label{ans:1.2.2-1}
-Consider $f(x)=10x-6$, prove that $\lim_{x\to 3}f(x)=24$ using the 
+Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the 
 $\epsilon-\delta$ definition:
 \br
 The first thing we would have to do is to find $\delta$:
@@ -887,13 +913,16 @@ using the Squeeze Theorem
 \br
 We know that $\displaystyle-1\leq\cos(\frac{2\pi}{3x})\leq 1$:
 \begin{align*}
-    -\sqrt{x^3+x^2} &\leq\cos(\frac{2\pi}{3x})\sqrt{x^3+x^2}&&\leq
-    \sqrt{x^3+x^2}\\
+    -\sqrt{x^3+x^2}&\leq\cos(\frac{2\pi}{3x})\sqrt{x^3+x^2}&\leq
+    \sqrt{x^3+x^2}
+    \\
     \lim_{x\to 0}-\sqrt{x^3+x^2}&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
-    \sqrt{x^3+x^2}&&\leq\lim_{x\to 0}\sqrt{x^3+x^2}\\
+    \sqrt{x^3+x^2}&\leq\lim_{x\to 0}\sqrt{x^3+x^2}
+    \\
     -\sqrt{(0)^3+(0)^2}&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
-    \sqrt{x^3+x^2}&&\leq\sqrt{(0)^3+(0)^2}\\
-    0&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})&&\leq 0 
+    \sqrt{x^3+x^2}&\leq\sqrt{(0)^3+(0)^2}
+    \\
+    0&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})&\leq0 
 \end{align*}
 
 Because of the Squeeze Theorem, $\displaystyle\lim_{x\to 0}\cos(\frac{2\pi}{3x})=0$
@@ -933,6 +962,7 @@ $\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$:
 
 That problem was quite lengthy, but we did it \emoji{smiling-face-with-hearts}
 
+\newpage
 \subsection*{\ref{prac:1.4-1}---Determine Continuity}\label{ans:1.4-1}
 Determine if the function is continuous at $x=2$
 
@@ -971,9 +1001,9 @@ Let's treat $x^3+x^2$ as a function $f(x)$. We know that the function is
 continuous on the interval $[-1, 2]$. The next thing we have to do is to 
 evaluate $f(-1)$ and $f(2)$ to compare if they are equal:
 \begin{align*}
-    f(-1)&=(-1)^3+(-1)^2
-    f(2)&=(2)^3+(2)^2
-    f(-1)&\neq f(2)
+    f(-1)&=(-1)^3+(-1)^2\\
+    f(2)&=(2)^3+(2)^2\\
+    f(-1)&\neq f(2)\\
 \end{align*}
 
 Now that we know that $f(-1)$ and $f(2)$ are not equal, and $f(-1)<1<f(2)$, we
@@ -1092,7 +1122,7 @@ to get the instantaneous acceleration of the ball, $a(t)$:
     &=-10(4)+20=-20\frac{\text{ft}}{\text{s}}\\
     \\
     a(4)&=v'(4)\\
-    &=\frac{d}{dx}(-10t+20)\\
+    &=\frac{d}{dx}(-10t+20)\Big|_{t=4}\\
     &=-10\frac{\text{ft}}{\text{s}^2}
 \end{align*}
 
@@ -1100,8 +1130,56 @@ The velocity of the ball just when it hits the ground is -20
 $\displaystyle\frac{\text{ft}}{\text{s}}$, and the acceleration of the ball as 
 it hits the ground is -10 $\displaystyle\frac{\text{ft}}{\text{s}^2}$
 
-\subsection*{\ref{prac:2.4-1}---Tangent Lines and Circles}\label{ans:2.4-1}
+\subsection*{\ref{prac:2.2-2}---Find the Derivative}\label{ans:2.2-2}
+Find the derivative of $\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
+\br
+This seems to be a chain rule problem, but instead of just nesting once,
+it's nesting twice: $f(g(h(x)))$
 
+It's best to use $u$-substitution for this problem:
+\begin{align*}
+    u&=x^2+3 & v&=u^5+x & w&=v^2\\
+    u'&=2x & v'&=5u^4+1 & w'&=2v\\
+     && v'&=5(x^2+3)^4+1 & w'&=2(u^5+x)\\
+     && && w'&=2\big((x^2+3)^5+x\big)\\
+\end{align*}
+
+\marginpar{Don't simplify \textit{unless needed}}
+Now we multiply each of those bottom terms together to reach the answer:
+$$f'(x)=2x\cdot\big(5(x^2+3)^4+1\cdot2\big)\big((x^2+3)^5+x\big)$$
+
+\subsection*{\ref{prac:2.4-1}---Tangent Lines and Circles}\label{ans:2.4-1}
+Find the tangent line at $(4,-3)$ of \textit{the circle}
+$$x^2+y^2=5^2$$
+\br
+Start by taking the derivative of all terms in \textit{respect to x}:
+\begin{align*}
+    \frac{d}{dx}(x^2)+\frac{d}{dx}(y^2)&=\frac{d}{dx}(5^2)\\
+    2x\frac{dx}{dx}+2y\frac{dy}{dx}&=0\frac{dx}{dx}\\
+    2x+2y\frac{dy}{dx}&=0\\
+\end{align*}
+Now isolate terms with $\frac{dy}{dx}$ and factor that out:
+\begin{align*}
+    2x+2y\frac{dy}{dx}&=0\\
+    2y\frac{dy}{dx}&=-2x\\
+\end{align*}
+And now get $\frac{dy}{dx}$ by itself for the equation of the derivative:
+\begin{align*}
+    2y\frac{dy}{dx}&=-2x\\
+    \frac{dy}{dx}&=-\frac{2x}{2y}\\
+\end{align*}
+Now, plug in (4, -3) to get the slope for the tangent line:
+\begin{align*}
+    \frac{dy}{dx}\Big|_{x=4,y=-3}&=-\frac{2x}{2y}\\
+    \frac{dy}{dx}\Big|_{x=4,y=-3}&=-\frac{2(4)}{2(-3)}=\frac{8}{-6}=-\frac{4}{3}\\
+\end{align*}
+The last step to get the equation of the tangent line lies in plugging in those
+values:
+\begin{align*}
+    y-y_1&=m(x-x_1)\\
+    y-(-3)&=(-\frac{4}{3})(x-(4))\\
+    y+3&=-\frac{4}{3}(x-4)\\
+\end{align*}
 
 % \newpage
 % \section{Cheat Sheet}
