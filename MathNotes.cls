@@ -5,30 +5,37 @@
 \renewcommand{\arraystretch}{1.5}
 %----------------------Packages--------------------------
 
+% setting up paper and text layout
 \RequirePackage[
     a4paper, 
     marginparwidth=20ex, 
     textheight=755pt, 
     textwidth=70ex,
 ]{geometry}
-\RequirePackage[document]{ragged2e}
 \setlength\parindent{0pt}
+\raggedright
+\RequirePackage{multicol}
+
+% graphics
 \RequirePackage{emoji}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{tcolorbox}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{pstricks}
-\RequirePackage{hyperref}
-\RequirePackage{multicol}
-\RequirePackage{xifthen}
-\RequirePackage{hyperref}
-
-
 \RequirePackage{amsmath, amssymb, amsthm, amsfonts}
 \RequirePackage{pgfplots}
+
+\RequirePackage{pstricks}
 \usetikzlibrary{patterns}
+\RequirePackage{xifthen}
+
 \pgfplotsset{compat=1.18}
 \psset{cornersize=absolute, linearc=0.55ex}
+
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black
+}
 
 %----------------------Custom Commands--------------------
 
@@ -36,6 +43,7 @@
 \definecolor{Teal}{RGB}{134, 196, 202}
 \definecolor{LightGray}{gray}{0.95}
 \definecolor{LightRed}{RGB}{255, 87, 51}
+\definecolor{LightPurple}{RGB}{203, 195, 227}
 
 \newtcolorbox{BlueBox}[2]{
     colback=LightGray,
@@ -59,7 +67,7 @@
 
 \newtcolorbox{PurpleBox}[2]{
     colback=LightGray,
-    colframe=Periwinkle,
+    colframe=LightPurple,
     fonttitle=\bfseries,
     title= {
         \psframebox[fillcolor=LightGray, fillstyle=solid]{\textcolor{black}{#1}}
