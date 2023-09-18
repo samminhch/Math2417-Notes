@@ -47,25 +47,11 @@ problems are found at the end of the notes. Please try them yourself so that
 you can get a hang of the subject!
 \br
 If you have any complaints, or suggestions regarding these notes, please
-email me at \href{mailto:minh.nguyen7@utdallas.edu}{mdn220004@utdallas.edu}
+email me at \newline\href{mailto:minh.nguyen7@utdallas.edu}{mdn220004@utdallas.edu}
 \newpage
 \pagenumbering{arabic}
 
 \section{Limits}\label{sec:1}
-\subsection{Introduction to Calculus --- "Mathematics of Change"}
-
-You can use calculus to study static objects by pretending they're changing
-\\
-
-\begin{example}{}
-    A circle has area $\pi r^2$, but you can use the radius $r$ to calculate
-    the area of other polygons, such as a square, triangle, pentagon, etc\dots
-    \\
-
-    In other words, the \textit{limit} of the areas inscribed polygons in a circle
-    is $\pi r^2$
-\end{example}
-
 \subsection{Finding Limits Graphically \& Numerically}
 
 \begin{multicols}{2}[]
@@ -89,7 +75,7 @@ right don't match, then the limit \textit{doesn't exist}} you're coming from:
 \end{tabular}
 \end{multicols}
 
-\begin{example}{Estimating Graphically and Numerically}\label{ex:1.2}
+\begin{example}{Estimating Graphically and Numerically}\label{ex:1.1}
     Consider the function $f(x)=\frac{x^3-1}{x-1}$:
     \begin{center}
         \begin{tikzpicture}
@@ -144,9 +130,7 @@ right don't match, then the limit \textit{doesn't exist}} you're coming from:
 
 \subsubsection{A Formal Definition}
 
-\begin{multicols}{2}[
-        Basically...
-    ]
+\begin{multicols}{2}
     \begin{theorem}{Limits via. $\varepsilon - \delta$}
         The statement $\lim_{x\to c}f(x)=L$ means that for each $\varepsilon > 0$ there 
         exists $ \delta>0 $ such that if $0<\lvert x-c \rvert < \delta$ then
@@ -203,15 +187,15 @@ right don't match, then the limit \textit{doesn't exist}} you're coming from:
         \end{tikzpicture}
     \end{center}
 \end{multicols}
-Refer back to finding limits numerically (example \ref{ex:1.2}):
+Refer back to finding limits numerically (example \ref{ex:1.1}):
 \begin{itemize}
     \item $\pm\varepsilon$ would be the values on the row $f(x)$
     \item $\pm\delta$ would be the values on the row $x$
 \end{itemize}
 
 
-\begin{practice}{\hyperref[ans:1.2.2-1]{1.2.2-1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
-    \label{prac:1.2.2-1}
+\begin{practice}{\hyperref[ans:1.1.2-1]{1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
+    \label{prac:1.1.2-1}
     Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the 
     $\epsilon-\delta$ definition
 \end{practice}
@@ -284,11 +268,12 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
     \end{displaymath}
 \end{theorem}
 
-\subsubsection{Squeeze Theorem}\label{sec:1.3.2}
+\newpage
+\subsubsection{Squeeze Theorem}\label{sec:1.2.2}
 
 \marginpar{
     Open/closed interval continuity will be discussed later in section
-    \ref{sec:1.4.1}. 
+    \ref{sec:1.3.1}. 
 }
 \begin{multicols}{2}[]
     \begin{theorem}{The Squeeze Theorem}
@@ -366,14 +351,14 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
             \end{axis}
         \end{tikzpicture}
     \end{center}
-
 \end{multicols}
-\begin{practice}{\hyperref[ans:1.3.2-1]{1.3.2-1}}{Squeeze Theorem}\label{prac:1.3.2-1}
+
+\begin{practice}{\hyperref[ans:1.2.2-1]{1}}{Squeeze Theorem}\label{prac:1.2.2-1}
     Show that
     $\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
     using the Squeeze Theorem
 \end{practice}
-\begin{practice}{\hyperref[ans:1.3.2-2]{1.3.2-2}}{Trigonomic Limit}\label{prac:1.3.2-1}
+\begin{practice}{\hyperref[ans:1.2.2-2]{2}}{Trigonomic Limit}\label{prac:1.2.2-1}
     Evaluate:
     $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
     \textbf{Hint:} Break it down to the trigonomic functions you know
@@ -392,7 +377,7 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
     \end{enumerate}
 \end{definition}
 
-\begin{practice}{\hyperref[ans:1.4-1]{1.4-1}}{Determine Continuity}\label{prac:1.4-1}
+\begin{practice}{\hyperref[ans:1.3-1]{1}}{Determine Continuity}\label{prac:1.3-1}
     Determine if the function is continuous at $x=2$
 \end{practice}
 \end{multicols}
@@ -408,7 +393,7 @@ Refer back to finding limits numerically (example \ref{ex:1.2}):
     \end{itemize}
 \end{note}
 
-\subsubsection{Open and Closed Intervals}\label{sec:1.4.1}
+\subsubsection{Open and Closed Intervals}\label{sec:1.3.1}
 A function is continuous on an \textbf{open interval} $(a, b)$ if
 $f(x)=c$ for each $c$ in $(a, b)$
 
@@ -425,7 +410,8 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
     $[a, b]$ such that: $$f(c)=k$$
 \end{theorem}
 
-\begin{practice}{\hyperref[ans:1.4.1-1]{1.4.1-1}}{Intermediate Value Thorem}\label{prac:1.4.1-1}
+\begin{practice}{\hyperref[ans:1.3.1-1]{1}}{Intermediate Value Thorem}
+    \label{prac:1.3.1-1}
     Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
     one solution on the interval $(-1, 2)$
 \end{practice}
@@ -433,9 +419,8 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \subsubsection{Discontinuities}
 
 \begin{multicols}{2}[
-        There are two cases where discontinuities happen:
-        \marginpar{Another example of removable discontinuity is in
-        example \ref{ex:1.2}}
+        There are two cases where discontinuities happen: \marginpar{Another
+        example of removable discontinuity is in example \ref{ex:1.1}}
     ]{
         \begin{tikzpicture}
             \begin{axis}[
@@ -609,14 +594,14 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \end{note}
 
 \begin{multicols}{2}
-\begin{practice}{\hyperref[ans:1.4.3-1]{1.4.3-1}}{Curveball Asymptote}\label{prac:1.4.3-1}
+\begin{practice}{\hyperref[ans:1.3.3-1]{1}}{Curveball Asymptote}\label{prac:1.3.3-1}
     Find the asymptotes:
     \begin{displaymath}
         f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
     \end{displaymath}
 \end{practice}
 
-\begin{practice}{\hyperref[ans:1.4.3-2]{1.4.3-2}}{Curveball Trigonometry}\label{prac:1.4.3-2}
+\begin{practice}{\hyperref[ans:1.3.3-2]{2}}{Curveball Trigonometry}\label{prac:1.3.3-2}
     Find the asymptotes:
     \begin{displaymath}
         f(x)=\frac{\sin(x)}{x^3-x}
@@ -624,8 +609,8 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \end{practice}
 \end{multicols}
 
+\newpage
 \section{Differentiation}
-
 Derivatives are essentially the \textit{slope} of the function at a
 certain point
 
@@ -710,7 +695,7 @@ mathematicians may express derivatives
     \textit{also continuous} at $x=c$
 \end{theorem}
 
-\begin{practice}{\hyperref[ans:2.1-1]{2.1-1}}{Finding the Tangent Line}\label{prac:2.1-1}
+\begin{practice}{\hyperref[ans:2.1-1]{1}}{Finding the Tangent Line}\label{prac:2.1-1}
     Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$
 \end{practice}
 
@@ -798,16 +783,17 @@ problems I'll be putting in this section, but here are the rules in short:
 \end{example}
 
 \begin{multicols}{2}
-    \begin{practice}{\hyperref[ans:2.2-1]{2.2-1}}{Find Horizontal Tangents}
+    \begin{practice}{\hyperref[ans:2.2-1]{1}}{Find Horizontal Tangents}
         \label{prac:2.2-1}
         Find the horizontal tangents of $f(x)=x^4-2x^2+3$
     \end{practice}
-    \begin{practice}{\hyperref[ans:2.2-2]{2.2-2}}{Find the Derivative}
+    \begin{practice}{\hyperref[ans:2.2-2]{2}}{Find the Derivative}
         \label{prac:2.2-2}
-        Find the derivative of $\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
+        Find the derivative of \newline$\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
     \end{practice}
 \end{multicols}
 
+\newpage
 \subsection{Higher Order Derivatives}
 You can take a derivative of derivative:
 \begin{displaymath}
@@ -858,7 +844,6 @@ steps on how to do that:
 It's also important to understand that derivative rules don't have to just
 apply to terms of $x$. The example on the next page shows an implicit
 differentiation using the product rule on \textit{x and y}:
-\newpage
 \begin{example}{Implicit Differentiation with Product Rule}
     Let's follow those steps to find the derivative of $$x^2y+y^2x=-2$$
 
@@ -878,17 +863,92 @@ differentiation using the product rule on \textit{x and y}:
     $$\frac{dy}{dx}=\frac{-2xy-y^2}{x^2+2yx}$$
 \end{example}
 
-\begin{practice}{\hyperref[ans:2.4-1]{2.4-1}}{Tangent Lines and Circles}
-    \label{prac:2.4-1}
-    Find the tangent line at $(4,-3)$ of \textit{the circle}
-    $$x^2+y^2=5^2$$
+\newpage
+\begin{multicols}{2}
+    \begin{practice}{\hyperref[ans:2.4-1]{2.4-1}}{Tangent Lines and Circles}
+        \label{prac:2.4-1}
+        Find the tangent line at $(4,-3)$ of \textit{the circle}:
+        $$x^2+y^2=5^2$$
+    \end{practice}
+    \begin{practice}{\hyperref[ans:2.4-2]{2.4-2}}{Differentiate}\label{prac:2.4-2}
+        Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
+    \end{practice}
+\end{multicols}
+
+\subsection{Related Rates}
+Solving related-rate problems are similar to solving implicit differentiation.
+However, in this case, related-rate problems are typically differentiated in
+\textit{respect to time}. Additionally, related-rate problems provide given
+quantities as well as quantities to find:
+
+\begin{note}{Guideline for Related-Rate Problems}
+    \begin{enumerate}
+        \item Take note of all quantities \textit{given} and quantities
+            \textit{yet to find} within the problem. Create a sketch if it
+            helps to visualize the problem.
+        \item Write equation with those quantities and rates that were
+            identified in the first step.
+        \item Implicitly differentiate the equation \textit{with respect to
+            time}
+        \item Substitute the given values, and solve for the required rate of
+            change
+    \end{enumerate}
+\end{note}
+
+On the next page, Let's see how those steps can be used on an example problem:
+\begin{example}{Related Rate with Cylindrical Glass}
+    The radius $r$ of a circle is increasing at a rate of 8 centimeters per
+    minute. Find the rate of change of the area when $r = 45$ centimeters.
+
+    The first step is to make a table of all given values and values to find:
+    \begin{center}
+        \begin{tabular}{l|l}
+            Quantity & Value\\
+            \hline
+            ($r$) radius & 45 cm\\
+            $\frac{dr}{dt}$ & $8\frac{cm}{min}$\\
+            $\frac{dA}{dt}$ & ?\\
+        \end{tabular}
+    \end{center}
+
+    The next step is to write an equation with those given quantities: For this
+    case, it'll be the equation of the area of a circle: $$A=\pi r^2$$
+   
+    The next step is to derivatize all terms in respect to time:
+
+    \begin{align*}
+        \frac{d}{dt}(A)&=\frac{d}{dt}(\pi r^2)\\
+        \frac{dA}{dt}&=2\pi r\frac{dr}{dt}
+    \end{align*}
+
+    Finally, substitute in the given values and solve for the required rate
+    of change:
+
+    \begin{align*}
+        \frac{dA}{dt}&=2\pi (45cm)(8\frac{cm}{min})\\
+        \frac{dA}{dt}&=720\pi\frac{cm^2}{min}
+    \end{align*}
+
+    The rate of change of the volume of the barrel is $720\pi\frac{cm^2}{min}$.
+\end{example}
+
+\begin{practice}{\hyperref[ans:2.5-1]{2.5-1}}{Triangles Galore}
+    \label{prac:2.5-1}
+    A ladder 25 feet long is leaning against the wall of a house. The base
+    of the ladder is pulled away from the wall at a rate of 2 feet per
+    second. Find the rate at which the area of the triangle is changing
+    when the base of the ladder is 7 feet from the wall.
 \end{practice}
+
+\section{Applications of Differentiation}
+
+
 
 \newpage
 \section{Practice Problem Answers}
 
-\subsection*{\ref{prac:1.2.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
-\label{ans:1.2.2-1}
+\subsection*{\ref{prac:1.1.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
+\label{ans:1.1.2-1}
 Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the 
 $\epsilon-\delta$ definition:
 \br
@@ -906,7 +966,7 @@ The first thing we would have to do is to find $\delta$:
 Notice how $\delta=\frac{\epsilon}{10}$. This guarantees that
 $\lvert f(x)-L \rvert < \epsilon$ whenever $0<\lvert x-c \rvert<\delta$
 
-\subsection*{\ref{prac:1.3.2-1}---Squeeze Theorem}\label{ans:1.3.2-1}
+\subsection*{\ref{prac:1.2.2-1}---Squeeze Theorem}\label{ans:1.2.2-1}
 Show that
 $\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
 using the Squeeze Theorem
@@ -927,7 +987,7 @@ We know that $\displaystyle-1\leq\cos(\frac{2\pi}{3x})\leq 1$:
 
 Because of the Squeeze Theorem, $\displaystyle\lim_{x\to 0}\cos(\frac{2\pi}{3x})=0$
 
-\subsection*{\ref{prac:1.3.2-1}---Trigonomic Limit}\label{ans:1.3.2-2}
+\subsection*{\ref{prac:1.2.2-1}---Trigonomic Limit}\label{ans:1.2.2-2}
 Evaluate:
 $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
 \br
@@ -963,7 +1023,7 @@ $\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$:
 That problem was quite lengthy, but we did it \emoji{smiling-face-with-hearts}
 
 \newpage
-\subsection*{\ref{prac:1.4-1}---Determine Continuity}\label{ans:1.4-1}
+\subsection*{\ref{prac:1.3-1}---Determine Continuity}\label{ans:1.3-1}
 Determine if the function is continuous at $x=2$
 
 \begin{displaymath}
@@ -993,7 +1053,7 @@ are the same: $3\neq2$
 \marginpar{$\therefore$ means "therefore"}
 $\therefore f(x)$ is \textit{not continuous} at $x=2$!
 
-\subsection*{\ref{prac:1.4.1-1}---Intermediate Value Theorem}\label{ans:1.4.1-1}
+\subsection*{\ref{prac:1.3.1-1}---Intermediate Value Theorem}\label{ans:1.3.1-1}
 Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
 one solution on the interval $(-1, 2)$
 \br
@@ -1010,7 +1070,7 @@ Now that we know that $f(-1)$ and $f(2)$ are not equal, and $f(-1)<1<f(2)$, we
 can conclude that there is a number '$c$' in the interval $(-1, 2)$ such that 
 $f(c)=1$
 
-\subsection*{\ref{prac:1.4.3-1}---Curveball Asymptote}\label{ans:1.4.3-1}
+\subsection*{\ref{prac:1.3.3-1}---Curveball Asymptote}\label{ans:1.3.3-1}
 Find the asymptotes:
 \begin{displaymath}
     f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
@@ -1022,7 +1082,7 @@ consider the \textit{domain} at which $f(x)$ exists.
 Because this is a square root function, $(x-1)(x-3)$ \textit{cannot be a 
 negative number}. Plugging in $x=2$ would result in a negative square root.
 
-\subsection*{\ref{prac:1.4.3-2}---Curveball Trigonometry}\label{ans:1.4.3-2}
+\subsection*{\ref{prac:1.3.3-2}---Curveball Trigonometry}\label{ans:1.3.3-2}
 Find the asymptotes:
 \begin{displaymath}
     f(x)=\frac{\sin(x)}{x^3-x}
@@ -1095,6 +1155,18 @@ Now we plug in these values into $f(x)$ to get the tangent lines:
 So the horizontal tangent lines are at $y=3$ and $y=2$
 
 \newpage
+\subsection*{\ref{prac:2.2-2}---Find the Derivative}
+Find the derivative of $\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
+\br
+Let's apply the chain rule with $u$-substitution to this problem:
+\begin{align*}
+    u&=x^2+3 & v&=u^5+x & w&=v^2\\
+    u'&=2x & v'&=5u^4+x & w'&=2v\\
+    && v'&=5(x^2+3)^4+x & w'&=2\big((x^2+3)^5+x)\\
+\end{align*}
+
+Now we multiply each of those terms to get the answer:
+$$f'(x)=2x\cdot\big(5(x^2+3)^4+x\big)\cdot2\big((x^2+3)^5+x\big)$$
 
 \subsection*{\ref{prac:2.3.1-1}---Velocity and Acceleration}\label{ans:2.3.1-1}
 A ball is thrown up into the air, and its position can be modeled into
@@ -1128,10 +1200,10 @@ to get the instantaneous acceleration of the ball, $a(t)$:
 
 The velocity of the ball just when it hits the ground is -20 
 $\displaystyle\frac{\text{ft}}{\text{s}}$, and the acceleration of the ball as 
-it hits the ground is -10 $\displaystyle\frac{\text{ft}}{\text{s}^2}$
+it hits the ground is -10 $$\frac{\text{ft}}{\text{s}^2}$$
 
 \subsection*{\ref{prac:2.2-2}---Find the Derivative}\label{ans:2.2-2}
-Find the derivative of $\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
+Find the derivative of $$f(x)=\big((x^2+3)^5+x\big)^2$$
 \br
 This seems to be a chain rule problem, but instead of just nesting once,
 it's nesting twice: $f(g(h(x)))$
@@ -1180,6 +1252,35 @@ values:
     y-(-3)&=(-\frac{4}{3})(x-(4))\\
     y+3&=-\frac{4}{3}(x-4)\\
 \end{align*}
+
+\newpage
+\subsection*{\ref{prac:2.4-2}---Differentiate}\label{ans:2.4-2}
+Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
+\br
+Though chain rule could be applied first (and there's nothing stopping you from
+going down that route for implicit differentiation), I believe that expanding
+the exponent and simplifying first would make implicit differentiation easier:
+
+\begin{align*}
+    (4x+4y)^3&=64x^3+64y^3\\
+    64x^2+192x^2y+192xy^2+64y^3&=64x^3+64y^3\\
+    x^2+3x^2y+3xy^2+y^3&=x^3+y^3\\
+    3x^2y+3xy^2&=0\\
+    x^2y+xy^2&=0
+\end{align*}
+
+Now that it looks much more manageable, we can continue as usual:
+
+\begin{align*}
+    \frac{d}{dx}(x^2y+xy^2)&=\frac{d}{dx}(0)\\
+    \frac{d}{dx}(x^2y)+\frac{d}{dx}(xy^2)&=0\\
+    x^2\frac{dy}{dx}+2xy+2xy\frac{dy}{dx}+y^2&=0\\
+    x^2\frac{dy}{dx}+2xy\frac{dy}{dx}&=-2xy-y^2\\
+    (x^2+2xy)\frac{dy}{dx}&=-(2xy+y^2)\\
+    \frac{dy}{dx}&=-\frac{2xy+y^2}{x^2+2xy}\\
+    \frac{dy}{dx}&=-\frac{y(2x+y)}{x(x+2y)}\\
+\end{align*}
+It was lengthy, but we did it!
 
 % \newpage
 % \section{Cheat Sheet}
