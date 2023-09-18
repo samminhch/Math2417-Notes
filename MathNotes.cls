@@ -8,13 +8,12 @@
 % setting up paper and text layout
 \RequirePackage[
     a4paper, 
-    marginparwidth=20ex, 
-    textheight=755pt, 
-    textwidth=70ex,
+    marginparwidth=1in, 
+    total={5.5in, 8in}
 ]{geometry}
 \setlength\parindent{0pt}
-\raggedright
 \RequirePackage{multicol}
+\RequirePackage[document]{ragged2e}
 
 % graphics
 \RequirePackage{emoji}
