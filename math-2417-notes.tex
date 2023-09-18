@@ -236,11 +236,11 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
     \end{displaymath}
 
     \begin{enumerate}
-        \item $\lim_{x\to c}\l[ b\cdot f(x) \r]=b\cdot L$
-        \item $\lim_{x\to c}\l[ b\pm f(x) \r]=b\pm L$
-        \item $\lim_{x\to c}\l[ f(x)\cdot g(x) \r]=L\cdot K$
+        \item $\lim_{x\to c}[ b\cdot f(x) ]=b\cdot L$
+        \item $\lim_{x\to c}[ b\pm f(x) ]=b\pm L$
+        \item $\lim_{x\to c}[ f(x)\cdot g(x) ]=L\cdot K$
         \item $\lim_{x\to c}\frac{f(x)}{g(x)}=\frac{L}{K}, K\neq 0$
-        \item $\lim_{x\to c}\l[ f(x)\r] ^n=L^n$
+        \item $\lim_{x\to c}[ f(x)] ^n=L^n$
         \item $\lim_{x\to c}\sqrt[n]x=\sqrt[n]{c}$
         \item $\lim_{x\to c}f\bigl(g(x)\bigr)=f\bigl(\lim_{x\to c}g(x)\bigr)=f(K)$
     \end{enumerate}
@@ -248,7 +248,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 
 \begin{example}{Limit of Polynomial}
     \begin{align*}
-        \lim_{x\to 5}\l[ 3x^3+4 \r] &= \lim_{x\to 5} 3x^3 + \lim_{x\to 5}4\\
+        \lim_{x\to 5}[ 3x^3+4 ] &= \lim_{x\to 5} 3x^3 + \lim_{x\to 5}4\\
         &= 3 \cdot \lim_{x\to 5}x^3 + \lim_{x\to 5}4\\
         &= 3 \cdot (5)^3 + 4=379
     \end{align*}
@@ -358,7 +358,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
     $\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
     using the Squeeze Theorem
 \end{practice}
-\begin{practice}{\hyperref[ans:1.2.2-2]{2}}{Trigonomic Limit}\label{prac:1.2.2-1}
+\begin{practice}{\hyperref[ans:1.2.2-2]{2}}{Trigonomic Limit}\label{prac:1.2.2-2}
     Evaluate:
     $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
     \textbf{Hint:} Break it down to the trigonomic functions you know
@@ -810,7 +810,7 @@ You can take a derivative of derivative:
     \end{align*}
 \end{example}
 You can do this for however many times you want to!
-\begin{practice}{\hyperref[ans:2.3.1-1]{2.3.1-1}}{Velocity and Acceleration}
+\begin{practice}{\hyperref[ans:2.3.1-1]{1}}{Velocity and Acceleration}
     \label{prac:2.3.1-1}
     A ball is thrown up into the air, and its position can be modeled into
     of feet as a function of time: $f(t)=-5(t-2)^2+20$. Find the acceleration
@@ -865,12 +865,12 @@ differentiation using the product rule on \textit{x and y}:
 
 \newpage
 \begin{multicols}{2}
-    \begin{practice}{\hyperref[ans:2.4-1]{2.4-1}}{Tangent Lines and Circles}
+    \begin{practice}{\hyperref[ans:2.4-1]{1}}{Tangent Lines and Circles}
         \label{prac:2.4-1}
         Find the tangent line at $(4,-3)$ of \textit{the circle}:
         $$x^2+y^2=5^2$$
     \end{practice}
-    \begin{practice}{\hyperref[ans:2.4-2]{2.4-2}}{Differentiate}\label{prac:2.4-2}
+    \begin{practice}{\hyperref[ans:2.4-2]{2}}{Differentiate}\label{prac:2.4-2}
         Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
     \end{practice}
 \end{multicols}
@@ -932,7 +932,7 @@ On the next page, Let's see how those steps can be used on an example problem:
     The rate of change of the volume of the barrel is $720\pi\frac{cm^2}{min}$.
 \end{example}
 
-\begin{practice}{\hyperref[ans:2.5-1]{2.5-1}}{Triangles Galore}
+\begin{practice}{\hyperref[ans:2.5-1]{1}}{Triangles Galore}
     \label{prac:2.5-1}
     A ladder 25 feet long is leaning against the wall of a house. The base
     of the ladder is pulled away from the wall at a rate of 2 feet per
@@ -1289,6 +1289,7 @@ Now that it looks much more manageable, we can continue as usual:
     \frac{dy}{dx}&=-\frac{y(2x+y)}{x(x+2y)}\\
 \end{align*}
 It was lengthy, but we did it!
+\subsection*{\ref{prac:2.5-1}---Triangles Galore}\label{ans:2.5-1}
 
 % \newpage
 % \section{Cheat Sheet}
