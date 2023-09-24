@@ -3,3 +3,7 @@
 *.out
 *.synctex.gz
 *.toc
+*.eps
+*.atfi
+*.pre
+math-2417-notes-*.asy

@@ -9,7 +9,7 @@
 \RequirePackage[
     a4paper, 
     marginparwidth=1in, 
-    total={5.5in, 8in}
+    total={5.5in, 9.5in}
 ]{geometry}
 \setlength\parindent{0pt}
 \RequirePackage{multicol}
@@ -22,6 +22,11 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{amsmath, amssymb, amsthm, amsfonts}
 \RequirePackage{pgfplots}
+\RequirePackage[attach]{asymptote}
+\RequirePackage[dvips]{attachfile2}
+\begin{asydef}
+    import graph;
+\end{asydef}
 
 \RequirePackage{pstricks}
 \usetikzlibrary{patterns}
