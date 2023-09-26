@@ -46,8 +46,9 @@ you can get a hang of the subject!
 If you have any complaints, or suggestions regarding these notes, please
 email me at \newline\href{mailto:minh.nguyen7@utdallas.edu}{mdn220004@utdallas.edu}
 \br
-Thank you so much to all of those that helped contributed to the accuracy of
-these notes. I can't thank you all enough!
+Thank you so much to Jing Guo and Aaron Kelly for contributing to some of the
+practice problems as well as corrections for these notes. You have my sincere
+gratitude!
 
 \section*{Class Specific Information}
 The first exam will cover up to section \ref{sec:3.3} on September 29, 2023.
@@ -1329,34 +1330,23 @@ $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
 
 Let's start by breaking down $\tan$ into $\sin$ and $\cos$:
 \begin{align*}
-    \lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}
-    &=\lim_{x\to 0}\frac{\sin(3x)}{\cos(3x)\cdot(4x+\sin(2x))}\\
-    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\cos(3x)+\sin(2x)\cos(3x)}
+    &\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}\\
+    =&\lim_{x\to 0}\frac{\frac{\sin(3x)}{\cos(3x)}}{4x+\sin(2x)}\\
 \end{align*}
-Note that we can further break down $\cos(3x)$ into $\cos(2x+x)$, which can 
-be converted to the trigonomic identity:$\cos(2x)\cos(x)-\sin(2x)\sin(x)$
-
 \continued
-\begin{align*}
-    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\big(\cos(2x)\cos(x)-\sin(2x)\sin(x)\big)+\sin(2x)\cos(3x)}\\
-    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\cos(2x)\cos(x)-4x\sin(2x)\sin(x)+\sin(2x)\cos(3x)}
-\end{align*}
 
 Next, you multiply by a \textit{big 1}. In this case it would be
-$\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$:
+$\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$
 
 \begin{align*}
-    &=\lim_{x\to 0}\frac{\sin(3x)}{4x\cos(2x)\cos(x)-4x\sin(2x)\sin(x)+\sin(2x)\cos(3x)}\\
-    &=\lim_{x\to 0}\frac{\frac{\sin(3x)}{x}}{\frac{4x\cos(2x)\cos(x)}{x}-\frac{4x\sin(2x)\sin(x)}{x}+\frac{\sin(2x)\cos(3x)}{x}}\\
-    &=\lim_{x\to 0}\frac{\frac{\sin(3x)}{x}}{4\cos(2x)\cos(x)-4\sin(2x)\sin(x)+\cos(3x)\cdot\frac{\sin(2x)}{x}}\\
-    &=\frac{\lim_{x\to 0}\frac{\sin(3x)}{x}}{\lim_{x\to 0}4\cos(2x)\cos(x)-\lim_{x\to 0}4\sin(2x)\sin(x)+\lim_{x\to 0}\cos(3x)\frac{\sin(2x)}{x}}\\
-    &=\frac{(3)}{4\cos\big(2(0)\big)\cos\big((0)\big)-4\sin\big(2(0)\big)\sin\big((0)\big)+\cos\big(3(0)\big)(2)}\\
-    &=\frac{3}{4(1)(1)-4(0)(0)+(1)\cdot 2}\\
-    &=\frac{3}{4+2}=\frac{3}{6}\\
-    &=\frac{1}{2}
+    &\lim_{x\to 0}\frac{\frac{\sin(3x)}{\cos(3x)}}{4x+\sin(2x)}\cdot\frac{\frac{1}{x}}{\frac{1}{x}}\\
+    =&\lim_{x\to 0}\big(\frac{\frac{1}{\cos(x)}\cdot\frac{\sin(3x)}{x}\big)}{\frac{4x+\sin(2x)}{x}}\\
+    =&\frac{\lim_{x\to 0}\frac{1}{\cos(x)}\cdot\frac{\sin(3x)}{x}}{\lim_{x\to 0}\big(4+\frac{\sin(2x)}{x}\big)}\\
+    =&\frac{(1)(3)}{4+(2)}=\frac{3}{6}\\
+    =&\frac{1}{2}
 \end{align*}
 
-That problem was quite lengthy, but we did it \emoji{smiling-face-with-hearts}
+That problem was quite tricky, but we did it \emoji{smiling-face-with-hearts}
 
 \subsection*{\ref{prac:1.3-1}---Determine Continuity}\label{ans:1.3-1}
 Determine if the function is continuous at $x=2$
