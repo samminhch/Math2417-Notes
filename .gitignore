@@ -6,4 +6,6 @@
 *.eps
 *.atfi
 *.pre
+*.fls
+*fdb*
 math-2417-notes-*.asy
