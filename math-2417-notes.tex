@@ -215,7 +215,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 
 \subsubsection{Properties of Limits}
 
-\marginpar{$\mathbb{R}=$all real numbers\\$\mathbb{N}=$all natural numbers}
+\marginnote{$\mathbb{R}=$all real numbers\\$\mathbb{N}=$all natural numbers}
 \begin{multicols}{2}[]
     \begin{theorem}{Basic Limit Properties}
         Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$:
@@ -239,7 +239,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 \end{multicols}
 
 \newpage
-\marginpar{$f(g(x))$ may also be written as $f\circ g$ }
+\marginnote{$f(g(x))$ may also be written as $f\circ g$ }
 \begin{theorem}{Limit Properties}
     Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$, and $f$ and $g$ are functions
     with limits:
@@ -283,7 +283,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 \newpage
 \subsubsection{Squeeze Theorem}\label{sec:1.2.2}
 
-\marginpar{
+\marginnote{
     Open/closed interval continuity will be discussed later in section
     \ref{sec:1.3.1}. 
 }
@@ -302,8 +302,8 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 
     \begin{theorem}{Trigonomic Limits}
         \begin{enumerate}
-            \item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x}$
-            \item $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x} = 1$
+            \item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$
+            \item $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x} = 0$
         \end{enumerate}
     \end{theorem}
 
@@ -432,7 +432,7 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 
 \begin{center}
 \begin{multicols}{2}[
-        There are two cases where discontinuities happen: \marginpar{Another
+        There are two cases where discontinuities happen: \marginnote{Another
         example of removable discontinuity is in example \ref{ex:1.1}}
     ]{
         \begin{tikzpicture}
@@ -632,7 +632,7 @@ certain point
 They also \textit{cannot exist} where the limit doesn't exist at the 
 function
 
-\marginpar{This comes in handy when solving physics problems!}
+\marginnote{This comes in handy when solving physics problems!}
 \begin{note}{Derivatives and Rate of Change}
 To elaborate more on this, the derivative of a function $f(x)$ at point $x=c$
 is the instantaneous rate of change: $$f'(x)\Big|_{x=c}$$ The average rate of
@@ -744,7 +744,7 @@ quicker. Here are the rules in short:
     \end{tabular}
 \end{theorem}
 
-\marginpar{You don't have to simplify completely on open-ended questions!}
+\marginnote{You don't have to simplify completely on open-ended questions!}
 \begin{example}{Power Rule}
     \begin{multicols}{2}
         \begin{enumerate}
@@ -766,7 +766,7 @@ quicker. Here are the rules in short:
 \end{example}
 
 \newpage
-\marginpar{$u$-substitution is a good method for solving chain rule problems:}
+\marginnote{$u$-substitution is a good method for solving chain rule problems:}
 \begin{example}{Chain Rule}
     $$
     \frac{d}{dx}\sin(x^2+1) \\
@@ -781,7 +781,7 @@ quicker. Here are the rules in short:
         &=2x\cdot\cos(x^2+1)
     \end{align*}
 \end{example}
-\marginpar{Remember: $\sin^2(\theta)+\cos^2(\theta)=1$}
+\marginnote{Remember: $\sin^2(\theta)+\cos^2(\theta)=1$}
 \begin{example}{$\sin$ and $\cos$ Rule}
     \begin{enumerate}
         \item $\displaystyle\frac{d}{dx}
@@ -857,7 +857,7 @@ It's also important to understand that derivative rules don't have to just
 apply to terms of $x$. The example on the next page shows an implicit
 differentiation using the product rule on \textit{x and y}:
 \newpage
-\marginpar{$\frac{dx}{dx}=1$. I'm only showing it in this example $\frac{dx}{dx}$}
+\marginnote{$\frac{dx}{dx}=1$. I'm only showing it in this example $\frac{dx}{dx}$}
 \begin{example}{Implicit Differentiation with Product Rule}
     Let's follow those steps to find the derivative of 
     $\displaystyle x^2y+y^2x=-2$:
@@ -954,7 +954,7 @@ ladder are changing when the base of the ladder is 7 feet from the wall.
 
 \section{Applications of Differentiation}
 \subsection{Extrema on an Interval}
-\marginpar{Absolute maximum/minimum is also known as the \textit{global}
+\marginnote{Absolute maximum/minimum is also known as the \textit{global}
 maximum/minimum}
 \begin{definition}{Extrema}
     Let function $f$ be defined on an interval $I$ containing $c$:
@@ -1062,7 +1062,7 @@ interval.
     \end{note}
 \end{multicols}
 
-\marginpar{Make sure when doing these problems that the critical values you find
+\marginnote{Make sure when doing these problems that the critical values you find
 are \textit{still on the interval} of the function}
 \begin{example}{Finding Absolute Extrema}
     To find the absolute extrema of $f(x)=3x^4-16x^3+18x^2$ on the interval
@@ -1277,7 +1277,7 @@ differentiable on the open interval $(a, b)$:\newline
 \newpage
 
 \subsection{Concavity---The Second Derivative Test}
-\marginpar{Inflection points only occur when \newline$f''=0\lor DNE$. In the case of this
+\marginnote{Inflection points only occur when \newline$f''=0\lor DNE$. In the case of this
 graph, it's at (0, 0)}
 \begin{multicols}{2}
 \begin{definition}{Concavity}
@@ -1483,7 +1483,7 @@ That's so \textit{uncool}. Let's factor it out and try again!
 Now, we compare both that with the case where $x=2$ to see if they
 are the same: $3\neq2$
 
-\marginpar{$\therefore$ means "therefore"}
+\marginnote{$\therefore$ means "therefore"}
 $\therefore f(x)$ is \textit{not continuous} at $x=2$!
 
 \newpage
@@ -1526,7 +1526,7 @@ Let's start by factoring out the denominator:
 \begin{displaymath}
     f(x)=\frac{\sin(x)}{x(x-1)(x+1)}
 \end{displaymath}
-\marginpar{Moral of the story: double-check your answers!}
+\marginnote{Moral of the story: double-check your answers!}
 You'd \textit{think} that the asymptotes are $x=\{-1, 0, 1\}$. However,
 $\lim_{x\to 0}f(x)=1$ --- $f(x)$ can also be re-written as this:
 $\lim_{x\to 0}[\frac{\sin x}{x}] \cdot \lim_{x\to 0}[\frac{1}{(x-1)^2}]=-1$
@@ -1603,7 +1603,7 @@ It's best to use $u$-substitution for this problem:
      && && w'&=2\big((x^2+3)^5+x\big)\\
 \end{align*}
 
-\marginpar{Don't simplify \textit{unless needed}}
+\marginnote{Don't simplify \textit{unless needed}}
 Now we multiply each of those bottom terms together to reach the answer:
 $$f'(x)=\big(5(x^2+3)^4\cdot 2x+1\big)\cdot2\big((x^2+3)^5+x\big)$$
 
@@ -1685,7 +1685,7 @@ Though chain rule could be applied first (and there's nothing stopping you from
 going down that route for implicit differentiation), I believe that expanding
 the exponent and simplifying first would make implicit differentiation easier:
 
-\marginpar{You could also apply chain rule to $(4x+4y)^3$ if you so choose}
+\marginnote{You could also apply chain rule to $(4x+4y)^3$ if you so choose}
 \begin{align*}
     (4x+4y)^3&=64x^3+64y^3\\
     64x^2+192x^2y+192xy^2+64y^3&=64x^3+64y^3\\
@@ -1713,7 +1713,7 @@ second. Find the rate at which the angle between the wall of the house and the
 ladder are changing when the base of the ladder is 7 feet from the wall.
 \br
 Let's start by labeling what we know:
-\marginpar{I used these variable letters, but you can use your own if you wish!}
+\marginnote{I used these variable letters, but you can use your own if you wish!}
 \begin{multicols}{2}
     \begin{itemize}
         \item $l=$ length of ladder $=25ft$
@@ -1726,7 +1726,7 @@ Let's start by labeling what we know:
 \end{multicols}
 \continued
 Let's identify what we need to find:
-\marginpar{It's a 7-24-25 triangle, so $h$ is actually 24 ft!}
+\marginnote{It's a 7-24-25 triangle, so $h$ is actually 24 ft!}
 \begin{itemize}
     \item $h$ the height of the top of the ladder on the wall of the house
         to the floor
@@ -1803,7 +1803,7 @@ Find all $\theta$ where $\displaystyle f(\theta)=2\cos\theta+\sin^2\theta$
 is a critical value.
 \br
 Let's take the derivative of $f(x)$:
-\marginpar{Chain rule was used to find $\frac{d}{dx}(\sin^2\theta)$}
+\marginnote{Chain rule was used to find $\frac{d}{dx}(\sin^2\theta)$}
 \begin{align*}
     f'(x)&=-2\sin\theta+(\cos\theta\cdot 2\sin\theta)\\
     f'(x)&=-2\sin\theta+2\sin\theta\cos\theta\\
@@ -1833,7 +1833,7 @@ is differentiable on $(a, b)$. Both of these requirements are fulfilled by the
 function, as polynomial functions are \textit{continuous and differentiable}.
 \bl
 Because the theorem applies to $f(x)$, we know that there is a value $c$ where:
-\marginpar{$\frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}}$}
+\marginnote{$\frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}}$}
 \begin{multicols}{2}
 \begin{itemize}
     \item $a<c<b$
@@ -1855,7 +1855,7 @@ The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the
 interval $[-1, 8]$. If so, find all $c$ that apply. If the theorem cannot
 be applied, explain why.
 \br
-\marginpar{This is a little redundant, but some questions still ask for this
+\marginnote{This is a little redundant, but some questions still ask for this
 step}
 Let's prove that the theorem is valid for $f(x)$: because the function is
 a polynomial function, it is both continuous and differentiable. This means
@@ -1904,7 +1904,7 @@ problem's case, the premise is that there are more than one solution to $f(x)$}
 with \textit{Rolle's Theorem} to prove that
 another solution cannot be possible:
 \bl
-\marginpar{$\land$ means ``and''}
+\marginnote{$\land$ means ``and''}
 Suppose there is at least two solutions, $l$ and $m$ where 
 $l\neq m\land f(l)=f(m)=0$
 \bl
@@ -1915,7 +1915,7 @@ We can find the derivative of $f(x)$ to be:
 $$f'(x)=42x^6+10x^4+3=0$$
 
 \continued
-\marginpar{The expression translates to: ``for all $x$ in the set of real
+\marginnote{The expression translates to: ``for all $x$ in the set of real
 numbers, $f'(x)\geq3$''}
 We know that $x\in\mathbb{R}$ that's raised to an even power will 
 \textit{always} be greater than or equal to 0. This implies that
@@ -1966,4 +1966,13 @@ Increasing: $(-\frac{1}{\sqrt{2}},0)\cup(0,\frac{1}{\sqrt{2}})$
 %         $\lim_{x\to c}f(x)=L$
 %     \end{GrayBox}
 % \end{multicols}
+
+\section*{\ref{prac:3.4-1}---}
+\label{ans:3.4-1}
+% TODO: make practice problems for these :D
+
+\section*{\ref{prac:3.4-2}---}
+\label{ans:3.4-2}
+% TODO: make practice problems for these :D
+
 \end{document}

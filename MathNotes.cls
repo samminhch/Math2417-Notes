@@ -14,12 +14,12 @@
 \setlength\parindent{0pt}
 \RequirePackage{multicol}
 \RequirePackage[document]{ragged2e}
+\RequirePackage{marginnote}
 
 % graphics
 \RequirePackage{emoji}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{tcolorbox}
-\RequirePackage[utf8]{inputenc}
 \RequirePackage{amsmath, amssymb, amsthm, amsfonts}
 \RequirePackage{pgfplots}
 \RequirePackage[attach]{asymptote}
