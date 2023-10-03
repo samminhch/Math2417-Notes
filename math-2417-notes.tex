@@ -8,16 +8,16 @@
 \newenvironment{theorem}[1]{\begin{GrayBox}{Theorem}{#1}}{\end{GrayBox}}
 \newenvironment{practice}[2]{\begin{PurpleBox}{\texorpdfstring{#1}\Big|You Try}{#2}}{\end{PurpleBox}}
 \newcommand{\br}{
-\begin{center}
-\line(1,0){4ex}
-\end{center}}
+	\begin{center}
+		\line(1,0){4ex}
+	\end{center}}
 \newcommand{\continued}{
-\mbox{}
-\vfill
-\textbf{Continued on Next Page...}\newpage
+	\mbox{}
+	\vfill
+	\textbf{Continued on Next Page...}\newpage
 }
 \newcommand{\bl}{
-    \newline$ $\newline
+	\newline$ $\newline
 }
 
 %----------------------Author Information-----------------
@@ -37,10 +37,10 @@
 \newpage
 \section*{Author's Notes}
 This is my very first project that I wrote in \LaTeX, but I hope you enjoy
-the notes that I poured my blood, sweat, and tears into \emoji{sob} 
+the notes that I poured my blood, sweat, and tears into \emoji{sob}
 \br
-These notes are based off of the textbook \textit{Calculus 11e} by 
-\textit{Ron Larson} and \textit{Bruce Edwards}, as well as the lectures of 
+These notes are based off of the textbook \textit{Calculus 11e} by
+\textit{Ron Larson} and \textit{Bruce Edwards}, as well as the lectures of
 professor \textit{Carlos Arreche} from the \textit{Fall 2023} semester.
 \br
 Practice problems are also found within the notes. The answers for the practice
@@ -65,150 +65,150 @@ in these notes if you so choose. Good luck!
 \subsection{Finding Limits Graphically \& Numerically}
 
 \begin{multicols}{2}[]
-\begin{theorem}{Informal Definition of Limit}
-    \[\lim_{x\to c}f(x)=L\] 
-    As $x$ gets closer to $c$, the value of $f(x)$ becomes $L$
-\end{theorem}
+	\begin{theorem}{Informal Definition of Limit}
+		\[\lim_{x\to c}f(x)=L\]
+		As $x$ gets closer to $c$, the value of $f(x)$ becomes $L$
+	\end{theorem}
 
 
-Limits also depend on what direction\footnote{If the limits from the left and
-right don't match, then the limit \textit{doesn't exist}} you're coming from:
-\begin{tabular}{ |l|c| }
-    \hline
-    Meaning & Math Expression\\
-    \hline
-    \hline
-    From the right & $\lim_{x\to c^+}f(x)$ \\
-    \hline
-    From the left & $\lim_{x\to c^-}f(x)$ \\
-    \hline
-\end{tabular}
+	Limits also depend on what direction\footnote{If the limits from the left and
+		right don't match, then the limit \textit{doesn't exist}} you're coming from:
+	\begin{tabular}{ |l|c| }
+		\hline
+		Meaning        & Math Expression       \\
+		\hline
+		\hline
+		From the right & $\lim_{x\to c^+}f(x)$ \\
+		\hline
+		From the left  & $\lim_{x\to c^-}f(x)$ \\
+		\hline
+	\end{tabular}
 \end{multicols}
 
 \begin{example}{Estimating Graphically and Numerically}\label{ex:1.1}
-    Consider the function $f(x)=\frac{x^3-1}{x-1}$:
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = 0,
-                    xmax              = 2,
-                    ymin              = 0,
-                    ymax              = 8,
-                    xlabel            = $x$,
-                    ylabel            = $f(x)$,
-                    variable          = t,
-                    trig format plots = rad,
-                ]
+	Consider the function $f(x)=\frac{x^3-1}{x-1}$:
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					axis lines        = box,
+					xmin              = 0,
+					xmax              = 2,
+					ymin              = 0,
+					ymax              = 8,
+					xlabel            = $x$,
+					ylabel            = $f(x)$,
+					variable          = t,
+					trig format plots = rad,
+				]
 
-                \addplot [
-                    domain=0:2,
-                    smooth,
-                    color=blue,
-                ]
-                {(x^3-1)/(x-1)};
-                \addlegendentry{$f(x)=\frac{x^3-1}{x-1}$}
+				\addplot [
+					domain=0:2,
+					smooth,
+					color=blue,
+				]
+				{(x^3-1)/(x-1)};
+				\addlegendentry{$f(x)=\frac{x^3-1}{x-1}$}
 
-                \addplot [
-                    color=blue,
-                    mark=o
-                ]
-                coordinates {(1,3)};
-            \end{axis}
-        \end{tikzpicture}
+				\addplot [
+					color=blue,
+					mark=o
+				]
+				coordinates {(1,3)};
+			\end{axis}
+		\end{tikzpicture}
 
-        \begin{tabular}{ |c||c|c|c|c|c|c|c| }
-            \hline
-            x    & 0.9 & 0.99 & 0.999 & 1 & 1.001 & 1.01 & 1.1\\
-            \hline
-            f(x) & 2.71 & 2.97 & 2.997 &DNE& 3.003 & 3.03 & 3.31 \\
-            \hline
-        \end{tabular}
-    \end{center}
+		\begin{tabular}{ |c||c|c|c|c|c|c|c| }
+			\hline
+			x    & 0.9  & 0.99 & 0.999 & 1   & 1.001 & 1.01 & 1.1  \\
+			\hline
+			f(x) & 2.71 & 2.97 & 2.997 & DNE & 3.003 & 3.03 & 3.31 \\
+			\hline
+		\end{tabular}
+	\end{center}
 
-    Notice how in both the \textbf{table and graph}, $f(x)$ looks like it's
-    approaching $f(x)=3$ when $x=1$
+	Notice how in both the \textbf{table and graph}, $f(x)$ looks like it's
+	approaching $f(x)=3$ when $x=1$
 \end{example}
 
 \subsubsection{When Limits Fail to Exist}
 \begin{note}{Limits Don't Exist When}
-    \begin{itemize}
-        \item $\lim_{x\to c^-}f(x)\neq \lim_{x\to c^+}f(x)$
-        \item $f(x)$ is a violently oscillating function
-    \end{itemize}
+	\begin{itemize}
+		\item $\lim_{x\to c^-}f(x)\neq \lim_{x\to c^+}f(x)$
+		\item $f(x)$ is a violently oscillating function
+	\end{itemize}
 \end{note}
 
 \newpage
 \subsubsection{A Formal Definition}
 
 \begin{multicols}{2}
-    \begin{theorem}{Limits via. $\varepsilon - \delta$}
-        The statement $\lim_{x\to c}f(x)=L$ means that for each $\varepsilon > 0$ there 
-        exists $ \delta>0 $ such that if $0<\lvert x-c \rvert < \delta$ then
-        $\lvert f(x)-L \rvert < \varepsilon$
-    \end{theorem}
+	\begin{theorem}{Limits via. $\varepsilon - \delta$}
+		The statement $\lim_{x\to c}f(x)=L$ means that for each $\varepsilon > 0$ there
+		exists $ \delta>0 $ such that if $0<\lvert x-c \rvert < \delta$ then
+		$\lvert f(x)-L \rvert < \varepsilon$
+	\end{theorem}
 
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    scale only axis,
-                    width  = 5cm,
-                    xmin   = 0,
-                    xmax   = 0.85,
-                    ymin   = 0,
-                    ymax   = 1,
-                    xtick  = \empty,
-                    ytick  = \empty,
-                    xlabel = \empty,
-                    ylabel = \empty,
-                    clip   = false,
-                    smooth,
-                ]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					scale only axis,
+					width  = 5cm,
+					xmin   = 0,
+					xmax   = 0.85,
+					ymin   = 0,
+					ymax   = 1,
+					xtick  = \empty,
+					ytick  = \empty,
+					xlabel = \empty,
+					ylabel = \empty,
+					clip   = false,
+					smooth,
+				]
 
-                \addplot[
-                    domain=0:0.85, 
-                    samples=100, 
-                    color=red,
-                ]{sqrt(x)};
+				\addplot[
+					domain=0:0.85,
+					samples=100,
+					color=red,
+				]{sqrt(x)};
 
-                % add open dot for removable discontinuity
-                \addplot [
-                    color=blue,
-                    mark=o
-                ] coordinates {(0.4225,0.65)};
+				% add open dot for removable discontinuity
+				\addplot [
+					color=blue,
+					mark=o
+				] coordinates {(0.4225,0.65)};
 
-                % Epsilon-delta lines
-                \draw [dashed, blue] (0, 0.75) -- (0.5625, 0.75);
-                \draw [dashed, blue] (0, 0.65) -- (0.4225, 0.65);
-                \draw [dashed, blue] (0, 0.55) -- (0.3025, 0.55);
-                \draw [dashed, blue] (0.5625, 0) -- (0.5625, 0.75);
-                \draw [dashed, blue] (0.4225, 0) -- (0.4225, 0.65);
-                \draw [dashed, blue] (0.3025, 0) -- (0.3025, 0.55);
+				% Epsilon-delta lines
+				\draw [dashed, blue] (0, 0.75) -- (0.5625, 0.75);
+				\draw [dashed, blue] (0, 0.65) -- (0.4225, 0.65);
+				\draw [dashed, blue] (0, 0.55) -- (0.3025, 0.55);
+				\draw [dashed, blue] (0.5625, 0) -- (0.5625, 0.75);
+				\draw [dashed, blue] (0.4225, 0) -- (0.4225, 0.65);
+				\draw [dashed, blue] (0.3025, 0) -- (0.3025, 0.55);
 
-                % Labels
-                \node[below] at (0.5625, 0) {c + \delta};
-                \node[below] at (0.4225, 0) {c};
-                \node[below] at (0.3025, 0) {c - \delta};
-                \node[left] at (0, 0.75) {L + \varepsilon};
-                \node[left] at (0, 0.65) {L};
-                \node[left] at (0, 0.55) {L - \varepsilon};
-                \node[right] at (0.4225, 0.65){(c, L)};
+				% Labels
+				\node[below] at (0.5625, 0) {c + \delta};
+				\node[below] at (0.4225, 0) {c};
+				\node[below] at (0.3025, 0) {c - \delta};
+				\node[left] at (0, 0.75) {L + \varepsilon};
+				\node[left] at (0, 0.65) {L};
+				\node[left] at (0, 0.55) {L - \varepsilon};
+				\node[right] at (0.4225, 0.65){(c, L)};
 
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 \end{multicols}
 Refer back to finding limits numerically (example \ref{ex:1.1}):
 \begin{itemize}
-    \item $\pm\varepsilon$ would be the values on the row $f(x)$
-    \item $\pm\delta$ would be the values on the row $x$
+	\item $\pm\varepsilon$ would be the values on the row $f(x)$
+	\item $\pm\delta$ would be the values on the row $x$
 \end{itemize}
 
 
 \begin{practice}{\hyperref[ans:1.1.2-1]{1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
-    \label{prac:1.1.2-1}
-    Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the 
-    $\epsilon-\delta$ definition
+	\label{prac:1.1.2-1}
+	Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the
+	$\epsilon-\delta$ definition
 \end{practice}
 
 \subsection{Evaluating Limits Analytically}
@@ -217,192 +217,192 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 
 \marginnote{$\mathbb{R}=$all real numbers\\$\mathbb{N}=$all natural numbers}
 \begin{multicols}{2}[]
-    \begin{theorem}{Basic Limit Properties}
-        Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$:
+	\begin{theorem}{Basic Limit Properties}
+		Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$:
 
-        \begin{enumerate}
-            \item $\lim_{x\to c}x=c$ 
-            \item $\lim_{x\to c}b=b$ 
-            \item $\lim_{x\to c}x^n=c^n$
-        \end{enumerate}
-    \end{theorem}
+		\begin{enumerate}
+			\item $\lim_{x\to c}x=c$
+			\item $\lim_{x\to c}b=b$
+			\item $\lim_{x\to c}x^n=c^n$
+		\end{enumerate}
+	\end{theorem}
 
-    \begin{example}{Evaluating Basic Limits}
-        \begin{center}
-            \begin{align*}
-                \lim_{x\to 2}5&=5 \\  
-                \lim_{x\to 4}x&=4 \\
-                \lim_{x\to 5}x^2&=25
-            \end{align*}
-        \end{center}
-    \end{example}
+	\begin{example}{Evaluating Basic Limits}
+		\begin{center}
+			\begin{align*}
+				\lim_{x\to 2}5   & =5  \\
+				\lim_{x\to 4}x   & =4  \\
+				\lim_{x\to 5}x^2 & =25
+			\end{align*}
+		\end{center}
+	\end{example}
 \end{multicols}
 
 \newpage
 \marginnote{$f(g(x))$ may also be written as $f\circ g$ }
 \begin{theorem}{Limit Properties}
-    Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$, and $f$ and $g$ are functions
-    with limits:
-    \begin{displaymath}
-        \lim_{x\to c}f(x)=L\hspace{2ex}\text{and}\hspace{2ex}\lim_{x\to c}g(x)=K
-    \end{displaymath}
+	Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$, and $f$ and $g$ are functions
+	with limits:
+	\begin{displaymath}
+		\lim_{x\to c}f(x)=L\hspace{2ex}\text{and}\hspace{2ex}\lim_{x\to c}g(x)=K
+	\end{displaymath}
 
-    \begin{enumerate}
-        \item $\lim_{x\to c}[ b\cdot f(x) ]=b\cdot L$
-        \item $\lim_{x\to c}[ b\pm f(x) ]=b\pm L$
-        \item $\lim_{x\to c}[ f(x)\cdot g(x) ]=L\cdot K$
-        \item $\lim_{x\to c}\frac{f(x)}{g(x)}=\frac{L}{K}, K\neq 0$
-        \item $\lim_{x\to c}[ f(x)] ^n=L^n$
-        \item $\lim_{x\to c}\sqrt[n]x=\sqrt[n]{c}$
-        \item $\lim_{x\to c}f\bigl(g(x)\bigr)=f\bigl(\lim_{x\to c}g(x)\bigr)=f(K)$
-    \end{enumerate}
+	\begin{enumerate}
+		\item $\lim_{x\to c}[ b\cdot f(x) ]=b\cdot L$
+		\item $\lim_{x\to c}[ b\pm f(x) ]=b\pm L$
+		\item $\lim_{x\to c}[ f(x)\cdot g(x) ]=L\cdot K$
+		\item $\lim_{x\to c}\frac{f(x)}{g(x)}=\frac{L}{K}, K\neq 0$
+		\item $\lim_{x\to c}[ f(x)] ^n=L^n$
+		\item $\lim_{x\to c}\sqrt[n]x=\sqrt[n]{c}$
+		\item $\lim_{x\to c}f\bigl(g(x)\bigr)=f\bigl(\lim_{x\to c}g(x)\bigr)=f(K)$
+	\end{enumerate}
 \end{theorem}
 
 \begin{example}{Limit of Polynomial}
-    \begin{align*}
-        \lim_{x\to 5}[ 3x^3+4 ] &= \lim_{x\to 5} 3x^3 + \lim_{x\to 5}4\\
-        &= 3 \cdot \lim_{x\to 5}x^3 + \lim_{x\to 5}4\\
-        &= 3 \cdot (5)^3 + 4=379
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to 5}[ 3x^3+4 ] & = \lim_{x\to 5} 3x^3 + \lim_{x\to 5}4       \\
+		                        & = 3 \cdot \lim_{x\to 5}x^3 + \lim_{x\to 5}4 \\
+		                        & = 3 \cdot (5)^3 + 4=379
+	\end{align*}
 \end{example}
 
 \begin{theorem}{Limits of Polynomial/Rationals}
-    Let $c=\mathbb{R}$ and $p$ be a polynomial function:
-    \begin{displaymath}
-        \lim_{x\to c}p(x)=p(c)
-    \end{displaymath}
+	Let $c=\mathbb{R}$ and $p$ be a polynomial function:
+	\begin{displaymath}
+		\lim_{x\to c}p(x)=p(c)
+	\end{displaymath}
 
-    Let $r$ be a rational function $r(x)=\frac{p(x)}{q(x)}$ and $c=\mathbb{R}$
-    such that $q(c)\neq 0$:
+	Let $r$ be a rational function $r(x)=\frac{p(x)}{q(x)}$ and $c=\mathbb{R}$
+	such that $q(c)\neq 0$:
 
-    \begin{displaymath}
-        \lim_{x\to c}r(x)=r(c)=\frac{p(r)}{q(r)}
-    \end{displaymath}
+	\begin{displaymath}
+		\lim_{x\to c}r(x)=r(c)=\frac{p(r)}{q(r)}
+	\end{displaymath}
 \end{theorem}
 
 \newpage
 \subsubsection{Squeeze Theorem}\label{sec:1.2.2}
 
 \marginnote{
-    Open/closed interval continuity will be discussed later in section
-    \ref{sec:1.3.1}. 
+	Open/closed interval continuity will be discussed later in section
+	\ref{sec:1.3.1}.
 }
 \begin{multicols}{2}[]
-    \begin{theorem}{The Squeeze Theorem}
-        Suppose $h(x)\leq f(x) \leq g(x)$ for all $x$ in an open interval
-        \textit{except} when $x=c$
-        \br
+	\begin{theorem}{The Squeeze Theorem}
+		Suppose $h(x)\leq f(x) \leq g(x)$ for all $x$ in an open interval
+		\textit{except} when $x=c$
+		\br
 
-        Also suppose that $\displaystyle\lim_{x\to c}h(x)=L=\lim_{x\to c}g(x)$ i.e. they share
-        the same limit.
-        \br
+		Also suppose that $\displaystyle\lim_{x\to c}h(x)=L=\lim_{x\to c}g(x)$ i.e. they share
+		the same limit.
+		\br
 
-        This would mean that $\lim_{x\to c}f(x)=L$
-    \end{theorem}
+		This would mean that $\lim_{x\to c}f(x)=L$
+	\end{theorem}
 
-    \begin{theorem}{Trigonomic Limits}
-        \begin{enumerate}
-            \item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$
-            \item $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x} = 0$
-        \end{enumerate}
-    \end{theorem}
+	\begin{theorem}{Trigonomic Limits}
+		\begin{enumerate}
+			\item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$
+			\item $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x} = 0$
+		\end{enumerate}
+	\end{theorem}
 
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = -5,
-                    xmax              = 5,
-                    ymin              = -5,
-                    ymax              = 5,
-                    xtick             = \empty,
-                    ytick             = \empty,
-                    xlabel            = \empty,
-                    ylabel            = \empty,
-                    trig format plots = rad,
-                    width             = 15em,
-                    title             = {Squeeze Theorem}
-                ]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					axis lines        = box,
+					xmin              = -5,
+					xmax              = 5,
+					ymin              = -5,
+					ymax              = 5,
+					xtick             = \empty,
+					ytick             = \empty,
+					xlabel            = \empty,
+					ylabel            = \empty,
+					trig format plots = rad,
+					width             = 15em,
+					title             = {Squeeze Theorem}
+				]
 
-                \addplot [
-                    smooth,
-                    color=red,
-                ]{x^2};
-                \addplot [
-                    smooth,
-                    color=green,
-                ]{-x^2};
+				\addplot [
+					smooth,
+					color=red,
+				]{x^2};
+				\addplot [
+					smooth,
+					color=green,
+				]{-x^2};
 
-                % add shading to regions
+				% add shading to regions
 
-                \addplot [
-                    draw=none,
-                    pattern = north west lines,
-                    pattern color=red,
-                    smooth,
-                ]{x^2};
-                \addplot [
-                    smooth,
-                    draw=none,
-                    pattern = north west lines,
-                    pattern color=green,
-                ]{-x^2};
+				\addplot [
+					draw=none,
+					pattern = north west lines,
+					pattern color=red,
+					smooth,
+				]{x^2};
+				\addplot [
+					smooth,
+					draw=none,
+					pattern = north west lines,
+					pattern color=green,
+				]{-x^2};
 
 
-                \addplot [
-                    smooth,
-                    color=blue,
-                ]{x * sin(x)};
+				\addplot [
+					smooth,
+					color=blue,
+				]{x * sin(x)};
 
-                \addplot [
-                    color=black,
-                    mark=*,
-                ]coordinates{(0, 0)};
+				\addplot [
+					color=black,
+					mark=*,
+				]coordinates{(0, 0)};
 
-                \node[right] at (0, 0) {(c, L)};
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
+				\node[right] at (0, 0) {(c, L)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 \end{multicols}
 
 \begin{practice}{\hyperref[ans:1.2.2-1]{1}}{Squeeze Theorem}\label{prac:1.2.2-1}
-    Show that
-    $\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
-    using the Squeeze Theorem
+	Show that
+	$\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
+	using the Squeeze Theorem
 \end{practice}
 \begin{practice}{\hyperref[ans:1.2.2-2]{2}}{Trigonomic Limit}\label{prac:1.2.2-2}
-    Evaluate:
-    $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
-    \textbf{Hint:} Break it down to the trigonomic functions you know
-    how to take a limit of!
+	Evaluate:
+	$$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
+	\textbf{Hint:} Break it down to the trigonomic functions you know
+	how to take a limit of!
 \end{practice}
 
 \subsection{Continuity}
 
 \begin{multicols}{2}
-\begin{definition}{Definition of Continuity}
-    A function $f$ is continuous if:
-    \begin{enumerate}
-        \item $f(c)$ exists
-        \item $\lim_{x\to c}f(x)$ exists
-        \item $f(c)=\lim_{x\to c}f(c)$
-    \end{enumerate}
-\end{definition}
+	\begin{definition}{Definition of Continuity}
+		A function $f$ is continuous if:
+		\begin{enumerate}
+			\item $f(c)$ exists
+			\item $\lim_{x\to c}f(x)$ exists
+			\item $f(c)=\lim_{x\to c}f(c)$
+		\end{enumerate}
+	\end{definition}
 
-\begin{practice}{\hyperref[ans:1.3-1]{1}}{Determine Continuity}\label{prac:1.3-1}
-    Determine if the function is continuous at $x=2$
-\end{practice}
+	\begin{practice}{\hyperref[ans:1.3-1]{1}}{Determine Continuity}\label{prac:1.3-1}
+		Determine if the function is continuous at $x=2$
+	\end{practice}
 \end{multicols}
 
 \begin{note}{Continuous Functions}
-    The following functions are always continuous \textit{everywhere
-    they're defined}:
-    \begin{itemize}
-        \item polynomial functions
-        \item rational functions
-        \item radical functions
-        \item trigonomic functions
-    \end{itemize}
+	The following functions are always continuous \textit{everywhere
+		they're defined}:
+	\begin{itemize}
+		\item polynomial functions
+		\item rational functions
+		\item radical functions
+		\item trigonomic functions
+	\end{itemize}
 \end{note}
 
 \subsubsection{Open and Closed Intervals}\label{sec:1.3.1}
@@ -411,217 +411,217 @@ $f(x)=c$ for each $c$ in $(a, b)$
 
 A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \begin{itemize}
-    \item $f(x)$ is continuous on $(a, b)$
-    \item $\lim_{x\to b^-}f(x)=f(b)$
-    \item $\lim_{x\to a^+}f(x)=f(a)$
+	\item $f(x)$ is continuous on $(a, b)$
+	\item $\lim_{x\to b^-}f(x)=f(b)$
+	\item $\lim_{x\to a^+}f(x)=f(a)$
 \end{itemize}
 
 \begin{theorem}{Intermediate Value Theorem}
-    If $f(x)$ is continuous on $[a, b], a\neq b$, and $k$ is any number
-    between $f(a)$ and $f(b)$, then there exists a number $c$ in
-    $[a, b]$ such that: $$f(c)=k$$
+	If $f(x)$ is continuous on $[a, b], a\neq b$, and $k$ is any number
+	between $f(a)$ and $f(b)$, then there exists a number $c$ in
+	$[a, b]$ such that: $$f(c)=k$$
 \end{theorem}
 
 \begin{practice}{\hyperref[ans:1.3.1-1]{1}}{Intermediate Value Thorem}
-    \label{prac:1.3.1-1}
-    Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
-    one solution on the interval $(-1, 2)$
+	\label{prac:1.3.1-1}
+	Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
+	one solution on the interval $(-1, 2)$
 \end{practice}
 
 \subsubsection{Discontinuities}
 
 \begin{center}
-\begin{multicols}{2}[
-        There are two cases where discontinuities happen: \marginnote{Another
-        example of removable discontinuity is in example \ref{ex:1.1}}
-    ]{
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = -3,
-                    xmax              = 3,
-                    ymin              = 0,
-                    ymax              = 3,
-                    xtick             = \empty,
-                    ytick             = \empty,
-                    xlabel            = \empty,
-                    ylabel            = \empty,
-                    trig format plots = rad,
-                    width             = 15em,
-                    title             = {Removable Discontinuity}
-                ]
+	\begin{multicols}{2}[
+			There are two cases where discontinuities happen: \marginnote{Another
+				example of removable discontinuity is in example \ref{ex:1.1}}
+		]{
+			\begin{tikzpicture}
+				\begin{axis}[
+						axis lines        = box,
+						xmin              = -3,
+						xmax              = 3,
+						ymin              = 0,
+						ymax              = 3,
+						xtick             = \empty,
+						ytick             = \empty,
+						xlabel            = \empty,
+						ylabel            = \empty,
+						trig format plots = rad,
+						width             = 15em,
+						title             = {Removable Discontinuity}
+					]
 
-                \addplot [
-                    smooth,
-                    color=blue,
-                ]{x^2};
+					\addplot [
+						smooth,
+						color=blue,
+					]{x^2};
 
-                \addplot [
-                    color=blue,
-                    mark=o
-                ]coordinates {(1,1)};
-            \end{axis}
-        \end{tikzpicture}
-        \\
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = -5,
-                    xmax              = 5,
-                    ymin              = -5,
-                    ymax              = 5,
-                    xtick             = \empty,
-                    ytick             = \empty,
-                    xlabel            = \empty,
-                    ylabel            = \empty,
-                    trig format plots = rad,
-                    width             = 15em,
-                    title             = {Non-Removable Discontinuity}
-                ]
+					\addplot [
+						color=blue,
+						mark=o
+					]coordinates {(1,1)};
+				\end{axis}
+			\end{tikzpicture}
+			\\
+			\begin{tikzpicture}
+				\begin{axis}[
+						axis lines        = box,
+						xmin              = -5,
+						xmax              = 5,
+						ymin              = -5,
+						ymax              = 5,
+						xtick             = \empty,
+						ytick             = \empty,
+						xlabel            = \empty,
+						ylabel            = \empty,
+						trig format plots = rad,
+						width             = 15em,
+						title             = {Non-Removable Discontinuity}
+					]
 
-                \addplot [
-                    smooth,
-                    color=blue,
-                    domain=-5:0
-                ]{2};
+					\addplot [
+						smooth,
+						color=blue,
+						domain=-5:0
+					]{2};
 
-                \addplot [
-                    smooth,
-                    color=blue,
-                    domain=0:5
-                ]{-2};
+					\addplot [
+						smooth,
+						color=blue,
+						domain=0:5
+					]{-2};
 
-                \addplot [
-                    color=blue,
-                    mark=o
-                ]coordinates {(0,2)};
+					\addplot [
+						color=blue,
+						mark=o
+					]coordinates {(0,2)};
 
-                \addplot [
-                    color=blue,
-                    mark=*
-                ]coordinates {(0,-2)};
+					\addplot [
+						color=blue,
+						mark=*
+					]coordinates {(0,-2)};
 
-            \end{axis}
-        \end{tikzpicture}
-    }
-\end{multicols}
+				\end{axis}
+			\end{tikzpicture}
+		}
+	\end{multicols}
 \end{center}
 
 \newpage
 \subsubsection{Asymptotes}
 \begin{multicols}{2}[
-\begin{definition}{Asymptotes}
-    \begin{multicols}{2}{
-            Vertical asymptotes are when:
-            \begin{displaymath}
-                \lim_{x\to c^\pm}f(x)=\pm\infty
-            \end{displaymath}
-            \\
-        }
-        {
-            Horizontal asymptotes are when:
-            \begin{displaymath}
-                \lim_{x\to \pm\infty}f(x)=L
-            \end{displaymath}
-        }
-    \end{multicols}
-\end{definition}
-]{
-\begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = -5,
-                    xmax              = 5,
-                    ymin              = -5,
-                    ymax              = 5,
-                    xtick             = \empty,
-                    ytick             = \empty,
-                    xlabel            = \empty,
-                    ylabel            = \empty,
-                    trig format plots = rad,
-                    width             = 15em,
-                    title             = {Vertical Asymptote}
-                ]
+		\begin{definition}{Asymptotes}
+			\begin{multicols}{2}{
+					Vertical asymptotes are when:
+					\begin{displaymath}
+						\lim_{x\to c^\pm}f(x)=\pm\infty
+					\end{displaymath}
+					\\
+				}
+				{
+					Horizontal asymptotes are when:
+					\begin{displaymath}
+						\lim_{x\to \pm\infty}f(x)=L
+					\end{displaymath}
+				}
+			\end{multicols}
+		\end{definition}
+	]{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+						axis lines        = box,
+						xmin              = -5,
+						xmax              = 5,
+						ymin              = -5,
+						ymax              = 5,
+						xtick             = \empty,
+						ytick             = \empty,
+						xlabel            = \empty,
+						ylabel            = \empty,
+						trig format plots = rad,
+						width             = 15em,
+						title             = {Vertical Asymptote}
+					]
 
-                % it draws a vertical line if i don't do this
-                \addplot [
-                    smooth,
-                    color=blue,
-                    samples=50,
-                    domain=-5:-.1
-                ]{1/x};
-                \addplot [
-                    smooth,
-                    color=blue,
-                    samples=50,
-                    domain=.1:5
-                ]{1/x};
+					% it draws a vertical line if i don't do this
+					\addplot [
+						smooth,
+						color=blue,
+						samples=50,
+						domain=-5:-.1
+					]{1/x};
+					\addplot [
+						smooth,
+						color=blue,
+						samples=50,
+						domain=.1:5
+					]{1/x};
 
-                \draw [dashed, red] (0, -5) -- (0, 5);
-                \node [right] at (0, 0) {x=0};
+					\draw [dashed, red] (0, -5) -- (0, 5);
+					\node [right] at (0, 0) {x=0};
 
-            \end{axis}
-        \end{tikzpicture}
-        $f(x)=\frac{1}{x}$
-\end{center}
-}
-{
-\begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = -5,
-                    xmax              = 5,
-                    ymin              = -5,
-                    ymax              = 5,
-                    xtick             = \empty,
-                    ytick             = \empty,
-                    xlabel            = \empty,
-                    ylabel            = \empty,
-                    trig format plots = rad,
-                    width             = 15em,
-                    title             = {Horizontal Asymptote}
-                ]
+				\end{axis}
+			\end{tikzpicture}
+			$f(x)=\frac{1}{x}$
+		\end{center}
+	}
+	{
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+						axis lines        = box,
+						xmin              = -5,
+						xmax              = 5,
+						ymin              = -5,
+						ymax              = 5,
+						xtick             = \empty,
+						ytick             = \empty,
+						xlabel            = \empty,
+						ylabel            = \empty,
+						trig format plots = rad,
+						width             = 15em,
+						title             = {Horizontal Asymptote}
+					]
 
-                % it draws a vertical line if i don't do this
-                \addplot [
-                    smooth,
-                    color=blue,
-                    samples=50,
-                ]{2^x};
+					% it draws a vertical line if i don't do this
+					\addplot [
+						smooth,
+						color=blue,
+						samples=50,
+					]{2^x};
 
-                \draw [dashed, red] (-5, 0) -- (5, 0);
-                \node [below] at (0, 0) {y=0};
+					\draw [dashed, red] (-5, 0) -- (5, 0);
+					\node [below] at (0, 0) {y=0};
 
-            \end{axis}
-        \end{tikzpicture}
-        $f(x)=2^x$
-\end{center}
-}
+				\end{axis}
+			\end{tikzpicture}
+			$f(x)=2^x$
+		\end{center}
+	}
 \end{multicols}
 
 \begin{note}{}
-    We can infer something from vertical asymptotes from this graph:
-    As the denominator becomes closer to zero, and it's a positive number, then
-    the $f(x)$ will approach $\infty$. If the denominator approaches zero and
-    is negative, then $f(x)$ will approach $-\infty$
+	We can infer something from vertical asymptotes from this graph:
+	As the denominator becomes closer to zero, and it's a positive number, then
+	the $f(x)$ will approach $\infty$. If the denominator approaches zero and
+	is negative, then $f(x)$ will approach $-\infty$
 \end{note}
 
 \begin{multicols}{2}
-\begin{practice}{\hyperref[ans:1.3.3-1]{1}}{Curveball Asymptote}\label{prac:1.3.3-1}
-    Find the asymptotes:
-    \begin{displaymath}
-        f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
-    \end{displaymath}
-\end{practice}
+	\begin{practice}{\hyperref[ans:1.3.3-1]{1}}{Curveball Asymptote}\label{prac:1.3.3-1}
+		Find the asymptotes:
+		\begin{displaymath}
+			f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
+		\end{displaymath}
+	\end{practice}
 
-\begin{practice}{\hyperref[ans:1.3.3-2]{2}}{Curveball Trigonometry}\label{prac:1.3.3-2}
-    Find the asymptotes:
-    \begin{displaymath}
-        f(x)=\frac{\sin(x)}{x^3-x}
-    \end{displaymath}
-\end{practice}
+	\begin{practice}{\hyperref[ans:1.3.3-2]{2}}{Curveball Trigonometry}\label{prac:1.3.3-2}
+		Find the asymptotes:
+		\begin{displaymath}
+			f(x)=\frac{\sin(x)}{x^3-x}
+		\end{displaymath}
+	\end{practice}
 \end{multicols}
 
 \newpage
@@ -629,89 +629,89 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 Derivatives are essentially the \textit{slope} of the function at a
 certain point
 
-They also \textit{cannot exist} where the limit doesn't exist at the 
+They also \textit{cannot exist} where the limit doesn't exist at the
 function
 
 \marginnote{This comes in handy when solving physics problems!}
 \begin{note}{Derivatives and Rate of Change}
-To elaborate more on this, the derivative of a function $f(x)$ at point $x=c$
-is the instantaneous rate of change: $$f'(x)\Big|_{x=c}$$ The average rate of
-change of the function on the interval $[a, b]$ is written as such:
-$$\frac{f(b)-f(a)}{b-a}$$
+	To elaborate more on this, the derivative of a function $f(x)$ at point $x=c$
+	is the instantaneous rate of change: $$f'(x)\Big|_{x=c}$$ The average rate of
+	change of the function on the interval $[a, b]$ is written as such:
+	$$\frac{f(b)-f(a)}{b-a}$$
 \end{note}
 
 \subsection{Derivatives and Tangent Lines}
 \begin{multicols}{2}
-Some mathematicians were trying to find out how to draw a line that intersects 
-a function at \textit{only one point}:
-\begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    axis lines        = box,
-                    xmin              = -5,
-                    xmax              = 5,
-                    ymin              = -5,
-                    ymax              = 5,
-                    xtick             = \empty,
-                    ytick             = \empty,
-                    xlabel            = \empty,
-                    ylabel            = \empty,
-                    trig format plots = rad,
-                    width             = 14em,
-                ]
+	Some mathematicians were trying to find out how to draw a line that intersects
+	a function at \textit{only one point}:
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					axis lines        = box,
+					xmin              = -5,
+					xmax              = 5,
+					ymin              = -5,
+					ymax              = 5,
+					xtick             = \empty,
+					ytick             = \empty,
+					xlabel            = \empty,
+					ylabel            = \empty,
+					trig format plots = rad,
+					width             = 14em,
+				]
 
-                % it draws a vertical line if i don't do this
-                \addplot [
-                    smooth,
-                    color=blue,
-                    samples=50,
-                ]{x^2};
+				% it draws a vertical line if i don't do this
+				\addplot [
+					smooth,
+					color=blue,
+					samples=50,
+				]{x^2};
 
-                \addplot [
-                    color=black,
-                    mark=*
-                ]coordinates{(0, 0)};
+				\addplot [
+					color=black,
+					mark=*
+				]coordinates{(0, 0)};
 
-                \draw [dashed, red] (-5, 0) -- (5, 0);
+				\draw [dashed, red] (-5, 0) -- (5, 0);
 
-                \node[below] at (1, 0) {tangent line};
-            \end{axis}
-        \end{tikzpicture}
-\end{center}
+				\node[below] at (1, 0) {tangent line};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 \end{multicols}
 
 However, it takes \textit{two points} to draw a line, so they were confuzzled.
 
-You can just Google up the rest of the lore behind the definition of a limit, 
+You can just Google up the rest of the lore behind the definition of a limit,
 but it boils down to this:
 \begin{theorem}{Derivative via. Limits}
-    \begin{displaymath}
-        \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=f'(c)\text{ and }
-        \lim_{x\to a}\frac{f(x)-f(a)}{x-a}=f'(c)
-    \end{displaymath}
+	\begin{displaymath}
+		\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=f'(c)\text{ and }
+		\lim_{x\to a}\frac{f(x)-f(a)}{x-a}=f'(c)
+	\end{displaymath}
 \end{theorem}
 
 \begin{note}{Alternative Ways of Writing a Derivative}
-There are other ways that mathematicians defined derivative:
-\begin{multicols}{2}[]
-    \begin{itemize}
-        \item $f'(x)$
-        \item $\frac{dy}{dx}$
-        \item $\frac{d}{dx}f(x)$
-        \item $Dx(y)$
-    \end{itemize}
-\end{multicols}
-This isn't essential to know, but it's pretty useful to see how other
-mathematicians may express derivatives
+	There are other ways that mathematicians defined derivative:
+	\begin{multicols}{2}[]
+		\begin{itemize}
+			\item $f'(x)$
+			\item $\frac{dy}{dx}$
+			\item $\frac{d}{dx}f(x)$
+			\item $Dx(y)$
+		\end{itemize}
+	\end{multicols}
+	This isn't essential to know, but it's pretty useful to see how other
+	mathematicians may express derivatives
 \end{note}
 
 \begin{theorem}{Continuity of Derivatives}
-    If function $f(x)$ is differentiable at $x=c$, then it is 
-    \textit{also continuous} at $x=c$
+	If function $f(x)$ is differentiable at $x=c$, then it is
+	\textit{also continuous} at $x=c$
 \end{theorem}
 
 \begin{practice}{\hyperref[ans:2.1-1]{1}}{Finding the Tangent Line}\label{prac:2.1-1}
-    Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$
+	Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$
 \end{practice}
 
 \subsection{Rules of Derivatives}
@@ -720,118 +720,118 @@ mathematicians came up with a lot of shortcuts to evaluate derivatives much
 quicker. Here are the rules in short:
 
 \begin{theorem}{Derivative Rules}
-    \begin{align*}
-        \text{Let: } f(x)&= \text{a function}\\
-                     g(x)&= \text{another function}\\
-                       c &= \text{a constant}
-    \end{align*}
-    \begin{tabular}{ cll }
-        1. & Constant & $\frac{d}{dx}c=0$\\
-        2. & Power & $\frac{d}{dx}x^n=nx^{n-1}$\\
-        3. & Sum and Difference & $\frac{d}{dx}[f(x)\pm g(x)]=f'(x)\pm g'(x)$\\
-        4. & Product& 
-            $\frac{d}{dx}[f(x)g(x)]=f(x)g'(x)+g(x)f'(x)$\\
-        5. & Quotient& 
-            $\frac{d}{dx}[\frac{f(x)}{g(x)}]=
-             \frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{\bigl(g(x)\bigr)^2}$\\
-        6. & Trigonometry& $\frac{d}{dx}\sin(x)=\cos(x)$\\
-        && $\frac{d}{dx}\cos(x)=-\sin(x)$\\
-        && $\frac{d}{dx}\tan(x)=\sec^2(x)$\\
-        && $\frac{d}{dx}\cot(x)=-\csc^2(x)$\\
-        && $\frac{d}{dx}\sec(x)=\sec(x)\tan(x)$\\
-        && $\frac{d}{dx}\csc(x)=-\csc(x)\cot(x)$\\
-        7. & Chain & $\frac{d}{dx}f(g(x))=g'(x)\cdot f'(g(x))$\\
-    \end{tabular}
+	\begin{align*}
+		\text{Let: } f(x) & = \text{a function}       \\
+		g(x)              & = \text{another function} \\
+		c                 & = \text{a constant}
+	\end{align*}
+	\begin{tabular}{ cll }
+		1. & Constant           & $\frac{d}{dx}c=0$                           \\
+		2. & Power              & $\frac{d}{dx}x^n=nx^{n-1}$                  \\
+		3. & Sum and Difference & $\frac{d}{dx}[f(x)\pm g(x)]=f'(x)\pm g'(x)$ \\
+		4. & Product            &
+		$\frac{d}{dx}[f(x)g(x)]=f(x)g'(x)+g(x)f'(x)$                          \\
+		5. & Quotient           &
+		$\frac{d}{dx}[\frac{f(x)}{g(x)}]=
+		\frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{\bigl(g(x)\bigr)^2}$           \\
+		6. & Trigonometry       & $\frac{d}{dx}\sin(x)=\cos(x)$               \\
+		   &                    & $\frac{d}{dx}\cos(x)=-\sin(x)$              \\
+		   &                    & $\frac{d}{dx}\tan(x)=\sec^2(x)$             \\
+		   &                    & $\frac{d}{dx}\cot(x)=-\csc^2(x)$            \\
+		   &                    & $\frac{d}{dx}\sec(x)=\sec(x)\tan(x)$        \\
+		   &                    & $\frac{d}{dx}\csc(x)=-\csc(x)\cot(x)$       \\
+		7. & Chain              & $\frac{d}{dx}f(g(x))=g'(x)\cdot f'(g(x))$   \\
+	\end{tabular}
 \end{theorem}
 
 \marginnote{You don't have to simplify completely on open-ended questions!}
 \begin{example}{Power Rule}
-    \begin{multicols}{2}
-        \begin{enumerate}
-            \item $\displaystyle\frac{d}{dx}(3x^2+4x)=6x+4$
-            \item $\displaystyle\frac{d}{dx}\sqrt{x}=\frac{d}{dx}x^{\frac{1}{2}}
-                =\frac{1}{2}x^{-\frac{1}{2}}$
-            \item $\displaystyle\frac{d}{dx}\sqrt[3]{x^2}=\frac{d}{dx}x^{\frac{2}{3}}
-                =x^{-\frac{1}{3}}$
-        \end{enumerate}
-    \end{multicols}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle\frac{d}{dx}(3x^2+4x)=6x+4$
+			\item $\displaystyle\frac{d}{dx}\sqrt{x}=\frac{d}{dx}x^{\frac{1}{2}}
+				      =\frac{1}{2}x^{-\frac{1}{2}}$
+			\item $\displaystyle\frac{d}{dx}\sqrt[3]{x^2}=\frac{d}{dx}x^{\frac{2}{3}}
+				      =x^{-\frac{1}{3}}$
+		\end{enumerate}
+	\end{multicols}
 \end{example}
 
 \begin{example}{Product and Quotient Rule}
-    \begin{enumerate}
-        \item $\displaystyle\frac{d}{dx}(2x+3)(3x^2+1)=(2x+3)(6x)+(3x^2+1)(2)$
-        \item $\displaystyle\frac{d}{dx}\frac{x^2+3}{2x-1}
-            =\frac{(2x-1)(2x)-(x^2+3)(2)}{(2x-1)^2}$
-    \end{enumerate}
+	\begin{enumerate}
+		\item $\displaystyle\frac{d}{dx}(2x+3)(3x^2+1)=(2x+3)(6x)+(3x^2+1)(2)$
+		\item $\displaystyle\frac{d}{dx}\frac{x^2+3}{2x-1}
+			      =\frac{(2x-1)(2x)-(x^2+3)(2)}{(2x-1)^2}$
+	\end{enumerate}
 \end{example}
 
 \newpage
 \marginnote{$u$-substitution is a good method for solving chain rule problems:}
 \begin{example}{Chain Rule}
-    $$
-    \frac{d}{dx}\sin(x^2+1) \\
-    $$
-    \begin{align*}
-        u&=x^2+1,&v&=\sin(u)\\
-        u'&=2x,&v'&=\cos(u)\\
-        &&v'&=\cos(x^2+1)\\
-    \end{align*}
-    \begin{align*}
-        &=u'\cdot v'\\
-        &=2x\cdot\cos(x^2+1)
-    \end{align*}
+	$$
+		\frac{d}{dx}\sin(x^2+1) \\
+	$$
+	\begin{align*}
+		u  & =x^2+1, & v  & =\sin(u)     \\
+		u' & =2x,    & v' & =\cos(u)     \\
+		   &         & v' & =\cos(x^2+1) \\
+	\end{align*}
+	\begin{align*}
+		 & =u'\cdot v'         \\
+		 & =2x\cdot\cos(x^2+1)
+	\end{align*}
 \end{example}
 \marginnote{Remember: $\sin^2(\theta)+\cos^2(\theta)=1$}
 \begin{example}{$\sin$ and $\cos$ Rule}
-    \begin{enumerate}
-        \item $\displaystyle\frac{d}{dx}
-            \bigl(2\sin(\theta)+3\cos(\theta)-\frac{4}{\theta}\bigr)=
-            2\cos(\theta)-3\sin(\theta)+\frac{4}{\theta^2}
-            $
-        \item $\displaystyle\frac{d}{dx}\bigl(x^2+2\cos(x)\bigr)=2x-2\sin(x)$
-        \item $\displaystyle\frac{d}{d\theta}\bigl(\tan(\theta)\bigr)
-            =\frac{d}{d\theta}\bigl(\frac{\sin(\theta)}{\cos(\theta)}\bigr)
-            =\frac{\cos^2(\theta)+\sin^2(\theta)}{\cos^2(\theta)}
-            =\sec^2(\theta)$
-    \end{enumerate}
+	\begin{enumerate}
+		\item $\displaystyle\frac{d}{dx}
+			      \bigl(2\sin(\theta)+3\cos(\theta)-\frac{4}{\theta}\bigr)=
+			      2\cos(\theta)-3\sin(\theta)+\frac{4}{\theta^2}
+		      $
+		\item $\displaystyle\frac{d}{dx}\bigl(x^2+2\cos(x)\bigr)=2x-2\sin(x)$
+		\item $\displaystyle\frac{d}{d\theta}\bigl(\tan(\theta)\bigr)
+			      =\frac{d}{d\theta}\bigl(\frac{\sin(\theta)}{\cos(\theta)}\bigr)
+			      =\frac{\cos^2(\theta)+\sin^2(\theta)}{\cos^2(\theta)}
+			      =\sec^2(\theta)$
+	\end{enumerate}
 \end{example}
 
 \begin{multicols}{2}
-    \begin{practice}{\hyperref[ans:2.2-1]{1}}{Find Horizontal Tangents}
-        \label{prac:2.2-1}
-        Find the horizontal tangents of $f(x)=x^4-2x^2+3$
-    \end{practice}
-    \begin{practice}{\hyperref[ans:2.2-2]{2}}{Find the Derivative}
-        \label{prac:2.2-2}
-        Find the derivative of \newline$\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
-    \end{practice}
+	\begin{practice}{\hyperref[ans:2.2-1]{1}}{Find Horizontal Tangents}
+		\label{prac:2.2-1}
+		Find the horizontal tangents of $f(x)=x^4-2x^2+3$
+	\end{practice}
+	\begin{practice}{\hyperref[ans:2.2-2]{2}}{Find the Derivative}
+		\label{prac:2.2-2}
+		Find the derivative of \newline$\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
+	\end{practice}
 \end{multicols}
 
 \subsection{Higher Order Derivatives}
 You can take a derivative of derivative:
 \begin{displaymath}
-    \frac{d}{dx}\big[\frac{d}{dx}f(x)\big]=\frac{d^2}{dx^2}\big[f(x)\big]
-    =f''(x)
+	\frac{d}{dx}\big[\frac{d}{dx}f(x)\big]=\frac{d^2}{dx^2}\big[f(x)\big]
+	=f''(x)
 \end{displaymath}
 \begin{example}{Finding the Second Derivative}
-    Finding $f''(x)$ when $f(x)=\frac{2x}{x+1}$:
-    \begin{align*}
-        f'(x)&=\frac{2\cdot(x+1)-(2x)\cdot 1}{(x+1)^2}\\
-        &=\frac{2}{(x+1)^2}\\
-        \\
-        f''(x)&=-\frac{4(x+1)}{(x+4)^4}
-    \end{align*}
+	Finding $f''(x)$ when $f(x)=\frac{2x}{x+1}$:
+	\begin{align*}
+		f'(x)  & =\frac{2\cdot(x+1)-(2x)\cdot 1}{(x+1)^2} \\
+		       & =\frac{2}{(x+1)^2}                       \\
+		\\
+		f''(x) & =-\frac{4(x+1)}{(x+4)^4}
+	\end{align*}
 \end{example}
 \begin{practice}{\hyperref[ans:2.3.1-1]{1}}{Velocity and Acceleration}
-    \label{prac:2.3.1-1}
-    A ball is thrown up into the air, and its position can be modeled into
-    of feet as a function of time: $f(t)=-5(t-2)^2+20$. Find the acceleration
-    of the ball just as it's about to hit the ground again.
+	\label{prac:2.3.1-1}
+	A ball is thrown up into the air, and its position can be modeled into
+	of feet as a function of time: $f(t)=-5(t-2)^2+20$. Find the acceleration
+	of the ball just as it's about to hit the ground again.
 \end{practice}
 \begin{note}{Taking Beyond the Third Derivative}
-    Taking $f'''(x)$ and beyond, it'll start to be tedious writing all of those
-    apostrophes. Mathematicians often write it like this:
-    $$\frac{d^n}{dx^n}\big[f(x)\big]=f^{(n)}(x)$$
+	Taking $f'''(x)$ and beyond, it'll start to be tedious writing all of those
+	apostrophes. Mathematicians often write it like this:
+	$$\frac{d^n}{dx^n}\big[f(x)\big]=f^{(n)}(x)$$
 \end{note}
 
 \subsection{Implicit Differentiation}
@@ -840,18 +840,18 @@ can be isolated on one side of the equation where $y$ is a function of $x$.
 
 What if that's not possible?
 
-That's where \textit{implicit differentiation comes through}. Here are the 
+That's where \textit{implicit differentiation comes through}. Here are the
 steps on how to do that:
 
 \begin{note}{Steps for Implicit Differentiation}
-    \begin{enumerate}
-        \item For all terms of $x$ and $y$, derive in respect to $x$:
-            ($\displaystyle\frac{d}{dx}$) 
-        \item Isolate all terms with $\displaystyle\frac{dy}{dx}$
-        \item Factor out $\displaystyle\frac{dy}{dx}$ where the terms with $\displaystyle\frac{dy}{dx}$
-            are isolated
-        \item Solve for $\displaystyle\frac{dy}{dx}$
-    \end{enumerate}
+	\begin{enumerate}
+		\item For all terms of $x$ and $y$, derive in respect to $x$:
+		      ($\displaystyle\frac{d}{dx}$)
+		\item Isolate all terms with $\displaystyle\frac{dy}{dx}$
+		\item Factor out $\displaystyle\frac{dy}{dx}$ where the terms with $\displaystyle\frac{dy}{dx}$
+		      are isolated
+		\item Solve for $\displaystyle\frac{dy}{dx}$
+	\end{enumerate}
 \end{note}
 It's also important to understand that derivative rules don't have to just
 apply to terms of $x$. The example on the next page shows an implicit
@@ -859,33 +859,33 @@ differentiation using the product rule on \textit{x and y}:
 \newpage
 \marginnote{$\frac{dx}{dx}=1$. I'm only showing it in this example $\frac{dx}{dx}$}
 \begin{example}{Implicit Differentiation with Product Rule}
-    Let's follow those steps to find the derivative of 
-    $\displaystyle x^2y+y^2x=-2$:
+	Let's follow those steps to find the derivative of
+	$\displaystyle x^2y+y^2x=-2$:
 
-    Begin by deriving all terms in respect to $x$:
-    \begin{align*}
-        x^2y+y^2x&=-2\\
-        \frac{d}{dx}x^2y+\frac{d}{dx}y^2x&=\frac{d}{dx}-2\\
-        (x^2\cdot 1\frac{dy}{dx}+y\cdot2x\frac{dx}{dx})
-            +(y^2\cdot1\frac{dx}{dx}+x\cdot2y\frac{dy}{dx})&=0\\
-        x^2\frac{dy}{dx}+2xy+y^2+2yx\frac{dy}{dx}&=0\\
-    \end{align*}
-    Next, isolate terms with $\frac{dy}{dx}$:
-    $$x^2\frac{dy}{dx}+2yx\frac{dy}{dx}=-2xy-y^2$$
-    Factor out $\frac{dy}{dx}$
-    $$(x^2+2yx)\frac{dy}{dx}=-2xy-y^2$$
-    Solve for $\frac{dy}{dx}$
-    $$\frac{dy}{dx}=\frac{-2xy-y^2}{x^2+2yx}$$
+	Begin by deriving all terms in respect to $x$:
+	\begin{align*}
+		x^2y+y^2x                                       & =-2             \\
+		\frac{d}{dx}x^2y+\frac{d}{dx}y^2x               & =\frac{d}{dx}-2 \\
+		(x^2\cdot 1\frac{dy}{dx}+y\cdot2x\frac{dx}{dx})
+		+(y^2\cdot1\frac{dx}{dx}+x\cdot2y\frac{dy}{dx}) & =0              \\
+		x^2\frac{dy}{dx}+2xy+y^2+2yx\frac{dy}{dx}       & =0              \\
+	\end{align*}
+	Next, isolate terms with $\frac{dy}{dx}$:
+	$$x^2\frac{dy}{dx}+2yx\frac{dy}{dx}=-2xy-y^2$$
+	Factor out $\frac{dy}{dx}$
+	$$(x^2+2yx)\frac{dy}{dx}=-2xy-y^2$$
+	Solve for $\frac{dy}{dx}$
+	$$\frac{dy}{dx}=\frac{-2xy-y^2}{x^2+2yx}$$
 \end{example}
 \begin{multicols}{2}
-    \begin{practice}{\hyperref[ans:2.4-1]{1}}{Tangent Lines and Circles}
-        \label{prac:2.4-1}
-        Find the tangent line at $(4,-3)$ of \textit{the circle}:
-        $$x^2+y^2=5^2$$
-    \end{practice}
-    \begin{practice}{\hyperref[ans:2.4-2]{2}}{Differentiate}\label{prac:2.4-2}
-        Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
-    \end{practice}
+	\begin{practice}{\hyperref[ans:2.4-1]{1}}{Tangent Lines and Circles}
+		\label{prac:2.4-1}
+		Find the tangent line at $(4,-3)$ of \textit{the circle}:
+		$$x^2+y^2=5^2$$
+	\end{practice}
+	\begin{practice}{\hyperref[ans:2.4-2]{2}}{Differentiate}\label{prac:2.4-2}
+		Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
+	\end{practice}
 \end{multicols}
 
 \subsection{Related Rates}
@@ -895,140 +895,140 @@ However, in this case, related-rate problems are typically differentiated in
 quantities as well as quantities to find:
 
 \begin{note}{Guideline for Related-Rate Problems}
-\begin{enumerate}
-\item Take note of all quantities \textit{given} and quantities
-    \textit{yet to find} within the problem. Create a sketch if it
-    helps to visualize the problem.
-\item Write equation with those quantities and rates that were
-    identified in the first step.
-\item Implicitly differentiate the equation \textit{with respect to
-    time}
-\item Substitute the given values, and solve for the required rate of
-    change
-\end{enumerate}
+	\begin{enumerate}
+		\item Take note of all quantities \textit{given} and quantities
+		      \textit{yet to find} within the problem. Create a sketch if it
+		      helps to visualize the problem.
+		\item Write equation with those quantities and rates that were
+		      identified in the first step.
+		\item Implicitly differentiate the equation \textit{with respect to
+			      time}
+		\item Substitute the given values, and solve for the required rate of
+		      change
+	\end{enumerate}
 \end{note}
 
 \begin{example}{Related Rate with Cylindrical Glass}
-The radius $r$ of a circle is increasing at a rate of 8 centimeters per
-minute. Find the rate of change of the area when $r = 45$ centimeters.
+	The radius $r$ of a circle is increasing at a rate of 8 centimeters per
+	minute. Find the rate of change of the area when $r = 45$ centimeters.
 
-The first step is to make a table of all given values and values to find:
-\begin{center}
-\begin{tabular}{l|l}
-    Quantity & Value\\
-    \hline
-    ($r$) radius & 45 cm\\
-    $\frac{dr}{dt}$ & $8\frac{cm}{min}$\\
-    $\frac{dA}{dt}$ & ?\\
-\end{tabular}
-\end{center}
+	The first step is to make a table of all given values and values to find:
+	\begin{center}
+		\begin{tabular}{l|l}
+			Quantity        & Value             \\
+			\hline
+			($r$) radius    & 45 cm             \\
+			$\frac{dr}{dt}$ & $8\frac{cm}{min}$ \\
+			$\frac{dA}{dt}$ & ?                 \\
+		\end{tabular}
+	\end{center}
 
-The next step is to write an equation with those given quantities: For this
-case, it'll be the equation of the area of a circle: $$A=\pi r^2$$
+	The next step is to write an equation with those given quantities: For this
+	case, it'll be the equation of the area of a circle: $$A=\pi r^2$$
 
-The next step is to derivatize all terms in respect to time:
+	The next step is to derivatize all terms in respect to time:
 
-\begin{align*}
-\frac{d}{dt}(A)&=\frac{d}{dt}(\pi r^2)\\
-\frac{dA}{dt}&=2\pi r\frac{dr}{dt}
-\end{align*}
+	\begin{align*}
+		\frac{d}{dt}(A) & =\frac{d}{dt}(\pi r^2) \\
+		\frac{dA}{dt}   & =2\pi r\frac{dr}{dt}
+	\end{align*}
 
-Finally, substitute in the given values and solve for the required rate
-of change:
+	Finally, substitute in the given values and solve for the required rate
+	of change:
 
-\begin{align*}
-\frac{dA}{dt}&=2\pi (45cm)(8\frac{cm}{min})\\
-\frac{dA}{dt}&=720\pi\frac{cm^2}{min}
-\end{align*}
+	\begin{align*}
+		\frac{dA}{dt} & =2\pi (45cm)(8\frac{cm}{min}) \\
+		\frac{dA}{dt} & =720\pi\frac{cm^2}{min}
+	\end{align*}
 
-The rate of change of the volume of the barrel is $720\pi\frac{cm^2}{min}$.
+	The rate of change of the volume of the barrel is $720\pi\frac{cm^2}{min}$.
 \end{example}
 
 \begin{practice}{\hyperref[ans:2.5-1]{1}}{Triangles Galore}
-\label{prac:2.5-1}
-A ladder 25 feet long is leaning against the wall of a house. The base
-of the ladder is pulled away from the wall at a rate of 2 feet per
-second. Find the rate at which the angle between the wall of the house and the
-ladder are changing when the base of the ladder is 7 feet from the wall.
+	\label{prac:2.5-1}
+	A ladder 25 feet long is leaning against the wall of a house. The base
+	of the ladder is pulled away from the wall at a rate of 2 feet per
+	second. Find the rate at which the angle between the wall of the house and the
+	ladder are changing when the base of the ladder is 7 feet from the wall.
 \end{practice}
 
 \section{Applications of Differentiation}
 \subsection{Extrema on an Interval}
 \marginnote{Absolute maximum/minimum is also known as the \textit{global}
-maximum/minimum}
+	maximum/minimum}
 \begin{definition}{Extrema}
-    Let function $f$ be defined on an interval $I$ containing $c$:
-    \begin{itemize}
-        \item $f(c)$ is an \textit{absolute minimum of $f$ on $I$} when $f(c)\leq f(x)$
-            for $x$ in $I$
-        \item $f(c)$ is an \textit{absolute maximum of $f$ on $I$} when $f(c)\leq f(x)$
-            for $x$ in $I$
-    \end{itemize}
+	Let function $f$ be defined on an interval $I$ containing $c$:
+	\begin{itemize}
+		\item $f(c)$ is an \textit{absolute minimum of $f$ on $I$} when $f(c)\leq f(x)$
+		      for $x$ in $I$
+		\item $f(c)$ is an \textit{absolute maximum of $f$ on $I$} when $f(c)\leq f(x)$
+		      for $x$ in $I$
+	\end{itemize}
 
-    There can be multiple minimums or maximums on a function interval, but
-    there will only be one absolute minimum or maximum.
+	There can be multiple minimums or maximums on a function interval, but
+	there will only be one absolute minimum or maximum.
 \end{definition}
 
 \begin{note}{Minimums and Maximums}
-    Minimums and maximums occur when the slope of a function changes
-    from positive to negative, or vice versa. 
-    \begin{itemize}
-        \item Minimums occur when the slope before $f(c)<0$ and the slope after
-            $f(c)>0$
-        \item Maximums occur when the slope before $f(c)>0$ and the slope after
-            $f(c)<0$
-    \end{itemize}
+	Minimums and maximums occur when the slope of a function changes
+	from positive to negative, or vice versa.
+	\begin{itemize}
+		\item Minimums occur when the slope before $f(c)<0$ and the slope after
+		      $f(c)>0$
+		\item Maximums occur when the slope before $f(c)>0$ and the slope after
+		      $f(c)<0$
+	\end{itemize}
 \end{note}
 
 Below is a graph to help you graphically identify these terms:
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-                axis lines        = center,
-                xmin              = -3,
-                xmax              = 0.5,
-                ymin              = -5,
-                ymax              = 5,
-                xlabel            = $x$,
-                xtick             = \empty,
-                ylabel            = $f(x)$,
-                ytick             = \empty,
-                variable          = t,
-                trig format plots = rad,
-                legend pos        = outer north east,
-                clip              = false
-            ]
+	\begin{tikzpicture}
+		\begin{axis}[
+				axis lines        = center,
+				xmin              = -3,
+				xmax              = 0.5,
+				ymin              = -5,
+				ymax              = 5,
+				xlabel            = $x$,
+				xtick             = \empty,
+				ylabel            = $f(x)$,
+				ytick             = \empty,
+				variable          = t,
+				trig format plots = rad,
+				legend pos        = outer north east,
+				clip              = false
+			]
 
-            \addplot [
-                domain  =-3:0.5,
-                color   =blue,
-                samples = 100,
-                smooth,
-            ]
-            {x * sin(pi * x)};
-            \addlegendentry{$f(x)$}
+			\addplot [
+				domain  =-3:0.5,
+				color   =blue,
+				samples = 100,
+				smooth,
+			]
+			{x * sin(pi * x)};
+			\addlegendentry{$f(x)$}
 
-            \addplot [
-                domain  =-3:0.5,
-                color   =red,
-                samples = 100,
-                smooth
-            ]
-            {sin(pi * x) + x * cos(pi * x)};
-            \addlegendentry{$f'(x)$}
+			\addplot [
+				domain  =-3:0.5,
+				color   =red,
+				samples = 100,
+				smooth
+			]
+			{sin(pi * x) + x * cos(pi * x)};
+			\addlegendentry{$f'(x)$}
 
-            \addplot [
-                only marks,
-                color=black,
-                mark=*
-            ]coordinates {(-2.54,2.52)(-1.564,-1.532)(-0.646,0.579)(0,0)};
+			\addplot [
+				only marks,
+				color=black,
+				mark=*
+			]coordinates {(-2.54,2.52)(-1.564,-1.532)(-0.646,0.579)(0,0)};
 
-            \node[above] at (-2.540, 2.520) {Absolute Maximum};
-            \node[below] at (-1.564, -1.532) {Absolute Minimum};
-            \node[above] at (-0.646, 0.579) {Relative Maximum};
-            \node[below right] at (0, 0) {Relative Minimum};
-        \end{axis}
-    \end{tikzpicture}
+			\node[above] at (-2.540, 2.520) {Absolute Maximum};
+			\node[below] at (-1.564, -1.532) {Absolute Minimum};
+			\node[above] at (-0.646, 0.579) {Relative Maximum};
+			\node[below right] at (0, 0) {Relative Minimum};
+		\end{axis}
+	\end{tikzpicture}
 \end{center}
 
 Minimums and maximums can also exist on the endpoints of a function's
@@ -1036,346 +1036,346 @@ interval.
 
 \newpage
 \begin{multicols}{2}
-\begin{definition}{Critical Value}
-    If $f(x)$ is defined at $x=c$, then $c$ is a \textit{critical number} if
-    either:
-    \begin{multicols}{2}
-        \begin{itemize}
-            \item $f'(c)=0$
-            \item $f'(c)=\text{DNE}$
-        \end{itemize}
-    \end{multicols}
-    However! $c$ can't be a critical point if $f(c)$ itself is not defined.
-    \bl % lmao i didn't know how to add a blank line lmaooo
-    Critical values are also known as \textit{critical points}. The terms will
-    be used interchangeably throughout the textbook.
-\end{definition}
-    \begin{note}{Finding Absolute Extrema}
-        To find the absolute extrema of $f(x)$ at the interval $[a, b]$
-        \begin{enumerate}
-            \item Find all critical points
-            \item Evaluate $f(x)$ at all critical points \textit{and} at the
-                endpoints $a$ and $b$
-            \item The largest and smallest of those values are the absolute
-                maximum and minimum of $f(x)$ in the interval $[a, b]$
-        \end{enumerate}
-    \end{note}
+	\begin{definition}{Critical Value}
+		If $f(x)$ is defined at $x=c$, then $c$ is a \textit{critical number} if
+		either:
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $f'(c)=0$
+				\item $f'(c)=\text{DNE}$
+			\end{itemize}
+		\end{multicols}
+		However! $c$ can't be a critical point if $f(c)$ itself is not defined.
+		\bl % lmao i didn't know how to add a blank line lmaooo
+		Critical values are also known as \textit{critical points}. The terms will
+		be used interchangeably throughout the textbook.
+	\end{definition}
+	\begin{note}{Finding Absolute Extrema}
+		To find the absolute extrema of $f(x)$ at the interval $[a, b]$
+		\begin{enumerate}
+			\item Find all critical points
+			\item Evaluate $f(x)$ at all critical points \textit{and} at the
+			      endpoints $a$ and $b$
+			\item The largest and smallest of those values are the absolute
+			      maximum and minimum of $f(x)$ in the interval $[a, b]$
+		\end{enumerate}
+	\end{note}
 \end{multicols}
 
 \marginnote{Make sure when doing these problems that the critical values you find
-are \textit{still on the interval} of the function}
+	are \textit{still on the interval} of the function}
 \begin{example}{Finding Absolute Extrema}
-    To find the absolute extrema of $f(x)=3x^4-16x^3+18x^2$ on the interval
-    $[-1, 4]$, we must first find all of its critical points:
-    \begin{align*}
-        f'(x)&=12x^3-48x^2+36x\\
-        0&=12x^3-48x^2+36x\\
-        0&=12x(x^2-4x+3)\\
-        0&=12x(x-3)(x-1)\\
-        x&=\{0, 1, 3\}
-    \end{align*}
-    Now the next step is to evaluate $f(x)$ at those critical points and
-    endpoints:
-    \begin{align*}
-        \text{critical values}\\
-        f(0)&&=0\\
-        f(1)&=3(1)^4-16(1)^3+18(1)^2&=5\\
-        f(3)&=3(3)^4-16(3)^3+18(3)^2&=-27\\
-        \\
-        \text{endpoints}\\
-        f(-1)&=3(-1)^4-16(-1)^3+18(-1)^2&=37\\
-        f(4)&=3(4)^4-16(4)^3+18(4)^2&=32\\
-    \end{align*}
-    The absolute minimum of $f(x)$ is (3, -27), and the absolute maximum of
-    $f(x)$ is (-1, 37)
+	To find the absolute extrema of $f(x)=3x^4-16x^3+18x^2$ on the interval
+	$[-1, 4]$, we must first find all of its critical points:
+	\begin{align*}
+		f'(x) & =12x^3-48x^2+36x \\
+		0     & =12x^3-48x^2+36x \\
+		0     & =12x(x^2-4x+3)   \\
+		0     & =12x(x-3)(x-1)   \\
+		x     & =\{0, 1, 3\}
+	\end{align*}
+	Now the next step is to evaluate $f(x)$ at those critical points and
+	endpoints:
+	\begin{align*}
+		\text{critical values}                    \\
+		f(0)  &                            & =0   \\
+		f(1)  & =3(1)^4-16(1)^3+18(1)^2    & =5   \\
+		f(3)  & =3(3)^4-16(3)^3+18(3)^2    & =-27 \\
+		\\
+		\text{endpoints}                          \\
+		f(-1) & =3(-1)^4-16(-1)^3+18(-1)^2 & =37  \\
+		f(4)  & =3(4)^4-16(4)^3+18(4)^2    & =32  \\
+	\end{align*}
+	The absolute minimum of $f(x)$ is (3, -27), and the absolute maximum of
+	$f(x)$ is (-1, 37)
 \end{example}
 
 \begin{multicols}{2}
-\begin{practice}{\hyperref[ans:3.1-1]{1}}{Finding Absolute Extrema}
-    \label{prac:3.1-1}
-    Find the absolute extrema of $f(\theta)=\sin(\theta)-cos^2(\theta)$ on
-    the interval $[0, 2\pi]$
-\end{practice}
-\begin{practice}{\hyperref[ans:3.1-2]{2}}{Critical Values of a Trigonomic Function}
-    \label{prac:3.1-2}
-    Find all $\theta$ where $\displaystyle f(\theta)=2\cos\theta+\sin^2\theta$
-    is a critical value.
-\end{practice}
+	\begin{practice}{\hyperref[ans:3.1-1]{1}}{Finding Absolute Extrema}
+		\label{prac:3.1-1}
+		Find the absolute extrema of $f(\theta)=\sin(\theta)-cos^2(\theta)$ on
+		the interval $[0, 2\pi]$
+	\end{practice}
+	\begin{practice}{\hyperref[ans:3.1-2]{2}}{Critical Values of a Trigonomic Function}
+		\label{prac:3.1-2}
+		Find all $\theta$ where $\displaystyle f(\theta)=2\cos\theta+\sin^2\theta$
+		is a critical value.
+	\end{practice}
 \end{multicols}
 
 \newpage
 \subsection{Rolle's Theorem \& Mean Value Theorem}
 \begin{multicols}{2}
-\begin{theorem}{Mean Value Theorem}
-    If $f(x)$ is:
-    \begin{itemize}
-        \item continuous on $[a, b]$
-        \item differentiable on $(a, b)$
-    \end{itemize}
-    Then there exists $c$ in $(a, b)$ such that 
-    $$f'(c)=\frac{f(b)-f(a)}{b - a}$$ In layman's terms, this
-    means that there will be a point $c$ such that the function's instantaneous
-    rate of change \textit{ is the same as} its average rate of change
-\end{theorem}
+	\begin{theorem}{Mean Value Theorem}
+		If $f(x)$ is:
+		\begin{itemize}
+			\item continuous on $[a, b]$
+			\item differentiable on $(a, b)$
+		\end{itemize}
+		Then there exists $c$ in $(a, b)$ such that
+		$$f'(c)=\frac{f(b)-f(a)}{b - a}$$ In layman's terms, this
+		means that there will be a point $c$ such that the function's instantaneous
+		rate of change \textit{ is the same as} its average rate of change
+	\end{theorem}
 
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-                scale only axis,
-                width  = 6cm,
-                xmin   = -1.5,
-                xmax   = 2,
-                ymin   = -0.5,
-                ymax   = 2.5,
-                xtick  = \empty,
-                ytick  = \empty,
-                xlabel = \empty,
-                ylabel = \empty,
-                title  = Mean Value Theorem,
-                smooth,
-            ]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					scale only axis,
+					width  = 6cm,
+					xmin   = -1.5,
+					xmax   = 2,
+					ymin   = -0.5,
+					ymax   = 2.5,
+					xtick  = \empty,
+					ytick  = \empty,
+					xlabel = \empty,
+					ylabel = \empty,
+					title  = Mean Value Theorem,
+					smooth,
+				]
 
-            % secant and tangent lines
-            \addplot[
-                domain  = -1:1.5,
-                samples = 1000,
-            ]{x^2};
+				% secant and tangent lines
+				\addplot[
+					domain  = -1:1.5,
+					samples = 1000,
+				]{x^2};
 
-            \addplot[
-                color = red,
-                mark  = o,
-            ] coordinates {(-0.5, 0.25)(1,1)};
+				\addplot[
+					color = red,
+					mark  = o,
+				] coordinates {(-0.5, 0.25)(1,1)};
 
-            \addplot[
-                color = blue,
-                mark  = none,
-            ] coordinates {(-0.5, -5/16) (1, 7/16)};
+				\addplot[
+					color = blue,
+					mark  = none,
+				] coordinates {(-0.5, -5/16) (1, 7/16)};
 
-            % Labels
-            \node[left] at (-0.5, 0.25) {\big(a, f(a)\big)};
-            \node[right] at (1, 1) {\big(b, f(b)\big)};
-            \node[above left] at (0.25, 0.625) {secant line};
-            \node[below right] at (1/4, 1/16) {tangent line};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
+				% Labels
+				\node[left] at (-0.5, 0.25) {\big(a, f(a)\big)};
+				\node[right] at (1, 1) {\big(b, f(b)\big)};
+				\node[above left] at (0.25, 0.625) {secant line};
+				\node[below right] at (1/4, 1/16) {tangent line};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 
-Notice that the slope of the tangent line at $x=c$ is the same as the slope
-of the secant line from $\big(a, f(a)\big)\to\big(b,f(b)\big)$
+	Notice that the slope of the tangent line at $x=c$ is the same as the slope
+	of the secant line from $\big(a, f(a)\big)\to\big(b,f(b)\big)$
 \end{multicols}
 \begin{multicols}{2}
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-                scale only axis,
-                width  = 6cm,
-                xmin   = -1,
-                xmax   = 1,
-                ymin   = -1,
-                ymax   = 1,
-                xtick  = \empty,
-                ytick  = \empty,
-                xlabel = \empty,
-                ylabel = \empty,
-                title  = Rolle's Theorem,
-                smooth,
-            ]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					scale only axis,
+					width  = 6cm,
+					xmin   = -1,
+					xmax   = 1,
+					ymin   = -1,
+					ymax   = 1,
+					xtick  = \empty,
+					ytick  = \empty,
+					xlabel = \empty,
+					ylabel = \empty,
+					title  = Rolle's Theorem,
+					smooth,
+				]
 
-            \addplot[
-                domain  = -1/(2*sqrt(2)):1/(2*sqrt(2)),
-                samples = 100,
-            ]{-8*x^2+0.5};
+				\addplot[
+					domain  = -1/(2*sqrt(2)):1/(2*sqrt(2)),
+					samples = 100,
+				]{-8*x^2+0.5};
 
-            % Mark beginning and end
-            \addplot [
-                only marks,
-                color = red,
-                mark  = o,
-            ] coordinates {(-1/(2*sqrt(2)),-0.5) (1/(2*sqrt(2)), -0.5)};
+				% Mark beginning and end
+				\addplot [
+					only marks,
+					color = red,
+					mark  = o,
+				] coordinates {(-1/(2*sqrt(2)),-0.5) (1/(2*sqrt(2)), -0.5)};
 
-            \addplot [
-                color  =blue,
-                domain = -0.5:0.5,
-            ] {0.5};
+				\addplot [
+					color  =blue,
+					domain = -0.5:0.5,
+				] {0.5};
 
-            % Labels
-            \node[above] at (0, 0.5) {horizontal tangent line};
-            \node[below] at (-0.3536,-0.5) {\big(a,f(a)\big)};
-            \node[below] at (0.3536,-0.5) {\big(b,f(b)\big)};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-\begin{theorem}{Rolle's Theorem}
-    If $f(x)$ is:
-    \begin{itemize}
-        \item continuous on $[a, b]$
-        \item differentiable on $(a, b)$
-        \item $f(a)=f(b)$
-    \end{itemize}
-    Then there must be at least one number $c$ such that $f'(c)=0$
-\end{theorem}
+				% Labels
+				\node[above] at (0, 0.5) {horizontal tangent line};
+				\node[below] at (-0.3536,-0.5) {\big(a,f(a)\big)};
+				\node[below] at (0.3536,-0.5) {\big(b,f(b)\big)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	\begin{theorem}{Rolle's Theorem}
+		If $f(x)$ is:
+		\begin{itemize}
+			\item continuous on $[a, b]$
+			\item differentiable on $(a, b)$
+			\item $f(a)=f(b)$
+		\end{itemize}
+		Then there must be at least one number $c$ such that $f'(c)=0$
+	\end{theorem}
 \end{multicols}
 \begin{multicols}{2}
-\begin{practice}{\hyperref[ans:3.2-1]{1}}{Inequalities}\label{prac:3.2-1}
-    Use the \textit{Mean Value Theorem} to verify the following inequality:
-    $$\sqrt{b}-\sqrt{a}<\frac{b-a}{2\sqrt{b}},b-a>0$$
-    \textbf{Hint:} Divide both sides by $b-a$
-\end{practice}
-\begin{practice}{\hyperref[ans:3.2-2]{2}}{MVT with $f(x)$}\label{prac:3.2-2}
-    The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the 
-    interval $[-1, 8]$. If so, find all $c$ that apply. If the theorem cannot
-    be applied, explain why.
-\end{practice}
+	\begin{practice}{\hyperref[ans:3.2-1]{1}}{Inequalities}\label{prac:3.2-1}
+		Use the \textit{Mean Value Theorem} to verify the following inequality:
+		$$\sqrt{b}-\sqrt{a}<\frac{b-a}{2\sqrt{b}},b-a>0$$
+		\textbf{Hint:} Divide both sides by $b-a$
+	\end{practice}
+	\begin{practice}{\hyperref[ans:3.2-2]{2}}{MVT with $f(x)$}\label{prac:3.2-2}
+		The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the
+		interval $[-1, 8]$. If so, find all $c$ that apply. If the theorem cannot
+		be applied, explain why.
+	\end{practice}
 \end{multicols}
 \begin{practice}{\hyperref[ans:3.2-3]{3}}{IVT \& Rolle's Theorem}\label{prac:3.2-3}
-    Use the \textit{Intermediate Value Theorem} and \textit{Rolle's Theorem} to
-    prove that the following equation has exactly one real solution:
-    $$6x^7+2x^5+3x+6=0$$
+	Use the \textit{Intermediate Value Theorem} and \textit{Rolle's Theorem} to
+	prove that the following equation has exactly one real solution:
+	$$6x^7+2x^5+3x+6=0$$
 \end{practice}
 
 \newpage
 \subsection{Increasing \& Decreasing Functions---First Derivative Test}\label{sec:3.3}
 
 \begin{theorem}{Decreasing and Increasing Functions}
-Let $f$ be a continuous function on the closed interval $[a, b]$, and 
-differentiable on the open interval $(a, b)$:\newline
-\begin{center}
-    \begin{tabular}{|c|c|}
-        \hline
-        Condition & Meaning\\
-        \hline
-        $f'(x)>0$ for x in $(a, b)$ & $f$ is increasing on $[a,b]$\\
-        $f'(x)<0$ for x in $(a, b)$ & $f$ is decreasing on $[a,b]$\\
-        $f'(x)=0$ for x in $(a, b)$ & $f$ is constant on $[a,b]$\\
-        \hline
-    \end{tabular}
-\end{center}
+	Let $f$ be a continuous function on the closed interval $[a, b]$, and
+	differentiable on the open interval $(a, b)$:\newline
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Condition                   & Meaning                      \\
+			\hline
+			$f'(x)>0$ for x in $(a, b)$ & $f$ is increasing on $[a,b]$ \\
+			$f'(x)<0$ for x in $(a, b)$ & $f$ is decreasing on $[a,b]$ \\
+			$f'(x)=0$ for x in $(a, b)$ & $f$ is constant on $[a,b]$   \\
+			\hline
+		\end{tabular}
+	\end{center}
 \end{theorem}
 
 \begin{theorem}{The First Derivative Test}
-    This is used to tell if a \textit{critical point} $x$ is a relative 
-    maximum, relative minimum, or neither. If $f'(x)$ is changing from\ldots
+	This is used to tell if a \textit{critical point} $x$ is a relative
+	maximum, relative minimum, or neither. If $f'(x)$ is changing from\ldots
 
-    \begin{enumerate}
-        \item negative to positive at $x$, then it's a 
-            \textit{relative minimum} at $(x, f(x))$
-        \item positive to negative at $x$, then it's a 
-            \textit{relative minimum} at $(x, f(x))$
-    \end{enumerate}
-    If $f'(x)$ isn't changing at a critical point, then it's neither a
-    relative minimum nor maximum
+	\begin{enumerate}
+		\item negative to positive at $x$, then it's a
+		      \textit{relative minimum} at $(x, f(x))$
+		\item positive to negative at $x$, then it's a
+		      \textit{relative minimum} at $(x, f(x))$
+	\end{enumerate}
+	If $f'(x)$ isn't changing at a critical point, then it's neither a
+	relative minimum nor maximum
 \end{theorem}
 \begin{practice}{\hyperref[ans:3.3-1]{1}}{The First Derivative Test}
-    \label{prac:3.3-1}
-    Given $\displaystyle f(x)=3x^5-4x^3$, find:
-    \begin{enumerate}
-        \item All open interval(s) where $f(x)$ is decreasing or increasing
-        \item Relative minimum and maximum points of $f(x)$
-    \end{enumerate}
+	\label{prac:3.3-1}
+	Given $\displaystyle f(x)=3x^5-4x^3$, find:
+	\begin{enumerate}
+		\item All open interval(s) where $f(x)$ is decreasing or increasing
+		\item Relative minimum and maximum points of $f(x)$
+	\end{enumerate}
 \end{practice}
 
 \newpage
 
 \subsection{Concavity---The Second Derivative Test}
 \marginnote{Inflection points only occur when \newline$f''=0\lor DNE$. In the case of this
-graph, it's at (0, 0)}
+	graph, it's at (0, 0)}
 \begin{multicols}{2}
-\begin{definition}{Concavity}
-Let $f$ be a function that's differentiable on an open interval $I$:
-\begin{itemize}
-    \item $f$ is concave upward when $f'$ is increasing
-    \item $f$ is concave downward when $f'$ is decreasing
-\end{itemize}
-The points at which they happen are called \textit{inflection points}
-\end{definition}
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-                scale only axis,
-                width  = 5cm,
-                xmin   = -2,
-                xmax   = 2,
-                ymin   = -1,
-                ymax   = 1,
-                xtick  = \empty,
-                ytick  = \empty,
-                xlabel = \empty,
-                ylabel = \empty,
-                title  = Inflection Points,
-                smooth,
-            ]
+	\begin{definition}{Concavity}
+		Let $f$ be a function that's differentiable on an open interval $I$:
+		\begin{itemize}
+			\item $f$ is concave upward when $f'$ is increasing
+			\item $f$ is concave downward when $f'$ is decreasing
+		\end{itemize}
+		The points at which they happen are called \textit{inflection points}
+	\end{definition}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					scale only axis,
+					width  = 5cm,
+					xmin   = -2,
+					xmax   = 2,
+					ymin   = -1,
+					ymax   = 1,
+					xtick  = \empty,
+					ytick  = \empty,
+					xlabel = \empty,
+					ylabel = \empty,
+					title  = Inflection Points,
+					smooth,
+				]
 
-            \addplot[
-                smooth,
-                domain        = -2:0,
-                color         = red,
-                pattern color = red,
-                pattern       = crosshatch,
-            ]{x^3};
+				\addplot[
+					smooth,
+					domain        = -2:0,
+					color         = red,
+					pattern color = red,
+					pattern       = crosshatch,
+				]{x^3};
 
-            \addplot[
-                smooth,
-                domain        = 0:2,
-                color         = green,
-                pattern color = green,
-                pattern       = crosshatch,
-            ]{x^3};
+				\addplot[
+					smooth,
+					domain        = 0:2,
+					color         = green,
+					pattern color = green,
+					pattern       = crosshatch,
+				]{x^3};
 
-            % Mark beginning and end
-            \addplot [
-                only marks,
-                color = blue,
-                mark  = o,
-            ] coordinates {(0,0)};
+				% Mark beginning and end
+				\addplot [
+					only marks,
+					color = blue,
+					mark  = o,
+				] coordinates {(0,0)};
 
-    \end{axis}
-    \end{tikzpicture}
-\end{center}
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 \end{multicols}
 
 \begin{theorem}{Second Derivative Test}
-Let $f$ be a function whose $f'(c)=0$ and its second derivative exists on an
-open interval cnotaining $c$:
-\begin{itemize}
-    \item $\big(c, f(c)\big)$ is a relative minimum if $f''(c)>0$
-    \item $\big(c, f(c)\big)$ is a relative maximum if $f''(c)<0$
-\end{itemize}
-If $f''(c)=0$ then the test fails. Use the first derivative test instead.
+	Let $f$ be a function whose $f'(c)=0$ and its second derivative exists on an
+	open interval cnotaining $c$:
+	\begin{itemize}
+		\item $\big(c, f(c)\big)$ is a relative minimum if $f''(c)>0$
+		\item $\big(c, f(c)\big)$ is a relative maximum if $f''(c)<0$
+	\end{itemize}
+	If $f''(c)=0$ then the test fails. Use the first derivative test instead.
 \end{theorem}
 
 \begin{displayquote}
-An alternative way to decide whether a critical number is a
-relative maximum or minimum
+	An alternative way to decide whether a critical number is a
+	relative maximum or minimum
 \end{displayquote}
 
 \begin{example}{Relative Extrema with Second Derivative Test}
-Find all relative extrema of $$f(x)=3x^4+8x^3-18x^2+5$$
-\begin{align*}
-f'(x)&=12x^3+24x^3-36x\\
-&=12(x+3)(x-1)
-\end{align*}
-Critical numbers at: $x=\{-3, 0, 1\}$
+	Find all relative extrema of $$f(x)=3x^4+8x^3-18x^2+5$$
+	\begin{align*}
+		f'(x) & =12x^3+24x^3-36x \\
+		      & =12(x+3)(x-1)
+	\end{align*}
+	Critical numbers at: $x=\{-3, 0, 1\}$
 
-Now we find the second derivative and find maximums and minimums:
-\begin{align*}
-f''(x)&=36x^2+48x-36\\
-&=12(3x^2+4x-3)\\
-\\
-f''(-3)&=12\big(3(-3)^2+4(-3)-3\big)>0\\
-f''(0)&=12\big(3(0)^2+4(0)-3\big)<0\\
-f''(1)&=12\big(3(1)^2+4(1)-3\big)>0\\
-\end{align*}
-The relative minimum is at $\big(-3, f(-3)\big), \big(1, f(1)\big)$,
-and relative maximum is at $\big(0, f(0)\big)$
+	Now we find the second derivative and find maximums and minimums:
+	\begin{align*}
+		f''(x)  & =36x^2+48x-36                  \\
+		        & =12(3x^2+4x-3)                 \\
+		\\
+		f''(-3) & =12\big(3(-3)^2+4(-3)-3\big)>0 \\
+		f''(0)  & =12\big(3(0)^2+4(0)-3\big)<0   \\
+		f''(1)  & =12\big(3(1)^2+4(1)-3\big)>0   \\
+	\end{align*}
+	The relative minimum is at $\big(-3, f(-3)\big), \big(1, f(1)\big)$,
+	and relative maximum is at $\big(0, f(0)\big)$
 \end{example}
 
 \begin{multicols}{2}
-\begin{practice}{\hyperref[ans:3.4-1]{1}}{}
-\label{prac:3.4-1}
-\end{practice}
-\begin{practice}{\hyperref[ans:3.4-2]{2}}{}
-\label{prac:3.4-2}
-\end{practice}
+	\begin{practice}{\hyperref[ans:3.4-1]{1}}{}
+		\label{prac:3.4-1}
+	\end{practice}
+	\begin{practice}{\hyperref[ans:3.4-2]{2}}{}
+		\label{prac:3.4-2}
+	\end{practice}
 \end{multicols}
 
 \marginnote{This part is going to contain many example problems}
@@ -1383,74 +1383,74 @@ and relative maximum is at $\big(0, f(0)\big)$
 Some of the more common applications of calculus involve finding maximum and
 minimum values. There's a couple of steps in doing so:
 \begin{note}{Optimization Problems}
-\begin{enumerate}
-\item Identify all given values, and, draw a sketch if you need
-\item Write an equation that you want to find the maximum / minimum of
-\item Reduce it to use one single variable
-\item Determine the domain of the function
-\item Find the minimums / maximums of that primary equation
-\end{enumerate}
+	\begin{enumerate}
+		\item Identify all given values, and, draw a sketch if you need
+		\item Write an equation that you want to find the maximum / minimum of
+		\item Reduce it to use one single variable
+		\item Determine the domain of the function
+		\item Find the minimums / maximums of that primary equation
+	\end{enumerate}
 \end{note}
 \begin{example}{Largest Area}
-A farmer has 2400ft of fencing and wants to fence off a rectangular field that
-borders a straight river. No fencing needed along river. What are the dimensions
-with the largest area?
-\bl
-Let's set up some equations:
-\begin{align*}
-2x+y&=2400\implies y=2400-2x\\
-x\cdot y&=A\implies x\cdot(2400-2x)=f(x)\implies 2400x-2x^2=f(x)
-\end{align*}
-The domain of the function is $$0\leq x\leq 1200$$
-Now we find the derivative of that function to find its critical numbers, and
-from there determine the maximum and minimum areas:
-\begin{align*}
-f'(x)&=2400-4x=4(600-x)\\
-0&=4(600-x)\\
-x&=600
-\end{align*}
-600 is the only maximum value!\newline Now we find all areas $f(x)$ that are
-critical values including numbers at the extrema to determine the maximum area:
-\begin{align*}
-f(0)&=0\\
-f(600)&=(600)(2400-2(600))=720000\\
-f(1200)&=(1200)(2400-2(1200))=0
-\end{align*}
-Now that we have the maximum area of $720,000\text{ft}^2$, we can use that value to find the dimensions of the fence:
-\begin{align*}
-y&=2400-2(600)
-y&=1200
-\end{align*}
-The dimensons are x=600ft, y=1200ft
+	A farmer has 2400ft of fencing and wants to fence off a rectangular field that
+	borders a straight river. No fencing needed along river. What are the dimensions
+	with the largest area?
+	\bl
+	Let's set up some equations:
+	\begin{align*}
+		2x+y     & =2400\implies y=2400-2x                                 \\
+		x\cdot y & =A\implies x\cdot(2400-2x)=f(x)\implies 2400x-2x^2=f(x)
+	\end{align*}
+	The domain of the function is $$0\leq x\leq 1200$$
+	Now we find the derivative of that function to find its critical numbers, and
+	from there determine the maximum and minimum areas:
+	\begin{align*}
+		f'(x) & =2400-4x=4(600-x) \\
+		0     & =4(600-x)         \\
+		x     & =600
+	\end{align*}
+	600 is the only maximum value!\newline Now we find all areas $f(x)$ that are
+	critical values including numbers at the extrema to determine the maximum area:
+	\begin{align*}
+		f(0)    & =0                         \\
+		f(600)  & =(600)(2400-2(600))=720000 \\
+		f(1200) & =(1200)(2400-2(1200))=0
+	\end{align*}
+	Now that we have the maximum area of $720,000\text{ft}^2$, we can use that value to find the dimensions of the fence:
+	\begin{align*}
+		y & =2400-2(600)
+		y & =1200
+	\end{align*}
+	The dimensons are x=600ft, y=1200ft
 \end{example}
 
 % TODO: draw a diagram for this problem
 \begin{example}{Maximum Volume}
-There's a box with as square base that is open at the top. Find the dimensions of the box with the maximum area, given that the box only has $102\text{in}^2$ of surface area:\newline
-\begin{center}
-\begin{tabular}{ll}
-Constaint & $x^2+4xy=108\implies y=\frac{108-x^2}{4x}$\\
-Maximize & $V=x^2y\implies V=27x-\frac{x^3}{4}$
-\end{tabular}
-\end{center}
-The domain of the function is $0\leq x\leq\sqrt{108}$. Let's find its critical
-values now that we have everything we need:
-\begin{align*}
-V'=27-\frac{3}{4}x^2
-0=\pm 6
-\end{align*}
-Since -6 is out of range, we have x=6 has the only valid critical number:
-\begin{align*}
-f(0)&=0\\
-f(6)&=108\\
-f(\sqrt{108})&=0
-\end{align*}
-108 is the maximum area of the box. Let's find the height now that we know its
-max base length: $$y=\frac{108-(6)^2}{4(6)}=3$$
-The dimensions are: 6x3x6 inches, where the first value is width, the second value is height, and the third value is depth
+	There's a box with as square base that is open at the top. Find the dimensions of the box with the maximum area, given that the box only has $102\text{in}^2$ of surface area:\newline
+	\begin{center}
+		\begin{tabular}{ll}
+			Constaint & $x^2+4xy=108\implies y=\frac{108-x^2}{4x}$ \\
+			Maximize  & $V=x^2y\implies V=27x-\frac{x^3}{4}$
+		\end{tabular}
+	\end{center}
+	The domain of the function is $0\leq x\leq\sqrt{108}$. Let's find its critical
+	values now that we have everything we need:
+	\begin{align*}
+		V'=27-\frac{3}{4}x^2
+		0=\pm 6
+	\end{align*}
+	Since -6 is out of range, we have x=6 has the only valid critical number:
+	\begin{align*}
+		f(0)          & =0   \\
+		f(6)          & =108 \\
+		f(\sqrt{108}) & =0
+	\end{align*}
+	108 is the maximum area of the box. Let's find the height now that we know its
+	max base length: $$y=\frac{108-(6)^2}{4(6)}=3$$
+	The dimensions are: 6x3x6 inches, where the first value is width, the second value is height, and the third value is depth
 \end{example}
 \begin{practice}{\hyperref[ans:3.5-1]{1}}{Maximum Revenue}\label{prac:3.5-1}
-A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
+	A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
 \end{practice}
 
 % \subsection{Limits at Infinity}
@@ -1460,35 +1460,35 @@ A company makes 1000 units a week, and sells an average of 500 units a week at \
 % TODO: revise this section
 \subsection{Differentials}
 \begin{definition}{Differential}
-Let $y=f(x)$ be a function that is differentiable on the open interval $x$:
-\begin{itemize}
-\item The \textit{differential of x} (dx, or \Delta x) is $x\in\mathbb{R}, x\neq 0$
-\item The \textit{differential of y} (dy, or \Delta y) is $dy=f'(x)dx$
-\end{itemize}
+	Let $y=f(x)$ be a function that is differentiable on the open interval $x$:
+	\begin{itemize}
+		\item The \textit{differential of x} (dx, or \Delta x) is $x\in\mathbb{R}, x\neq 0$
+		\item The \textit{differential of y} (dy, or \Delta y) is $dy=f'(x)dx$
+	\end{itemize}
 \end{definition}
 \begin{theorem}{Linear Approximination}
-We can find the change of $y=f(x)$ when $x$ changes by:
-\begin{align*}
-y&=\Delta y\\
-&=f(x+\Delta x)-f(x)
-\end{align*}
+	We can find the change of $y=f(x)$ when $x$ changes by:
+	\begin{align*}
+		y & =\Delta y           \\
+		  & =f(x+\Delta x)-f(x)
+	\end{align*}
 \end{theorem}
 \begin{example}{Differential}
-Given $\displaystyle y=f(x)=\frac{2x-3}{x+1}=2-\frac{5}{x+1}$:
-\begin{enumerate}
-\item Find the differential $dy$
-\item Find $\Delta y$ and $dy$ when x=-2 and $\Delta x=dx=0.1$
-\end{enumerate}
+	Given $\displaystyle y=f(x)=\frac{2x-3}{x+1}=2-\frac{5}{x+1}$:
+	\begin{enumerate}
+		\item Find the differential $dy$
+		\item Find $\Delta y$ and $dy$ when x=-2 and $\Delta x=dx=0.1$
+	\end{enumerate}
 
-% TODO: draw a diagram for this problem
+	% TODO: draw a diagram for this problem
 \end{example}
 \begin{practice}{\hyperref[ans:3.6-1]{1}}{Volume of Balloon}
-The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
-\begin{enumerate}
-\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
-\item Do the same with the surface area
-\item Approximate the percent error in parts 1 and 2 
-\end{enumerate}
+	The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
+	\begin{enumerate}
+		\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
+		\item Do the same with the surface area
+		\item Approximate the percent error in parts 1 and 2
+	\end{enumerate}
 \end{practice}
 
 
@@ -1497,18 +1497,18 @@ The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
 
 \subsection*{\ref{prac:1.1.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
 \label{ans:1.1.2-1}
-Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the 
+Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the
 $\epsilon-\delta$ definition:
 \br
 The first thing we would have to do is to find $\delta$:
 \begin{align*}
-    \lvert (10x-6)-(24) \rvert &<\varepsilon  \\
-    \lvert 10x-30 \rvert &<\varepsilon \\
-    10\lvert x-3 \rvert &<\varepsilon \\
-    \lvert x-3 \rvert &<\frac{\varepsilon}{10}
+	\lvert (10x-6)-(24) \rvert & <\varepsilon            \\
+	\lvert 10x-30 \rvert       & <\varepsilon            \\
+	10\lvert x-3 \rvert        & <\varepsilon            \\
+	\lvert x-3 \rvert          & <\frac{\varepsilon}{10}
 \end{align*}
 \begin{align*}
-    0 < \lvert x - (3)\rvert &< \delta
+	0 < \lvert x - (3)\rvert & < \delta
 \end{align*}
 
 Notice how $\delta=\frac{\epsilon}{10}$. This guarantees that
@@ -1521,16 +1521,16 @@ using the Squeeze Theorem
 \br
 We know that $\displaystyle-1\leq\cos(\frac{2\pi}{3x})\leq 1$:
 \begin{align*}
-    -\sqrt{x^3+x^2}&\leq\cos(\frac{2\pi}{3x})\sqrt{x^3+x^2}&\leq
-    \sqrt{x^3+x^2}
-    \\
-    \lim_{x\to 0}-\sqrt{x^3+x^2}&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
-    \sqrt{x^3+x^2}&\leq\lim_{x\to 0}\sqrt{x^3+x^2}
-    \\
-    -\sqrt{(0)^3+(0)^2}&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
-    \sqrt{x^3+x^2}&\leq\sqrt{(0)^3+(0)^2}
-    \\
-    0&\leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})&\leq0 
+	-\sqrt{x^3+x^2}              & \leq\cos(\frac{2\pi}{3x})\sqrt{x^3+x^2} & \leq
+	\sqrt{x^3+x^2}
+	\\
+	\lim_{x\to 0}-\sqrt{x^3+x^2} & \leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
+	\sqrt{x^3+x^2}               & \leq\lim_{x\to 0}\sqrt{x^3+x^2}
+	\\
+	-\sqrt{(0)^3+(0)^2}          & \leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})
+	\sqrt{x^3+x^2}               & \leq\sqrt{(0)^3+(0)^2}
+	\\
+	0                            & \leq\lim_{x\to 0}\cos(\frac{2\pi}{3x})  & \leq0
 \end{align*}
 
 Because of the Squeeze Theorem, $\displaystyle\lim_{x\to 0}\cos(\frac{2\pi}{3x})=0$
@@ -1542,8 +1542,8 @@ $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
 
 Let's start by breaking down $\tan$ into $\sin$ and $\cos$:
 \begin{align*}
-    &\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}\\
-    =&\lim_{x\to 0}\frac{\frac{\sin(3x)}{\cos(3x)}}{4x+\sin(2x)}\\
+	  & \lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}                  \\
+	= & \lim_{x\to 0}\frac{\frac{\sin(3x)}{\cos(3x)}}{4x+\sin(2x)} \\
 \end{align*}
 \continued
 
@@ -1551,11 +1551,11 @@ Next, you multiply by a \textit{big 1}. In this case it would be
 $\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$
 
 \begin{align*}
-    &\lim_{x\to 0}\frac{\frac{\sin(3x)}{\cos(3x)}}{4x+\sin(2x)}\cdot\frac{\frac{1}{x}}{\frac{1}{x}}\\
-    =&\lim_{x\to 0}\big(\frac{\frac{1}{\cos(x)}\cdot\frac{\sin(3x)}{x}\big)}{\frac{4x+\sin(2x)}{x}}\\
-    =&\frac{\lim_{x\to 0}\frac{1}{\cos(x)}\cdot\frac{\sin(3x)}{x}}{\lim_{x\to 0}\big(4+\frac{\sin(2x)}{x}\big)}\\
-    =&\frac{(1)(3)}{4+(2)}=\frac{3}{6}\\
-    =&\frac{1}{2}
+	  & \lim_{x\to 0}\frac{\frac{\sin(3x)}{\cos(3x)}}{4x+\sin(2x)}\cdot\frac{\frac{1}{x}}{\frac{1}{x}}            \\
+	= & \lim_{x\to 0}\big(\frac{\frac{1}{\cos(x)}\cdot\frac{\sin(3x)}{x}\big)}{\frac{4x+\sin(2x)}{x}}             \\
+	= & \frac{\lim_{x\to 0}\frac{1}{\cos(x)}\cdot\frac{\sin(3x)}{x}}{\lim_{x\to 0}\big(4+\frac{\sin(2x)}{x}\big)} \\
+	= & \frac{(1)(3)}{4+(2)}=\frac{3}{6}                                                                          \\
+	= & \frac{1}{2}
 \end{align*}
 
 That problem was quite tricky, but we did it \emoji{smiling-face-with-hearts}
@@ -1564,24 +1564,24 @@ That problem was quite tricky, but we did it \emoji{smiling-face-with-hearts}
 Determine if the function is continuous at $x=2$
 
 \begin{displaymath}
-    f(x) = \begin{cases}
-        \frac{x^2-x-2}{x-2} &\text{for } x\neq 2\\
-        1 &\text{for } x=2
-    \end{cases}
+	f(x) = \begin{cases}
+		\frac{x^2-x-2}{x-2} & \text{for } x\neq 2 \\
+		1                   & \text{for } x=2
+	\end{cases}
 \end{displaymath}
 \br
 
 Let's start by plugging in $x=2$ for the case that $x\neq2$ to see if it equals
 the case where $x=2$:
 \begin{displaymath}
-    \frac{x^2-x-2}{x-2}=\frac{(2)^2-(2)-2}{(2)-2}=\frac{0}{0}
+	\frac{x^2-x-2}{x-2}=\frac{(2)^2-(2)-2}{(2)-2}=\frac{0}{0}
 \end{displaymath}
 
 That's so \textit{uncool}. Let's factor it out and try again!
 \begin{align*}
-    \frac{x^2-x-2}{x-2} = \frac{(x-2)(x+1)}{x-2} &= x+1\\
-    &=(2)+1\\
-    &=3
+	\frac{x^2-x-2}{x-2} = \frac{(x-2)(x+1)}{x-2} & = x+1  \\
+	                                             & =(2)+1 \\
+	                                             & =3
 \end{align*}
 
 Now, we compare both that with the case where $x=2$ to see if they
@@ -1595,40 +1595,40 @@ $\therefore f(x)$ is \textit{not continuous} at $x=2$!
 Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
 one solution on the interval $(-1, 2)$
 \br
-Let's treat $x^3+x^2$ as a function $f(x)$. We know that the function is 
-continuous on the interval $[-1, 2]$. The next thing we have to do is to 
+Let's treat $x^3+x^2$ as a function $f(x)$. We know that the function is
+continuous on the interval $[-1, 2]$. The next thing we have to do is to
 evaluate $f(-1)$ and $f(2)$ to compare if they are equal:
 \begin{align*}
-    f(-1)&=(-1)^3+(-1)^2\\
-    f(2)&=(2)^3+(2)^2\\
-    f(-1)&\neq f(2)\\
+	f(-1) & =(-1)^3+(-1)^2 \\
+	f(2)  & =(2)^3+(2)^2   \\
+	f(-1) & \neq f(2)      \\
 \end{align*}
 
 Now that we know that $f(-1)$ and $f(2)$ are not equal, and $f(-1)<1<f(2)$, we
-can conclude that there is a number '$c$' in the interval $(-1, 2)$ such that 
+can conclude that there is a number '$c$' in the interval $(-1, 2)$ such that
 $f(c)=1$
 
 \subsection*{\ref{prac:1.3.3-1}---Curveball Asymptote}\label{ans:1.3.3-1}
 Find the asymptotes:
 \begin{displaymath}
-    f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
+	f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
 \end{displaymath}
 \br
 You'd \textit{think} that the asymptotes are $x=\{2, 4\}$, but you must
 consider the \textit{domain} at which $f(x)$ exists.
 \\
-Because this is a square root function, $(x-1)(x-3)$ \textit{cannot be a 
-negative number}. Plugging in $x=2$ would result in a negative square root.
+Because this is a square root function, $(x-1)(x-3)$ \textit{cannot be a
+	negative number}. Plugging in $x=2$ would result in a negative square root.
 
 \subsection*{\ref{prac:1.3.3-2}---Curveball Trigonometry}\label{ans:1.3.3-2}
 Find the asymptotes:
 \begin{displaymath}
-    f(x)=\frac{\sin(x)}{x^3-x}
+	f(x)=\frac{\sin(x)}{x^3-x}
 \end{displaymath}
 \br
 Let's start by factoring out the denominator:
 \begin{displaymath}
-    f(x)=\frac{\sin(x)}{x(x-1)(x+1)}
+	f(x)=\frac{\sin(x)}{x(x-1)(x+1)}
 \end{displaymath}
 \marginnote{Moral of the story: double-check your answers!}
 You'd \textit{think} that the asymptotes are $x=\{-1, 0, 1\}$. However,
@@ -1641,34 +1641,34 @@ Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$:
 \br
 Let's start by finding the derivative of the function at $x=-2$:
 \begin{align*}
-    f'(-2)&=\lim_{h\to 0}\frac{f(-2+h)-f(-2)}{h} \\
-    &=\lim_{h\to 0}\frac{\bigl((-2+h)^2+1\bigr)-(5)}{h} \\
-    &=\lim_{h\to 0}\frac{h^2-4h}{h} \\
-    &=\lim_{h\to 0}-4+h = -4 + (0)\\
-    &=-4\\
+	f'(-2) & =\lim_{h\to 0}\frac{f(-2+h)-f(-2)}{h}              \\
+	       & =\lim_{h\to 0}\frac{\bigl((-2+h)^2+1\bigr)-(5)}{h} \\
+	       & =\lim_{h\to 0}\frac{h^2-4h}{h}                     \\
+	       & =\lim_{h\to 0}-4+h = -4 + (0)                      \\
+	       & =-4                                                \\
 \end{align*}
-Now we must write a point-slope equation with that derivative. 
+Now we must write a point-slope equation with that derivative.
 \begin{align*}
-    y-y_1&=m(x-x_1) \\
-    y-(5)&=(-4)(x-(-2)) \\
-    y-5&=-4(x+2)
+	y-y_1 & =m(x-x_1)     \\
+	y-(5) & =(-4)(x-(-2)) \\
+	y-5   & =-4(x+2)
 \end{align*}
 
 Tangent line to $f(x)=x^2+1$ at $(-2, 5)$ has equation: $$y-5=-4(x+2)$$
 \begin{note}{Alternative Route}
-    Another way to solve this would be to find the limit of $f(x)$ when $x=c$ 
-    and then plugging in $c$ with any number that you want:
-    \begin{align*}
-        f'(c)&=\lim_{h\to 0}\frac{f(c+h)-f(c)}{h} \\
-        &=\lim_{h\to 0}\frac{\bigl((c+h)^2+1\bigr)-(c^2+1)}{h} \\
-        &=\lim_{h\to 0}\frac{(c^2+2ch+h^2+1)-(c^2+1)}{h} \\
-        &=\lim_{h\to 0}\frac{2ch+h^2}{h} = \lim_{h\to 0}\frac{h(2c+h)}{h}\\
-        &=\lim_{h\to 0} 2c+h=2c+(0)\\
-        &=2c\\
-        \\
-        c&=2\\
-        f'(-2)&=2(-2)=-4
-    \end{align*}
+	Another way to solve this would be to find the limit of $f(x)$ when $x=c$
+	and then plugging in $c$ with any number that you want:
+	\begin{align*}
+		f'(c)  & =\lim_{h\to 0}\frac{f(c+h)-f(c)}{h}                              \\
+		       & =\lim_{h\to 0}\frac{\bigl((c+h)^2+1\bigr)-(c^2+1)}{h}            \\
+		       & =\lim_{h\to 0}\frac{(c^2+2ch+h^2+1)-(c^2+1)}{h}                  \\
+		       & =\lim_{h\to 0}\frac{2ch+h^2}{h} = \lim_{h\to 0}\frac{h(2c+h)}{h} \\
+		       & =\lim_{h\to 0} 2c+h=2c+(0)                                       \\
+		       & =2c                                                              \\
+		\\
+		c      & =2                                                               \\
+		f'(-2) & =2(-2)=-4
+	\end{align*}
 \end{note}
 
 \newpage
@@ -1678,18 +1678,18 @@ Find the horizontal tangents of $f(x)=x^4-2x^2+3$:
 The question is essentially asking us to find the tangent lines whose
 slopes are equal to 0: $f'(x)=0$
 \begin{align*}
-    \frac{d}{dx}f(x)&=0\\
-    \frac{d}{dx}(x^4-2x^2+3)&=0\\
-    4x^3-4x &=0\\
-    4x(x^2-1)&=0\\
-    \\
-    x=\{0, \pm 1\}\\
+	\frac{d}{dx}f(x)         & =0 \\
+	\frac{d}{dx}(x^4-2x^2+3) & =0 \\
+	4x^3-4x                  & =0 \\
+	4x(x^2-1)                & =0 \\
+	\\
+	x=\{0, \pm 1\}                \\
 \end{align*}
 Now we plug in these values into $f(x)$ to get the tangent lines:
 \begin{align*}
-    f(0)&=(0)^4-2(x)^2+3&=3\\
-    f(-1)&=(-1)^4-2(-1)^2+3&=2\\
-    f(1)&=(1)^4-2(1)^2+3&=2\\
+	f(0)  & =(0)^4-2(x)^2+3   & =3 \\
+	f(-1) & =(-1)^4-2(-1)^2+3 & =2 \\
+	f(1)  & =(1)^4-2(1)^2+3   & =2 \\
 \end{align*}
 So the horizontal tangent lines are at $y=3$ and $y=2$
 
@@ -1701,10 +1701,10 @@ it's nesting twice: $f(g(h(x)))$
 
 It's best to use $u$-substitution for this problem:
 \begin{align*}
-    u&=x^2+3 & v&=u^5+x & w&=v^2\\
-    u'&=2x & v'&=5u^4\cdot u'+1 & w'&=2v\\
-     && v'&=5(x^2+3)^4\cdot 2x+1 & w'&=2(u^5+x)\\
-     && && w'&=2\big((x^2+3)^5+x\big)\\
+	u  & =x^2+3 & v  & =u^5+x                & w  & =v^2                    \\
+	u' & =2x    & v' & =5u^4\cdot u'+1       & w' & =2v                     \\
+	   &        & v' & =5(x^2+3)^4\cdot 2x+1 & w' & =2(u^5+x)               \\
+	   &        &    &                       & w' & =2\big((x^2+3)^5+x\big) \\
 \end{align*}
 
 \marginnote{Don't simplify \textit{unless needed}}
@@ -1719,32 +1719,32 @@ acceleration of the ball just as it's about to hit the ground again.
 \br
 To find when the ball reaches the ground, we must find when $p(t)=0$:
 \begin{align*}
-    p(t)&=-5(t-2)^2+20\\
-       0&=-5(t-2)^2+20\\
-    5(t-2)^2&=20\\
-    (t-2)^2&=4\\
-    t-2&=2\\
-    t&=4\\
+	p(t)     & =-5(t-2)^2+20 \\
+	0        & =-5(t-2)^2+20 \\
+	5(t-2)^2 & =20           \\
+	(t-2)^2  & =4            \\
+	t-2      & =2            \\
+	t        & =4            \\
 \end{align*}
 Now that we have this, we need to take the derivative of $p(t)$ to get the
 function of the ball's instantaneous velocity $v(t)$, and the second derivative
 to get the instantaneous acceleration of the ball, $a(t)$:
 
 \begin{align*}
-    v(4)&=p'(4)\\
-    &=\frac{d}{dx}\big(-5(t-2)^2+20\big)\Big|_{t=4}\\
-    &=\frac{d}{dx}\big(-5(t^2-4t+4)+20\big)\Big|_{t=4}\\
-    &=\frac{d}{dx}(-5t^2+20t+24)\Big|_{t=4}\\
-    &=-10t+20\Big|_{t=4}\\
-    &=-10(4)+20=-20\frac{\text{ft}}{\text{s}}\\
-    \\
-    a(4)&=v'(4)\\
-    &=\frac{d}{dx}(-10t+20)\Big|_{t=4}\\
-    &=-10\frac{\text{ft}}{\text{s}^2}
+	v(4) & =p'(4)                                            \\
+	     & =\frac{d}{dx}\big(-5(t-2)^2+20\big)\Big|_{t=4}    \\
+	     & =\frac{d}{dx}\big(-5(t^2-4t+4)+20\big)\Big|_{t=4} \\
+	     & =\frac{d}{dx}(-5t^2+20t+24)\Big|_{t=4}            \\
+	     & =-10t+20\Big|_{t=4}                               \\
+	     & =-10(4)+20=-20\frac{\text{ft}}{\text{s}}          \\
+	\\
+	a(4) & =v'(4)                                            \\
+	     & =\frac{d}{dx}(-10t+20)\Big|_{t=4}                 \\
+	     & =-10\frac{\text{ft}}{\text{s}^2}
 \end{align*}
 
-The velocity of the ball just when it hits the ground is -20 
-$\displaystyle\frac{\text{ft}}{\text{s}}$, and the acceleration of the ball as 
+The velocity of the ball just when it hits the ground is -20
+$\displaystyle\frac{\text{ft}}{\text{s}}$, and the acceleration of the ball as
 it hits the ground is -10 $\frac{\text{ft}}{\text{s}^2}$
 
 \newpage
@@ -1754,31 +1754,31 @@ $$x^2+y^2=5^2$$
 \br
 Start by taking the derivative of all terms in \textit{respect to x}:
 \begin{align*}
-    \frac{d}{dx}(x^2)+\frac{d}{dx}(y^2)&=\frac{d}{dx}(5^2)\\
-    2x\frac{dx}{dx}+2y\frac{dy}{dx}&=0\frac{dx}{dx}\\
-    2x+2y\frac{dy}{dx}&=0\\
+	\frac{d}{dx}(x^2)+\frac{d}{dx}(y^2) & =\frac{d}{dx}(5^2) \\
+	2x\frac{dx}{dx}+2y\frac{dy}{dx}     & =0\frac{dx}{dx}    \\
+	2x+2y\frac{dy}{dx}                  & =0                 \\
 \end{align*}
 Now isolate terms with $\frac{dy}{dx}$ and factor that out:
 \begin{align*}
-    2x+2y\frac{dy}{dx}&=0\\
-    2y\frac{dy}{dx}&=-2x\\
+	2x+2y\frac{dy}{dx} & =0   \\
+	2y\frac{dy}{dx}    & =-2x \\
 \end{align*}
 And now get $\frac{dy}{dx}$ by itself for the equation of the derivative:
 \begin{align*}
-    2y\frac{dy}{dx}&=-2x\\
-    \frac{dy}{dx}&=-\frac{2x}{2y}\\
+	2y\frac{dy}{dx} & =-2x            \\
+	\frac{dy}{dx}   & =-\frac{2x}{2y} \\
 \end{align*}
 Now, plug in (4, -3) to get the slope for the tangent line:
 \begin{align*}
-    \frac{dy}{dx}\Big|_{x=4,y=-3}&=-\frac{2x}{2y}\\
-    \frac{dy}{dx}\Big|_{x=4,y=-3}&=-\frac{2(4)}{2(-3)}=-\frac{8}{-6}=\frac{4}{3}\\
+	\frac{dy}{dx}\Big|_{x=4,y=-3} & =-\frac{2x}{2y}                                \\
+	\frac{dy}{dx}\Big|_{x=4,y=-3} & =-\frac{2(4)}{2(-3)}=-\frac{8}{-6}=\frac{4}{3} \\
 \end{align*}
 The last step to get the equation of the tangent line lies in plugging in those
 values:
 \begin{align*}
-    y-y_1&=m(x-x_1)\\
-    y-(-3)&=(\frac{4}{3})(x-(4))\\
-    y+3&=\frac{4}{3}(x-4)\\
+	y-y_1  & =m(x-x_1)             \\
+	y-(-3) & =(\frac{4}{3})(x-(4)) \\
+	y+3    & =\frac{4}{3}(x-4)     \\
 \end{align*}
 
 \newpage
@@ -1791,23 +1791,23 @@ the exponent and simplifying first would make implicit differentiation easier:
 
 \marginnote{You could also apply chain rule to $(4x+4y)^3$ if you so choose}
 \begin{align*}
-    (4x+4y)^3&=64x^3+64y^3\\
-    64x^2+192x^2y+192xy^2+64y^3&=64x^3+64y^3\\
-    x^2+3x^2y+3xy^2+y^3&=x^3+y^3\\
-    3x^2y+3xy^2&=0\\
-    x^2y+xy^2&=0
+	(4x+4y)^3                   & =64x^3+64y^3 \\
+	64x^2+192x^2y+192xy^2+64y^3 & =64x^3+64y^3 \\
+	x^2+3x^2y+3xy^2+y^3         & =x^3+y^3     \\
+	3x^2y+3xy^2                 & =0           \\
+	x^2y+xy^2                   & =0
 \end{align*}
 
 Now that it looks much more manageable, we can continue as usual:
 
 \begin{align*}
-    \frac{d}{dx}(x^2y+xy^2)&=\frac{d}{dx}(0)\\
-    \frac{d}{dx}(x^2y)+\frac{d}{dx}(xy^2)&=0\\
-    x^2\frac{dy}{dx}+2xy+2xy\frac{dy}{dx}+y^2&=0\\
-    x^2\frac{dy}{dx}+2xy\frac{dy}{dx}&=-2xy-y^2\\
-    (x^2+2xy)\frac{dy}{dx}&=-(2xy+y^2)\\
-    \frac{dy}{dx}&=-\frac{2xy+y^2}{x^2+2xy}\\
-    \frac{dy}{dx}&=-\frac{y(2x+y)}{x(x+2y)}\\
+	\frac{d}{dx}(x^2y+xy^2)                   & =\frac{d}{dx}(0)          \\
+	\frac{d}{dx}(x^2y)+\frac{d}{dx}(xy^2)     & =0                        \\
+	x^2\frac{dy}{dx}+2xy+2xy\frac{dy}{dx}+y^2 & =0                        \\
+	x^2\frac{dy}{dx}+2xy\frac{dy}{dx}         & =-2xy-y^2                 \\
+	(x^2+2xy)\frac{dy}{dx}                    & =-(2xy+y^2)               \\
+	\frac{dy}{dx}                             & =-\frac{2xy+y^2}{x^2+2xy} \\
+	\frac{dy}{dx}                             & =-\frac{y(2x+y)}{x(x+2y)} \\
 \end{align*}
 It was lengthy, but we did it!
 \subsection*{\ref{prac:2.5-1}---Triangles Galore}\label{ans:2.5-1}
@@ -1819,49 +1819,49 @@ ladder are changing when the base of the ladder is 7 feet from the wall.
 Let's start by labeling what we know:
 \marginnote{I used these variable letters, but you can use your own if you wish!}
 \begin{multicols}{2}
-    \begin{itemize}
-        \item $l=$ length of ladder $=25ft$
-        \item $\frac{dl}{dt}=0$: Since the length of the ladder is
-            constant, it has no rate of change.
-        \item $b=$ distance from bottom of ladder to house wall $=7ft$
-        \item $\frac{db}{dt}=$ rate of change of distance from bottom of ladder 
-            to house wall $=2\frac{ft}{sec}$
-    \end{itemize}
+	\begin{itemize}
+		\item $l=$ length of ladder $=25ft$
+		\item $\frac{dl}{dt}=0$: Since the length of the ladder is
+		      constant, it has no rate of change.
+		\item $b=$ distance from bottom of ladder to house wall $=7ft$
+		\item $\frac{db}{dt}=$ rate of change of distance from bottom of ladder
+		      to house wall $=2\frac{ft}{sec}$
+	\end{itemize}
 \end{multicols}
 \continued
 Let's identify what we need to find:
 \marginnote{It's a 7-24-25 triangle, so $h$ is actually 24 ft!}
 \begin{itemize}
-    \item $h$ the height of the top of the ladder on the wall of the house
-        to the floor
-    \item $\frac{d\theta}{dt}$ the rate of change of the angle between the
-        ladder and the wall of the house
+	\item $h$ the height of the top of the ladder on the wall of the house
+	      to the floor
+	\item $\frac{d\theta}{dt}$ the rate of change of the angle between the
+	      ladder and the wall of the house
 \end{itemize}
 
 An equation that relates to all of these values would be:
 $$\sin\theta=\frac{b}{l}$$
 Let's take the derivative of it so that we can solve for $\frac{d\theta}{dt}$:
 \begin{align*}
-    \cos\theta\cdot\frac{d\theta}{dt}&=\frac{l\cdot\frac{db}{dt}-b\cdot\frac{dl}{dt}}{l^2}\\
-    \cos\theta\cdot\frac{d\theta}{dt}&=\frac{l\cdot\frac{db}{dt}}{l^2}\\
-    \frac{d\theta}{dt}&=\frac{l\cdot\frac{db}{dt}}{l^2}\cdot\sec\theta
+	\cos\theta\cdot\frac{d\theta}{dt} & =\frac{l\cdot\frac{db}{dt}-b\cdot\frac{dl}{dt}}{l^2} \\
+	\cos\theta\cdot\frac{d\theta}{dt} & =\frac{l\cdot\frac{db}{dt}}{l^2}                     \\
+	\frac{d\theta}{dt}                & =\frac{l\cdot\frac{db}{dt}}{l^2}\cdot\sec\theta
 \end{align*}
 
 Before we plug in all of these values, let's evaluate $\sec\theta$:
 \begin{align*}
-    \theta&=\sin^{-1}(\frac{b}{l})\\
-    \cos\theta&=\cos\big(\sin^{-1}(\frac{b}{l})\big)\\
-    \cos\theta&=\frac{h}{l}\\
-    \sec\theta&=\frac{l}{h}\\
+	\theta     & =\sin^{-1}(\frac{b}{l})               \\
+	\cos\theta & =\cos\big(\sin^{-1}(\frac{b}{l})\big) \\
+	\cos\theta & =\frac{h}{l}                          \\
+	\sec\theta & =\frac{l}{h}                          \\
 \end{align*}
 
 Now let's continue solving for $\frac{d\theta}{dt}$:
 \begin{align*}
-    \frac{d\theta}{dt}&=\frac{l\cdot\frac{db}{dt}}{l^2}\cdot\frac{l}{h}\\
-    \frac{d\theta}{dt}&=\frac{l^2\cdot\frac{db}{dt}}{l^2\cdot h}\\
-    \frac{d\theta}{dt}&=\frac{\frac{db}{dt}}{h}\\
-    \frac{d\theta}{dt}&=\frac{(2\frac{ft}{sec})}{(24ft)}\\
-    \frac{d\theta}{dt}&=\frac{1}{12}\frac{rad}{sec}\\
+	\frac{d\theta}{dt} & =\frac{l\cdot\frac{db}{dt}}{l^2}\cdot\frac{l}{h} \\
+	\frac{d\theta}{dt} & =\frac{l^2\cdot\frac{db}{dt}}{l^2\cdot h}        \\
+	\frac{d\theta}{dt} & =\frac{\frac{db}{dt}}{h}                         \\
+	\frac{d\theta}{dt} & =\frac{(2\frac{ft}{sec})}{(24ft)}                \\
+	\frac{d\theta}{dt} & =\frac{1}{12}\frac{rad}{sec}                     \\
 \end{align*}
 
 Moral of the story: learn your trig. identities!
@@ -1872,34 +1872,34 @@ the interval $[0, 2\pi]$
 \br
 First we find its critical values:
 \begin{align*}
-    f'(\theta)&=\cos(\theta)-2\cos(\theta)\big(-\sin(\theta)\big)\\
-    0&=\cos(\theta)+2\cos(\theta)\sin(\theta)\\
-    0&=\cos(\theta)\cdot\big(1+2\sin(\theta)\big)\\
+	f'(\theta) & =\cos(\theta)-2\cos(\theta)\big(-\sin(\theta)\big) \\
+	0          & =\cos(\theta)+2\cos(\theta)\sin(\theta)            \\
+	0          & =\cos(\theta)\cdot\big(1+2\sin(\theta)\big)        \\
 \end{align*}
 % \continued
 So the critical values can only happen if:
 \begin{multicols}{2}
-    \begin{itemize}
-        \item $\cos(\theta)=0\implies\theta=\{\frac{\pi}{2}, \frac{3\pi}{2}\}$
-        \item $\sin(\theta)=-\frac{1}{2}\implies\theta=\{\frac{7\pi}{6},
-            \frac{11\pi}{6}\}$
-    \end{itemize}
+	\begin{itemize}
+		\item $\cos(\theta)=0\implies\theta=\{\frac{\pi}{2}, \frac{3\pi}{2}\}$
+		\item $\sin(\theta)=-\frac{1}{2}\implies\theta=\{\frac{7\pi}{6},
+			      \frac{11\pi}{6}\}$
+	\end{itemize}
 \end{multicols}
 
 Let's evaluate the points at the critical values and endpoints now:
 \begin{align*}
-    f(0)&=-1\\
-    f(\frac{\pi}{2})&=1\\
-    f(\frac{7\pi}{6})&=-\frac{5}{4}\\
-    f(\frac{3\pi}{2})&=-1\\
-    f(\frac{11\pi}{6})&=-\frac{5}{4}\\
-    f(2\pi)&=-1\\
+	f(0)               & =-1           \\
+	f(\frac{\pi}{2})   & =1            \\
+	f(\frac{7\pi}{6})  & =-\frac{5}{4} \\
+	f(\frac{3\pi}{2})  & =-1           \\
+	f(\frac{11\pi}{6}) & =-\frac{5}{4} \\
+	f(2\pi)            & =-1           \\
 \end{align*}
 
 \begin{align*}
-    \text{Absolute maximum:}& (\frac{\pi}{2}, 1)\\
-    \text{Absolute minimum:}& (\frac{7\pi}{6}, -\frac{5}{4})\\
-                            & (\frac{11\pi}{6}, -\frac{5}{4})
+	\text{Absolute maximum:} & (\frac{\pi}{2}, 1)              \\
+	\text{Absolute minimum:} & (\frac{7\pi}{6}, -\frac{5}{4})  \\
+	                         & (\frac{11\pi}{6}, -\frac{5}{4})
 \end{align*}
 
 \subsection*{\ref{prac:3.1-2}---Critical Values of a Trigonomic Function}
@@ -1910,18 +1910,18 @@ is a critical value.
 Let's take the derivative of $f(x)$:
 \marginnote{Chain rule was used to find $\frac{d}{dx}(\sin^2\theta)$}
 \begin{align*}
-    f'(x)&=-2\sin\theta+(\cos\theta\cdot 2\sin\theta)\\
-    f'(x)&=-2\sin\theta+2\sin\theta\cos\theta\\
-    f'(x)&=-2\sin\theta(1 - \cos\theta)\\
+	f'(x) & =-2\sin\theta+(\cos\theta\cdot 2\sin\theta) \\
+	f'(x) & =-2\sin\theta+2\sin\theta\cos\theta         \\
+	f'(x) & =-2\sin\theta(1 - \cos\theta)               \\
 \end{align*}
 So the critical values can only happen when:
 \begin{multicols}{2}
-    \begin{itemize}
-        \item $\sin\theta=0\implies\theta=2k\pi,k\in\mathbb{Z}$
-        \item $\cos\theta=1\implies\theta=2k\pi,k\in\mathbb{Z}$
-    \end{itemize}
+	\begin{itemize}
+		\item $\sin\theta=0\implies\theta=2k\pi,k\in\mathbb{Z}$
+		\item $\cos\theta=1\implies\theta=2k\pi,k\in\mathbb{Z}$
+	\end{itemize}
 \end{multicols}
-$\therefore$ Critical values of $f(x)=2k\pi,k\in\mathbb{Z}$ 
+$\therefore$ Critical values of $f(x)=2k\pi,k\in\mathbb{Z}$
 
 \newpage
 \section*{\ref{prac:3.2-1}---Inequalities}\label{ans:3.2-1}
@@ -1932,56 +1932,56 @@ $$\sqrt{b}-\sqrt{a}<\frac{b-a}{2\sqrt{b}},b-a>0$$
 Let's follow the hint:$$\frac{\sqrt{a}-\sqrt{b}}{b-a}<\frac{1}{2\sqrt{b}}$$
 The left side resembles the formula for average rate of change:
 $$\frac{f(b)-f(a)}{b-a},b-a>0$$
-From this, we can infer that $f(x)=\sqrt{x}$. Recall the \textit{Mean Value 
-Theorem}---it only applies to $f(x)$ if $f(x)$ is continuous on $[a, b]$ and
+From this, we can infer that $f(x)=\sqrt{x}$. Recall the \textit{Mean Value
+	Theorem}---it only applies to $f(x)$ if $f(x)$ is continuous on $[a, b]$ and
 is differentiable on $(a, b)$. Both of these requirements are fulfilled by the
 function, as polynomial functions are \textit{continuous and differentiable}.
 \bl
 Because the theorem applies to $f(x)$, we know that there is a value $c$ where:
 \marginnote{$\frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}}$}
 \begin{multicols}{2}
-\begin{itemize}
-    \item $a<c<b$
-    \item $f'(c)=\frac{f(b)-f(a)}{b-a}$
-\end{itemize}
+	\begin{itemize}
+		\item $a<c<b$
+		\item $f'(c)=\frac{f(b)-f(a)}{b-a}$
+	\end{itemize}
 \end{multicols}
 
-From this we can infer: 
+From this we can infer:
 \begin{align*}
-    \frac{\sqrt{b}-\sqrt{a}}{b-a}=\frac{1}{2\sqrt{c}}&<\frac{1}{2\sqrt{a}}\\
-    \frac{\sqrt{b}-\sqrt{a}}{b-a}&<\frac{1}{2\sqrt{a}}\\
-    \therefore\sqrt{b}-\sqrt{a}&<\frac{b-a}{2\sqrt{a}}\\
+	\frac{\sqrt{b}-\sqrt{a}}{b-a}=\frac{1}{2\sqrt{c}} & <\frac{1}{2\sqrt{a}}   \\
+	\frac{\sqrt{b}-\sqrt{a}}{b-a}                     & <\frac{1}{2\sqrt{a}}   \\
+	\therefore\sqrt{b}-\sqrt{a}                       & <\frac{b-a}{2\sqrt{a}} \\
 \end{align*}
 This problem was quite the verbage wasn't it! Moral of the story: sometimes
 math isn't just all about numbers. And when it isn't, don't give up!
 
 \section*{\ref{prac:3.2-2}---MVT with $f(x)$}\label{ans:3.2-2}
-The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the 
+The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the
 interval $[-1, 8]$. If so, find all $c$ that apply. If the theorem cannot
 be applied, explain why.
 \br
 \marginnote{This is a little redundant, but some questions still ask for this
-step}
+	step}
 Let's prove that the theorem is valid for $f(x)$: because the function is
 a polynomial function, it is both continuous and differentiable. This means
 that the theorem applies to $f(x)$
 
 Let's find the average rate of change with the given interval:
 \begin{displaymath}
-    \frac{f(8)-f(-1)}{(8)-(-1)}=\frac{(8)^{\frac{2}{3}}-(-1)^{\frac{2}{3}}}{9}
-    =\frac{4+1}{9}=\frac{5}{9}
+	\frac{f(8)-f(-1)}{(8)-(-1)}=\frac{(8)^{\frac{2}{3}}-(-1)^{\frac{2}{3}}}{9}
+	=\frac{4+1}{9}=\frac{5}{9}
 \end{displaymath}
 \continued
 Now we need to find where $f'(c)=\frac{5}{9}$:
 \begin{align*}
-    f'(c)&=\frac{5}{9}\\
-    \frac{d}{dc}(c^\frac{2}{3})&=\frac{5}{9}\\
-    \frac{2}{3c^{\frac{1}{3}}}&=\frac{5}{9}\\
-    \frac{1}{c^{\frac{1}{3}}}&=\frac{5}{9}\cdot\frac{3}{2}=\frac{15}{18}=\frac{5}{6}\\
-    \frac{1}{c^{\frac{1}{3}}}&=\frac{5}{6}\\
-    c^{\frac{1}{3}}&=\frac{6}{5}\\
-    c&=(\frac{6}{5})^3=\frac{216}{125}\\
-    c&=\frac{216}{125}\\
+	f'(c)                       & =\frac{5}{9}                                           \\
+	\frac{d}{dc}(c^\frac{2}{3}) & =\frac{5}{9}                                           \\
+	\frac{2}{3c^{\frac{1}{3}}}  & =\frac{5}{9}                                           \\
+	\frac{1}{c^{\frac{1}{3}}}   & =\frac{5}{9}\cdot\frac{3}{2}=\frac{15}{18}=\frac{5}{6} \\
+	\frac{1}{c^{\frac{1}{3}}}   & =\frac{5}{6}                                           \\
+	c^{\frac{1}{3}}             & =\frac{6}{5}                                           \\
+	c                           & =(\frac{6}{5})^3=\frac{216}{125}                       \\
+	c                           & =\frac{216}{125}                                       \\
 \end{align*}
 
 \section*{\ref{prac:3.2-3}---IVT \& Rolle's Theorem}\label{ans:3.2-3}
@@ -1990,27 +1990,27 @@ prove that the following equation has exactly one real solution:
 $$6x^7+2x^5+3x+6=0$$
 \br
 Let's use $f(x)=6x^7+2x^5+3x+6=0$ to prove that the \textit{Intermediate
-Value Theorem} applies to $f(x)$. Because $f(x)$ is a polynomial function, it
+	Value Theorem} applies to $f(x)$. Because $f(x)$ is a polynomial function, it
 is continuous, and therefore the theorem applies.
 \bl
 Let's pick two arbitrary numbers, -2 and 2, to be $a$ and $b$ to check if $0$ exists
 across that interval:
 \begin{align*}
-    f(-2)&=6(-2)^7+2(-2)^5+3(-2)+6 < 0\\
-    f(2)&=6(2)^7+2(2)^5+3(2)+6 > 0\\
+	f(-2) & =6(-2)^7+2(-2)^5+3(-2)+6 < 0 \\
+	f(2)  & =6(2)^7+2(2)^5+3(2)+6 > 0    \\
 \end{align*}
 $f(-2)<0<f(2)\implies$ at least a number $c$ in the interval $(-2, 2)$ such
 that: $$f(c)=0=6c^7+2c^5+3c+6$$
 
 To prove that there is only one real solution to $f(x)$, we can use a
 \textit{proof of contradiction}\footnote{Proof by contradiction means to assume
-that the inverse of the premise, and prove that it's a contradiction. In this
-problem's case, the premise is that there are more than one solution to $f(x)$}
+	that the inverse of the premise, and prove that it's a contradiction. In this
+	problem's case, the premise is that there are more than one solution to $f(x)$}
 with \textit{Rolle's Theorem} to prove that
 another solution cannot be possible:
 \bl
 \marginnote{$\land$ means ``and''}
-Suppose there is at least two solutions, $l$ and $m$ where 
+Suppose there is at least two solutions, $l$ and $m$ where
 $l\neq m\land f(l)=f(m)=0$
 \bl
 \textit{Rolle's Theorem} implies that there is some $d$ between $l$ and $m$
@@ -2021,8 +2021,8 @@ $$f'(x)=42x^6+10x^4+3=0$$
 
 \continued
 \marginnote{The expression translates to: ``for all $x$ in the set of real
-numbers, $f'(x)\geq3$''}
-We know that $x\in\mathbb{R}$ that's raised to an even power will 
+	numbers, $f'(x)\geq3$''}
+We know that $x\in\mathbb{R}$ that's raised to an even power will
 \textit{always} be greater than or equal to 0. This implies that
 $\forall x\in\mathbb{R},f'(x)\geq3$
 \bl
@@ -2036,33 +2036,35 @@ only one solution to $f(x)=0$
 \section*{\ref{prac:3.3-1}---The First Derivative Test}\label{ans:3.3-1}
 Given $\displaystyle f(x)=4x^5-2x^3$, find:
 \begin{enumerate}
-    \item All open interval(s) where $f(x)$ is decreasing or increasing
-    \item Relative minimum and maximum points of $f(x)$
+	\item All open interval(s) where $f(x)$ is decreasing or increasing
+	\item Relative minimum and maximum points of $f(x)$
 \end{enumerate}
 \br
 Let's find the critical values of $f(x)$:
 \begin{align*}
-    f'(x)&=12x^4-6x^2\\
-    f'(x)&=6x^2(2x^2-1)\\
-    0&=6x^2(2x^2-1)\\
-    \\
-    x&=\{0,\pm\frac{1}{\sqrt{2}}\}
+	f'(x) & =12x^4-6x^2                  \\
+	f'(x) & =6x^2(2x^2-1)                \\
+	0     & =6x^2(2x^2-1)                \\
+	\\
+	x     & =\{0,\pm\frac{1}{\sqrt{2}}\}
 \end{align*}
 Let's make a table to find how the slope of $f(x)$ behaves outside the critical
 values:
 \begin{center}
-    \begin{tabular}{c|c|c|c|c|c|c}
-        -1 & $-\frac{1}{\sqrt{2}}$ & $\frac{1}{2}$ & 0 & $\frac{1}{2}$ & $\frac{1}{\sqrt{2}}$ & 1\\
-        \hline
-        >0&0&<0&0&<0&0&>0
-\end{tabular}
+	\begin{tabular}{c|c|c|c|c|c|c}
+		-1          & $-\frac{1}{\sqrt{2}}$ & $\frac{1}{2}$ & 0 & $\frac{1}{2}$ & $\frac{1}
+		{\sqrt{2}}$ & 1                                                                     \\
+		\hline
+		>0          & 0                     & <0            & 0 & <0            & 0
+		            & >0
+	\end{tabular}
 \end{center}
 By plugging those values into $f'(x)$ we can conclude the intervals at which
 $f(x)$ is increasing and decreasing:
 \begin{multicols}{2}
-Decreasing: $(-\infty,-\frac{1}{\sqrt{2}})\cup(\frac{1}{\sqrt{2}},\infty)$
+	Decreasing: $(-\infty,-\frac{1}{\sqrt{2}})\cup(\frac{1}{\sqrt{2}},\infty)$
 
-Increasing: $(-\frac{1}{\sqrt{2}},0)\cup(0,\frac{1}{\sqrt{2}})$
+	Increasing: $(-\frac{1}{\sqrt{2}},0)\cup(0,\frac{1}{\sqrt{2}})$
 \end{multicols}
 % \newpage
 % \section{Cheat Sheet}
@@ -2087,12 +2089,12 @@ A company makes 1000 units a week, and sells an average of 500 units a week at \
 Let $u=$number of units, $p=$price of each unit, $r=$ revenue
 \marginnote{When x=20, u=1000 units}
 \begin{center}
-\begin{tabular}{ll}
-Number of Units & $u=500+25x$\\
-Price per Unit  & $p=50-x$\\
-Maximium & $r=u\cdot p=(500+25x)(50-x)=25(x+20)(50-x)$\\
-Constraint & $0\leq x\leq 20$
-\end{tabular}
+	\begin{tabular}{ll}
+		Number of Units & $u=500+25x$                                 \\
+		Price per Unit  & $p=50-x$                                    \\
+		Maximium        & $r=u\cdot p=(500+25x)(50-x)=25(x+20)(50-x)$ \\
+		Constraint      & $0\leq x\leq 20$
+	\end{tabular}
 \end{center}
 % TODO: finish this problem
 
@@ -2100,17 +2102,17 @@ Constraint & $0\leq x\leq 20$
 \section*{\ref{prac:3.6-1}---Volume of Balloon}\label{ans:3.6-1}
 The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
 \begin{enumerate}
-\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
-\item Do the same with the surface area
-\item Approximate the percent error in parts 1 and 2 
+	\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
+	\item Do the same with the surface area
+	\item Approximate the percent error in parts 1 and 2
 \end{enumerate}
 \br
 1:
 \begin{align*}
-V&=\frac{4}{3}\pi r^3\\
-dV&=4\pi r^2 dr\\
-&=4\pi(8)^2\cdot(\pm 0.02)\\
-&=\pm 16.085 \text{in}^3
+	V  & =\frac{4}{3}\pi r^3       \\
+	dV & =4\pi r^2 dr              \\
+	   & =4\pi(8)^2\cdot(\pm 0.02) \\
+	   & =\pm 16.085 \text{in}^3
 \end{align*}
 
 
