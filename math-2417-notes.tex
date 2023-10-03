@@ -1378,17 +1378,121 @@ and relative maximum is at $\big(0, f(0)\big)$
 \end{practice}
 \end{multicols}
 
+\marginnote{This part is going to contain many example problems}
+\subsection{Optimization}
+Some of the more common applications of calculus involve finding maximum and
+minimum values. There's a couple of steps in doing so:
+\begin{note}{Optimization Problems}
+\begin{enumerate}
+\item Identify all given values, and, draw a sketch if you need
+\item Write an equation that you want to find the maximum / minimum of
+\item Reduce it to use one single variable
+\item Determine the domain of the function
+\item Find the minimums / maximums of that primary equation
+\end{enumerate}
+\end{note}
+\begin{example}{Largest Area}
+A farmer has 2400ft of fencing and wants to fence off a rectangular field that
+borders a straight river. No fencing needed along river. What are the dimensions
+with the largest area?
+\bl
+Let's set up some equations:
+\begin{align*}
+2x+y&=2400\implies y=2400-2x\\
+x\cdot y&=A\implies x\cdot(2400-2x)=f(x)\implies 2400x-2x^2=f(x)
+\end{align*}
+The domain of the function is $$0\leq x\leq 1200$$
+Now we find the derivative of that function to find its critical numbers, and
+from there determine the maximum and minimum areas:
+\begin{align*}
+f'(x)&=2400-4x=4(600-x)\\
+0&=4(600-x)\\
+x&=600
+\end{align*}
+600 is the only maximum value!\newline Now we find all areas $f(x)$ that are
+critical values including numbers at the extrema to determine the maximum area:
+\begin{align*}
+f(0)&=0\\
+f(600)&=(600)(2400-2(600))=720000\\
+f(1200)&=(1200)(2400-2(1200))=0
+\end{align*}
+Now that we have the maximum area of $720,000\text{ft}^2$, we can use that value to find the dimensions of the fence:
+\begin{align*}
+y&=2400-2(600)
+y&=1200
+\end{align*}
+The dimensons are x=600ft, y=1200ft
+\end{example}
 
-% \subsection{Concavity---Second Derivative Test}
+% TODO: draw a diagram for this problem
+\begin{example}{Maximum Volume}
+There's a box with as square base that is open at the top. Find the dimensions of the box with the maximum area, given that the box only has $102\text{in}^2$ of surface area:\newline
+\begin{center}
+\begin{tabular}{ll}
+Constaint & $x^2+4xy=108\implies y=\frac{108-x^2}{4x}$\\
+Maximize & $V=x^2y\implies V=27x-\frac{x^3}{4}$
+\end{tabular}
+\end{center}
+The domain of the function is $0\leq x\leq\sqrt{108}$. Let's find its critical
+values now that we have everything we need:
+\begin{align*}
+V'=27-\frac{3}{4}x^2
+0=\pm 6
+\end{align*}
+Since -6 is out of range, we have x=6 has the only valid critical number:
+\begin{align*}
+f(0)&=0\\
+f(6)&=108\\
+f(\sqrt{108})&=0
+\end{align*}
+108 is the maximum area of the box. Let's find the height now that we know its
+max base length: $$y=\frac{108-(6)^2}{4(6)}=3$$
+The dimensions are: 6x3x6 inches, where the first value is width, the second value is height, and the third value is depth
+\end{example}
+\begin{practice}{\hyperref[ans:3.5-1]{1}}{Maximum Revenue}\label{prac:3.5-1}
+A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
+\end{practice}
+
 % \subsection{Limits at Infinity}
 % \subsection{Curve Sketching}
-% \subsection{Optimization Problems}
-% \subsection{Newton's Method}
-% \subsection{Differentials}
+% \subsection{Newton's Method} Guessing this isn't covered in the textbook
+
+% TODO: revise this section
+\subsection{Differentials}
+\begin{definition}{Differential}
+Let $y=f(x)$ be a function that is differentiable on the open interval $x$:
+\begin{itemize}
+\item The \textit{differential of x} (dx, or \Delta x) is $x\in\mathbb{R}, x\neq 0$
+\item The \textit{differential of y} (dy, or \Delta y) is $dy=f'(x)dx$
+\end{itemize}
+\end{definition}
+\begin{theorem}{Linear Approximination}
+We can find the change of $y=f(x)$ when $x$ changes by:
+\begin{align*}
+y&=\Delta y\\
+&=f(x+\Delta x)-f(x)
+\end{align*}
+\end{theorem}
+\begin{example}{Differential}
+Given $\displaystyle y=f(x)=\frac{2x-3}{x+1}=2-\frac{5}{x+1}$:
+\begin{enumerate}
+\item Find the differential $dy$
+\item Find $\Delta y$ and $dy$ when x=-2 and $\Delta x=dx=0.1$
+\end{enumerate}
+
+% TODO: draw a diagram for this problem
+\end{example}
+\begin{practice}{\hyperref[ans:3.6-1]{1}}{Volume of Balloon}
+The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
+\begin{enumerate}
+\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
+\item Do the same with the surface area
+\item Approximate the percent error in parts 1 and 2 
+\end{enumerate}
+\end{practice}
+
 
 \newpage
-
-\pagenumbering{roman}
 \section{Practice Problem Answers}
 
 \subsection*{\ref{prac:1.1.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
@@ -1761,6 +1865,7 @@ Now let's continue solving for $\frac{d\theta}{dt}$:
 \end{align*}
 
 Moral of the story: learn your trig. identities!
+\newpage
 \subsection*{\ref{prac:3.1-1}---Finding Absolute Extrema}\label{ans:3.1-1}
 Find the absolute extrema of $f(\theta)=\sin(\theta)-cos^2(\theta)$ on
 the interval $[0, 2\pi]$
@@ -1771,7 +1876,7 @@ First we find its critical values:
     0&=\cos(\theta)+2\cos(\theta)\sin(\theta)\\
     0&=\cos(\theta)\cdot\big(1+2\sin(\theta)\big)\\
 \end{align*}
-\continued
+% \continued
 So the critical values can only happen if:
 \begin{multicols}{2}
     \begin{itemize}
@@ -1974,5 +2079,39 @@ Increasing: $(-\frac{1}{\sqrt{2}},0)\cup(0,\frac{1}{\sqrt{2}})$
 \section*{\ref{prac:3.4-2}---}
 \label{ans:3.4-2}
 % TODO: make practice problems for these :D
+
+\section*{\ref{prac:3.5-1}---Maximum Price}
+\label{ans:3.5-1}
+A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
+\br
+Let $u=$number of units, $p=$price of each unit, $r=$ revenue
+\marginnote{When x=20, u=1000 units}
+\begin{center}
+\begin{tabular}{ll}
+Number of Units & $u=500+25x$\\
+Price per Unit  & $p=50-x$\\
+Maximium & $r=u\cdot p=(500+25x)(50-x)=25(x+20)(50-x)$\\
+Constraint & $0\leq x\leq 20$
+\end{tabular}
+\end{center}
+% TODO: finish this problem
+
+
+\section*{\ref{prac:3.6-1}---Volume of Balloon}\label{ans:3.6-1}
+The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
+\begin{enumerate}
+\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
+\item Do the same with the surface area
+\item Approximate the percent error in parts 1 and 2 
+\end{enumerate}
+\br
+1:
+\begin{align*}
+V&=\frac{4}{3}\pi r^3\\
+dV&=4\pi r^2 dr\\
+&=4\pi(8)^2\cdot(\pm 0.02)\\
+&=\pm 16.085 \text{in}^3
+\end{align*}
+
 
 \end{document}
