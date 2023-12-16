@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			axis lines        = box,
+			xmin              = -5,
+			xmax              = 5,
+			ymin              = -5,
+			ymax              = 5,
+			xtick             = \empty,
+			ytick             = \empty,
+			xlabel            = \empty,
+			ylabel            = \empty,
+			trig format plots = rad,
+			width             = 15em,
+			title             = {Vertical Asymptote}
+		]
+
+		% it draws a vertical line if i don't do this
+		\addplot [
+			smooth,
+			color=blue,
+			samples=50,
+			domain=-5:-.1
+		]{1/x};
+		\addplot [
+			smooth,
+			color=blue,
+			samples=50,
+			domain=.1:5
+		]{1/x};
+
+		\draw [dashed, red] (0, -5) -- (0, 5);
+		\node [right] at (0, 0) {x=0};
+
+	\end{axis}
+\end{tikzpicture}
+

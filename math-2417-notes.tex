@@ -88,34 +88,7 @@ in these notes if you so choose. Good luck!
 \begin{example}{Estimating Graphically and Numerically}\label{ex:1.1}
 	Consider the function $f(x)=\frac{x^3-1}{x-1}$:
 	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					axis lines        = box,
-					xmin              = 0,
-					xmax              = 2,
-					ymin              = 0,
-					ymax              = 8,
-					xlabel            = $x$,
-					ylabel            = $f(x)$,
-					variable          = t,
-					trig format plots = rad,
-				]
-
-				\addplot [
-					domain=0:2,
-					smooth,
-					color=blue,
-				]
-				{(x^3-1)/(x-1)};
-				\addlegendentry{$f(x)=\frac{x^3-1}{x-1}$}
-
-				\addplot [
-					color=blue,
-					mark=o
-				]
-				coordinates {(1,3)};
-			\end{axis}
-		\end{tikzpicture}
+		\input{assets/graphical-limit.tex}
 
 		\begin{tabular}{ |c||c|c|c|c|c|c|c| }
 			\hline
@@ -148,55 +121,8 @@ in these notes if you so choose. Good luck!
 		$\lvert f(x)-L \rvert < \varepsilon$
 	\end{theorem}
 
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					scale only axis,
-					width  = 5cm,
-					xmin   = 0,
-					xmax   = 0.85,
-					ymin   = 0,
-					ymax   = 1,
-					xtick  = \empty,
-					ytick  = \empty,
-					xlabel = \empty,
-					ylabel = \empty,
-					clip   = false,
-					smooth,
-				]
-
-				\addplot[
-					domain=0:0.85,
-					samples=100,
-					color=red,
-				]{sqrt(x)};
-
-				% add open dot for removable discontinuity
-				\addplot [
-					color=blue,
-					mark=o
-				] coordinates {(0.4225,0.65)};
-
-				% Epsilon-delta lines
-				\draw [dashed, blue] (0, 0.75) -- (0.5625, 0.75);
-				\draw [dashed, blue] (0, 0.65) -- (0.4225, 0.65);
-				\draw [dashed, blue] (0, 0.55) -- (0.3025, 0.55);
-				\draw [dashed, blue] (0.5625, 0) -- (0.5625, 0.75);
-				\draw [dashed, blue] (0.4225, 0) -- (0.4225, 0.65);
-				\draw [dashed, blue] (0.3025, 0) -- (0.3025, 0.55);
-
-				% Labels
-				\node[below] at (0.5625, 0) {c + \delta};
-				\node[below] at (0.4225, 0) {c};
-				\node[below] at (0.3025, 0) {c - \delta};
-				\node[left] at (0, 0.75) {L + \varepsilon};
-				\node[left] at (0, 0.65) {L};
-				\node[left] at (0, 0.55) {L - \varepsilon};
-				\node[right] at (0.4225, 0.65){(c, L)};
-
-			\end{axis}
-		\end{tikzpicture}
-	\end{center}
+	\centering
+	\input{assets/formal-def-limit.tex}
 \end{multicols}
 Refer back to finding limits numerically (example \ref{ex:1.1}):
 \begin{itemize}
@@ -307,62 +233,8 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 		\end{enumerate}
 	\end{theorem}
 
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					axis lines        = box,
-					xmin              = -5,
-					xmax              = 5,
-					ymin              = -5,
-					ymax              = 5,
-					xtick             = \empty,
-					ytick             = \empty,
-					xlabel            = \empty,
-					ylabel            = \empty,
-					trig format plots = rad,
-					width             = 15em,
-					title             = {Squeeze Theorem}
-				]
-
-				\addplot [
-					smooth,
-					color=red,
-				]{x^2};
-				\addplot [
-					smooth,
-					color=green,
-				]{-x^2};
-
-				% add shading to regions
-
-				\addplot [
-					draw=none,
-					pattern = north west lines,
-					pattern color=red,
-					smooth,
-				]{x^2};
-				\addplot [
-					smooth,
-					draw=none,
-					pattern = north west lines,
-					pattern color=green,
-				]{-x^2};
-
-
-				\addplot [
-					smooth,
-					color=blue,
-				]{x * sin(x)};
-
-				\addplot [
-					color=black,
-					mark=*,
-				]coordinates{(0, 0)};
-
-				\node[right] at (0, 0) {(c, L)};
-			\end{axis}
-		\end{tikzpicture}
-	\end{center}
+	\centering
+	\input{assets/squeeze-theorem.tex}
 \end{multicols}
 
 \begin{practice}{\hyperref[ans:1.2.2-1]{1}}{Squeeze Theorem}\label{prac:1.2.2-1}
@@ -434,76 +306,9 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 	\begin{multicols}{2}[
 			There are two cases where discontinuities happen: \marginnote{Another
 				example of removable discontinuity is in example \ref{ex:1.1}}
-		]{
-			\begin{tikzpicture}
-				\begin{axis}[
-						axis lines        = box,
-						xmin              = -3,
-						xmax              = 3,
-						ymin              = 0,
-						ymax              = 3,
-						xtick             = \empty,
-						ytick             = \empty,
-						xlabel            = \empty,
-						ylabel            = \empty,
-						trig format plots = rad,
-						width             = 15em,
-						title             = {Removable Discontinuity}
-					]
-
-					\addplot [
-						smooth,
-						color=blue,
-					]{x^2};
-
-					\addplot [
-						color=blue,
-						mark=o
-					]coordinates {(1,1)};
-				\end{axis}
-			\end{tikzpicture}
-			\\
-			\begin{tikzpicture}
-				\begin{axis}[
-						axis lines        = box,
-						xmin              = -5,
-						xmax              = 5,
-						ymin              = -5,
-						ymax              = 5,
-						xtick             = \empty,
-						ytick             = \empty,
-						xlabel            = \empty,
-						ylabel            = \empty,
-						trig format plots = rad,
-						width             = 15em,
-						title             = {Non-Removable Discontinuity}
-					]
-
-					\addplot [
-						smooth,
-						color=blue,
-						domain=-5:0
-					]{2};
-
-					\addplot [
-						smooth,
-						color=blue,
-						domain=0:5
-					]{-2};
-
-					\addplot [
-						color=blue,
-						mark=o
-					]coordinates {(0,2)};
-
-					\addplot [
-						color=blue,
-						mark=*
-					]coordinates {(0,-2)};
-
-				\end{axis}
-			\end{tikzpicture}
-		}
+		]
+		\input{assets/nonremovable-discontinuity.tex}
+		\input{assets/nonremovable-discontinuity.tex}
 	\end{multicols}
 \end{center}
 
@@ -528,74 +333,13 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 		\end{definition}
 	]{
 		\begin{center}
-			\begin{tikzpicture}
-				\begin{axis}[
-						axis lines        = box,
-						xmin              = -5,
-						xmax              = 5,
-						ymin              = -5,
-						ymax              = 5,
-						xtick             = \empty,
-						ytick             = \empty,
-						xlabel            = \empty,
-						ylabel            = \empty,
-						trig format plots = rad,
-						width             = 15em,
-						title             = {Vertical Asymptote}
-					]
-
-					% it draws a vertical line if i don't do this
-					\addplot [
-						smooth,
-						color=blue,
-						samples=50,
-						domain=-5:-.1
-					]{1/x};
-					\addplot [
-						smooth,
-						color=blue,
-						samples=50,
-						domain=.1:5
-					]{1/x};
-
-					\draw [dashed, red] (0, -5) -- (0, 5);
-					\node [right] at (0, 0) {x=0};
-
-				\end{axis}
-			\end{tikzpicture}
+			\input{assets/vertical-asymptote.tex}
 			$f(x)=\frac{1}{x}$
 		\end{center}
 	}
 	{
 		\begin{center}
-			\begin{tikzpicture}
-				\begin{axis}[
-						axis lines        = box,
-						xmin              = -5,
-						xmax              = 5,
-						ymin              = -5,
-						ymax              = 5,
-						xtick             = \empty,
-						ytick             = \empty,
-						xlabel            = \empty,
-						ylabel            = \empty,
-						trig format plots = rad,
-						width             = 15em,
-						title             = {Horizontal Asymptote}
-					]
-
-					% it draws a vertical line if i don't do this
-					\addplot [
-						smooth,
-						color=blue,
-						samples=50,
-					]{2^x};
-
-					\draw [dashed, red] (-5, 0) -- (5, 0);
-					\node [below] at (0, 0) {y=0};
-
-				\end{axis}
-			\end{tikzpicture}
+			\input{assets/horizontal-asymptote.tex}
 			$f(x)=2^x$
 		\end{center}
 	}
@@ -645,38 +389,7 @@ function
 	Some mathematicians were trying to find out how to draw a line that intersects
 	a function at \textit{only one point}:
 	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					axis lines        = box,
-					xmin              = -5,
-					xmax              = 5,
-					ymin              = -5,
-					ymax              = 5,
-					xtick             = \empty,
-					ytick             = \empty,
-					xlabel            = \empty,
-					ylabel            = \empty,
-					trig format plots = rad,
-					width             = 14em,
-				]
-
-				% it draws a vertical line if i don't do this
-				\addplot [
-					smooth,
-					color=blue,
-					samples=50,
-				]{x^2};
-
-				\addplot [
-					color=black,
-					mark=*
-				]coordinates{(0, 0)};
-
-				\draw [dashed, red] (-5, 0) -- (5, 0);
-
-				\node[below] at (1, 0) {tangent line};
-			\end{axis}
-		\end{tikzpicture}
+		\input{assets/tangent-line.tex}
 	\end{center}
 \end{multicols}
 
@@ -982,53 +695,7 @@ quantities as well as quantities to find:
 
 Below is a graph to help you graphically identify these terms:
 \begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[
-				axis lines        = center,
-				xmin              = -3,
-				xmax              = 0.5,
-				ymin              = -5,
-				ymax              = 5,
-				xlabel            = $x$,
-				xtick             = \empty,
-				ylabel            = $f(x)$,
-				ytick             = \empty,
-				variable          = t,
-				trig format plots = rad,
-				legend pos        = outer north east,
-				clip              = false
-			]
-
-			\addplot [
-				domain  =-3:0.5,
-				color   =blue,
-				samples = 100,
-				smooth,
-			]
-			{x * sin(pi * x)};
-			\addlegendentry{$f(x)$}
-
-			\addplot [
-				domain  =-3:0.5,
-				color   =red,
-				samples = 100,
-				smooth
-			]
-			{sin(pi * x) + x * cos(pi * x)};
-			\addlegendentry{$f'(x)$}
-
-			\addplot [
-				only marks,
-				color=black,
-				mark=*
-			]coordinates {(-2.54,2.52)(-1.564,-1.532)(-0.646,0.579)(0,0)};
-
-			\node[above] at (-2.540, 2.520) {Absolute Maximum};
-			\node[below] at (-1.564, -1.532) {Absolute Minimum};
-			\node[above] at (-0.646, 0.579) {Relative Maximum};
-			\node[below right] at (0, 0) {Relative Minimum};
-		\end{axis}
-	\end{tikzpicture}
+	\input{assets/extrema.tex}
 \end{center}
 
 Minimums and maximums can also exist on the endpoints of a function's
@@ -1119,45 +786,7 @@ interval.
 	\end{theorem}
 
 	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					scale only axis,
-					width  = 6cm,
-					xmin   = -1.5,
-					xmax   = 2,
-					ymin   = -0.5,
-					ymax   = 2.5,
-					xtick  = \empty,
-					ytick  = \empty,
-					xlabel = \empty,
-					ylabel = \empty,
-					title  = Mean Value Theorem,
-					smooth,
-				]
-
-				% secant and tangent lines
-				\addplot[
-					domain  = -1:1.5,
-					samples = 1000,
-				]{x^2};
-
-				\addplot[
-					color = red,
-					mark  = o,
-				] coordinates {(-0.5, 0.25)(1,1)};
-
-				\addplot[
-					color = blue,
-					mark  = none,
-				] coordinates {(-0.5, -5/16) (1, 7/16)};
-
-				% Labels
-				\node[left] at (-0.5, 0.25) {\big(a, f(a)\big)};
-				\node[right] at (1, 1) {\big(b, f(b)\big)};
-				\node[above left] at (0.25, 0.625) {secant line};
-				\node[below right] at (1/4, 1/16) {tangent line};
-			\end{axis}
-		\end{tikzpicture}
+		\input{assets/mean-value-theorem.tex}
 	\end{center}
 
 	Notice that the slope of the tangent line at $x=c$ is the same as the slope
@@ -1165,45 +794,7 @@ interval.
 \end{multicols}
 \begin{multicols}{2}
 	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					scale only axis,
-					width  = 6cm,
-					xmin   = -1,
-					xmax   = 1,
-					ymin   = -1,
-					ymax   = 1,
-					xtick  = \empty,
-					ytick  = \empty,
-					xlabel = \empty,
-					ylabel = \empty,
-					title  = Rolle's Theorem,
-					smooth,
-				]
-
-				\addplot[
-					domain  = -1/(2*sqrt(2)):1/(2*sqrt(2)),
-					samples = 100,
-				]{-8*x^2+0.5};
-
-				% Mark beginning and end
-				\addplot [
-					only marks,
-					color = red,
-					mark  = o,
-				] coordinates {(-1/(2*sqrt(2)),-0.5) (1/(2*sqrt(2)), -0.5)};
-
-				\addplot [
-					color  =blue,
-					domain = -0.5:0.5,
-				] {0.5};
-
-				% Labels
-				\node[above] at (0, 0.5) {horizontal tangent line};
-				\node[below] at (-0.3536,-0.5) {\big(a,f(a)\big)};
-				\node[below] at (0.3536,-0.5) {\big(b,f(b)\big)};
-			\end{axis}
-		\end{tikzpicture}
+		\input{assets/rolles-theorem.tex}
 	\end{center}
 	\begin{theorem}{Rolle's Theorem}
 		If $f(x)$ is:
@@ -1289,47 +880,7 @@ interval.
 		The points at which they happen are called \textit{inflection points}
 	\end{definition}
 	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					scale only axis,
-					width  = 5cm,
-					xmin   = -2,
-					xmax   = 2,
-					ymin   = -1,
-					ymax   = 1,
-					xtick  = \empty,
-					ytick  = \empty,
-					xlabel = \empty,
-					ylabel = \empty,
-					title  = Inflection Points,
-					smooth,
-				]
-
-				\addplot[
-					smooth,
-					domain        = -2:0,
-					color         = red,
-					pattern color = red,
-					pattern       = crosshatch,
-				]{x^3};
-
-				\addplot[
-					smooth,
-					domain        = 0:2,
-					color         = green,
-					pattern color = green,
-					pattern       = crosshatch,
-				]{x^3};
-
-				% Mark beginning and end
-				\addplot [
-					only marks,
-					color = blue,
-					mark  = o,
-				] coordinates {(0,0)};
-
-			\end{axis}
-		\end{tikzpicture}
+		\input{assets/inflection-points.tex}
 	\end{center}
 \end{multicols}
 
@@ -1480,8 +1031,8 @@ minimum values. There's a couple of steps in doing so:
 		=          & \frac{5}{\left((-2)+1\right)^2}\cdot\frac{1}{10} \\
 		=          & \frac{1}{2}                                      \\
 		\Delta y = & f(x+\Delta x)-f(x)                               \\
-        =          & -\frac{68}{9}-7\\
-        =          & \frac{5}{9}
+		=          & -\frac{68}{9}-7                                  \\
+		=          & \frac{5}{9}
 	\end{align*}
 \end{example}
 \begin{practice}{\hyperref[ans:3.6-1]{1}}{Volume of Balloon}
@@ -1493,8 +1044,8 @@ minimum values. There's a couple of steps in doing so:
 	\end{enumerate}
 \end{practice}
 \begin{practice}{\hyperref[ans:linear-approx]{2}}{Linear Approximination}
-    \label{prac:linear-approx}
-    Approximate the value of $\displaystyle\sqrt{26}$
+	\label{prac:linear-approx}
+	Approximate the value of $\displaystyle\sqrt{26}$
 \end{practice}
 
 
@@ -2257,21 +1808,23 @@ results in $f(x)$ being an easy-to-compute number would be $x=25$ ($f(25)=5$)
 With that information, let's find $f'(25)$ for $m$:
 
 \begin{align*}
-    f'(x) =& \frac{d}{dx}f(x)\\
-     =& \frac{1}{2\sqrt{x}} \\
-    f'(25) =& \frac{1}{2\sqrt{25}} \\
-    f'(25) =& \frac{1}{10} 
+	f'(x) =  & \frac{d}{dx}f(x)     \\
+	=        & \frac{1}{2\sqrt{x}}  \\
+	f'(25) = & \frac{1}{2\sqrt{25}} \\
+	f'(25) = & \frac{1}{10}
 \end{align*}
 
 Let's plug in everything we know to get an approxmiation for $\sqrt{26}$:
 \begin{align*}
-    y-(5) =& (\frac{1}{10})(26-25)\\
-    y =& 5 + (\frac{1}{10})(1)\\
-    y =& 5.1
+	y-(5) = & (\frac{1}{10})(26-25) \\
+	y =     & 5 + (\frac{1}{10})(1) \\
+	y =     & 5.1
 \end{align*}
 
 So $\sqrt{26}\approx 5.1$\emoji{smiling-face-with-hearts}\newline
 That's quite accurate to its actual value: $\sqrt{26}=5.09902\ldots$
 
 \end{document}
+
+
 

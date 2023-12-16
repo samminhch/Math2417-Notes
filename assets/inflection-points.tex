@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			scale only axis,
+			width  = 5cm,
+			xmin   = -2,
+			xmax   = 2,
+			ymin   = -1,
+			ymax   = 1,
+			xtick  = \empty,
+			ytick  = \empty,
+			xlabel = \empty,
+			ylabel = \empty,
+			title  = Inflection Points,
+			smooth,
+		]
+
+		\addplot[
+			smooth,
+			domain        = -2:0,
+			color         = red,
+			pattern color = red,
+			pattern       = crosshatch,
+		]{x^3};
+
+		\addplot[
+			smooth,
+			domain        = 0:2,
+			color         = green,
+			pattern color = green,
+			pattern       = crosshatch,
+		]{x^3};
+
+		% Mark beginning and end
+		\addplot [
+			only marks,
+			color = blue,
+			mark  = o,
+		] coordinates {(0,0)};
+
+	\end{axis}
+\end{tikzpicture}
+

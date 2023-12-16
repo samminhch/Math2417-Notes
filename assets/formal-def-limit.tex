@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			scale only axis,
+			width  = 5cm,
+			xmin   = 0,
+			xmax   = 0.85,
+			ymin   = 0,
+			ymax   = 1,
+			xtick  = \empty,
+			ytick  = \empty,
+			xlabel = \empty,
+			ylabel = \empty,
+			clip   = false,
+			smooth,
+		]
+
+		\addplot[
+			domain=0:0.85,
+			samples=100,
+			color=red,
+		]{sqrt(x)};
+
+		% add open dot for removable discontinuity
+		\addplot [
+			color=blue,
+			mark=o
+		] coordinates {(0.4225,0.65)};
+
+		% Epsilon-delta lines
+		\draw [dashed, blue] (0, 0.75) -- (0.5625, 0.75);
+		\draw [dashed, blue] (0, 0.65) -- (0.4225, 0.65);
+		\draw [dashed, blue] (0, 0.55) -- (0.3025, 0.55);
+		\draw [dashed, blue] (0.5625, 0) -- (0.5625, 0.75);
+		\draw [dashed, blue] (0.4225, 0) -- (0.4225, 0.65);
+		\draw [dashed, blue] (0.3025, 0) -- (0.3025, 0.55);
+
+		% Labels
+		\node[below] at (0.5625, 0) {c + \delta};
+		\node[below] at (0.4225, 0) {c};
+		\node[below] at (0.3025, 0) {c - \delta};
+		\node[left] at (0, 0.75) {L + \varepsilon};
+		\node[left] at (0, 0.65) {L};
+		\node[left] at (0, 0.55) {L - \varepsilon};
+		\node[right] at (0.4225, 0.65){(c, L)};
+
+	\end{axis}
+\end{tikzpicture}
