@@ -7,15 +7,15 @@
 \newenvironment{note}[1]{\begin{YellowBox}{Note}{#1}}{\end{YellowBox}}
 \newenvironment{theorem}[1]{\begin{GrayBox}{Theorem}{#1}}{\end{GrayBox}}
 \newenvironment{practice}[2]{\begin{PurpleBox}{\texorpdfstring{#1}\Big|You Try}{#2}}{\end{PurpleBox}}
+\newcommand{\continued}{
+	\mbox{}
+	\vfill
+	\textbf{Continued on Next Page\ldots}\newpage
+}
 \newcommand{\br}{
 	\begin{center}
 		\line(1,0){4ex}
 	\end{center}}
-\newcommand{\continued}{
-	\mbox{}
-	\vfill
-	\textbf{Continued on Next Page...}\newpage
-}
 \newcommand{\bl}{
 	\newline$ $\newline
 }
@@ -1343,11 +1343,17 @@ interval.
 	If $f''(c)=0$ then the test fails. Use the first derivative test instead.
 \end{theorem}
 
-\begin{displayquote}
+\begin{practice}{\hyperref[ans:3.4-1]{1}}{Concavity}
+	\label{prac:3.4-1}
+	Determine the intervals when \[f(x)=\frac{12}{x^3+1}\] is concave up
+	or concave down
+\end{practice}
+
+\newpage
+\marginnote{
 	An alternative way to decide whether a critical number is a
 	relative maximum or minimum
-\end{displayquote}
-
+}
 \begin{example}{Relative Extrema with Second Derivative Test}
 	Find all relative extrema of $$f(x)=3x^4+8x^3-18x^2+5$$
 	\begin{align*}
@@ -1369,16 +1375,6 @@ interval.
 	and relative maximum is at $\big(0, f(0)\big)$
 \end{example}
 
-\begin{multicols}{2}
-	\begin{practice}{\hyperref[ans:3.4-1]{1}}{}
-		\label{prac:3.4-1}
-	\end{practice}
-	\begin{practice}{\hyperref[ans:3.4-2]{2}}{}
-		\label{prac:3.4-2}
-	\end{practice}
-\end{multicols}
-
-\marginnote{This part is going to contain many example problems}
 \subsection{Optimization}
 Some of the more common applications of calculus involve finding maximum and
 minimum values. There's a couple of steps in doing so:
@@ -1418,12 +1414,15 @@ minimum values. There's a couple of steps in doing so:
 	\end{align*}
 	Now that we have the maximum area of $720,000\text{ft}^2$, we can use that value to find the dimensions of the fence:
 	\begin{align*}
-		y & =2400-2(600)
+		y & =2400-2(600) \\
 		y & =1200
 	\end{align*}
 	The dimensons are x=600ft, y=1200ft
 \end{example}
 
+\begin{practice}{\hyperref[ans:3.5-1]{1}}{Maximum Revenue}\label{prac:3.5-1}
+	A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
+\end{practice}
 % TODO: draw a diagram for this problem
 \begin{example}{Maximum Volume}
 	There's a box with as square base that is open at the top. Find the dimensions of the box with the maximum area, given that the box only has $102\text{in}^2$ of surface area:\newline
@@ -1449,15 +1448,11 @@ minimum values. There's a couple of steps in doing so:
 	max base length: $$y=\frac{108-(6)^2}{4(6)}=3$$
 	The dimensions are: 6x3x6 inches, where the first value is width, the second value is height, and the third value is depth
 \end{example}
-\begin{practice}{\hyperref[ans:3.5-1]{1}}{Maximum Revenue}\label{prac:3.5-1}
-	A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
-\end{practice}
 
 % \subsection{Limits at Infinity}
 % \subsection{Curve Sketching}
 % \subsection{Newton's Method} Guessing this isn't covered in the textbook
 
-% TODO: revise this section
 \subsection{Differentials}
 \begin{definition}{Differential}
 	Let $y=f(x)$ be a function that is differentiable on the open interval $x$:
@@ -1474,13 +1469,20 @@ minimum values. There's a couple of steps in doing so:
 	\end{align*}
 \end{theorem}
 \begin{example}{Differential}
-	Given $\displaystyle y=f(x)=\frac{2x-3}{x+1}=2-\frac{5}{x+1}$:
+	Given $\displaystyle y=f(x)=\frac{2x-3}{x+1}$:
 	\begin{enumerate}
-		\item Find the differential $dy$
+		\item Find the differential $dy$\\\[\]
 		\item Find $\Delta y$ and $dy$ when x=-2 and $\Delta x=dx=0.1$
 	\end{enumerate}
-
-	% TODO: draw a diagram for this problem
+	\br
+	\begin{align*}
+		dy =       & f'(x)dx=f'(-2)(\frac{1}{10})                     \\
+		=          & \frac{5}{\left((-2)+1\right)^2}\cdot\frac{1}{10} \\
+		=          & \frac{1}{2}                                      \\
+		\Delta y = & f(x+\Delta x)-f(x)                               \\
+        =          & -\frac{68}{9}-7\\
+        =          & \frac{5}{9}
+	\end{align*}
 \end{example}
 \begin{practice}{\hyperref[ans:3.6-1]{1}}{Volume of Balloon}
 	The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
@@ -1490,7 +1492,115 @@ minimum values. There's a couple of steps in doing so:
 		\item Approximate the percent error in parts 1 and 2
 	\end{enumerate}
 \end{practice}
+\begin{practice}{\hyperref[ans:linear-approx]{2}}{Linear Approximination}
+    \label{prac:linear-approx}
+    Approximate the value of $\displaystyle\sqrt{26}$
+\end{practice}
 
+
+\newpage
+
+
+\section{Trigs Galore}
+\begin{table}[h!]\label{tab:trigonomic-reference}
+	\centering
+	\caption{Common Trigonomic Identities}
+	\begin{tabular}{ll}
+		\multicolumn{1}{c}{\textbf{Identity}}            &
+		\multicolumn{1}{c}{\textbf{Expression}}                   \\
+		\midrule
+		\multirow{3}{*}{Pythagorean identities}          &
+		$\sin^2\theta+\cos^2\theta=1$                             \\
+		                                                 &
+		$\sec^2\theta-\tan^2\theta=1$                             \\
+		                                                 &
+		$\csc^2\theta-\cot^2\theta=1$                             \\
+		\hdashline{}
+		\multirow{2}{*}{Power reduction identities}      &
+		$\sin^2\theta=\frac{1}{2} \big(1-\cos(2\theta)\big)$      \\
+		                                                 &
+		$\cos^2\theta=\frac{1}{2} \big(1+\cos(2\theta)\big)$      \\
+		\hdashline{}
+		\multirow{3}{*}{Product-to-sum identities}       &
+		$\sin(a)\cos(b)=\frac{1}{2}\big(\sin(a-b)+\sin(a+b)\big)$ \\
+		                                                 &
+		$\sin(a)\sin(b)=\frac{1}{2}\big(cos(a-b)-\cos(a+b)\big)$  \\
+		                                                 &
+		$\cos(a)\cos(b)=\frac{1}{2}\big(cos(a-b)+\cos(a+b)\big)$  \\
+		\hdashline{}
+		\multirow{2}{*}{Angle sum/difference identities} &
+		$\sin(a\pm b)=\sin(a)\sin(b)\pm\sin(b)\cos(a)$            \\
+		                                                 &
+		$\cos(a\pm b)=\cos(a)\cos(b)\pm\sin(a)\sin(b)$
+	\end{tabular}
+\end{table}
+
+\begin{example}{}
+	\[\int\tan^3\theta d\theta\]
+	\br
+	\begin{align*}
+		\int\tan^3\theta d\theta = & \int\frac{\tan^2\theta}{\sec\theta}d\theta \\
+		=                          & \frac{\sec^2\theta-1}{\sec\theta}d\theta
+	\end{align*}
+	\[u=\sec\theta\hspace{5em}du=\sec\theta\tan\theta d\theta\implies d\theta=\tan\theta\sec\theta du\]
+	\begin{align*}
+		         & \int\frac{\sec^2\theta-1}{\sec\theta}d\theta                      \\
+		\implies & \int\frac{\sec^2\theta-1}{\sec\theta}\cdot\tan\theta\sec\theta du \\
+		=        & \int\frac{u^2-1}{u}du                                             \\
+		=        & \int udu-\int\frac{1}{u}du                                        \\
+		=        & \frac{1}{2}u^2-\ln|u|+C                                           \\
+		=        & \frac{1}{2}\sec^2\theta-\ln|\sec\theta|+C
+	\end{align*}
+\end{example}
+
+\subsection{Trigonomic Substitution}
+This strategy is used to get rid of the square root in the integral
+\newline
+If you see $\sqrt{a^2-x^2}$, replace $x=a\sin\theta$
+\newline
+If you see $\sqrt{a^2+x^2}$, replace $x=a\tan\theta$
+\newline
+If you see $\sqrt{x^2-a^2}$, replace $x=a\sec\theta$
+
+\begin{theorem}{Equation of Ellipse}
+	\[\forall a>0\land b>0.(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1)\]
+	The area of the top half of an ellipse can be expressed with this equation below
+	\[\int_{-a}^{a}y=b\sqrt{1-\frac{x^2}{a^2}}\]
+\end{theorem}
+
+To solve an equation in the form above, you could do this:
+\begin{align*}
+	\int_{-a}^{a}y = & b\sqrt{1-\frac{x^2}{a^2}} \frac{x}{a}=\sin\left(\theta\right)             \\
+	=                & ab\int_{-\pi\over2}^{\pi\over2}\sqrt{1-\sin^2(\theta)}\cos(\theta)d\theta \\
+	=                & \pi\cdot ab
+\end{align*}
+
+Which gets you the area of an ellipse
+
+\begin{note}{Area of Circle}
+	The answer we just derived can be used to find the area of a circle!
+	Circles are special ellipses where $a=b$, hence $A=\pi\cdot r^2$
+\end{note}
+
+\begin{example}{Tangent Substitution}
+	\[\int\frac{1}{\left(4+x^2\right)^\frac{3}{2}}\]
+	\br
+	Replace $x=2\tan\theta,dx=2\sec^2\theta d\theta$
+	\begin{align*}
+		            & \int\frac{2\sec^2\theta}{\left(\sqrt{4+4\tan^2\theta}\right)^3}d\theta \\
+		\frac{1}{4} & \int\frac{\sec^2\theta}{\left(\sqrt{1+\tan^2\theta}\right)}d\theta     \\
+		\frac{1}{4} & \int\frac{1}{\sec\theta}d\theta                                        \\
+		\frac{1}{4} & \int\cos\theta d\theta                                                 \\
+		\frac{1}{4} & \sin\theta+C                                                           \\
+	\end{align*}
+	From substitution, you have
+	\[x=2\tan\theta\]
+	From which you can draw a triangle from and get $\sin\theta$ from that.
+\end{example}
+
+\begin{example}{}
+	\[\int\frac{\sqrt{x^2-16}{x}}dx\]
+\end{example}
 
 \newpage
 \section{Practice Problem Answers}
@@ -2062,25 +2172,50 @@ values:
 By plugging those values into $f'(x)$ we can conclude the intervals at which
 $f(x)$ is increasing and decreasing:
 \begin{multicols}{2}
+	\centering
 	Decreasing: $(-\infty,-\frac{1}{\sqrt{2}})\cup(\frac{1}{\sqrt{2}},\infty)$
 
 	Increasing: $(-\frac{1}{\sqrt{2}},0)\cup(0,\frac{1}{\sqrt{2}})$
 \end{multicols}
-% \newpage
-% \section{Cheat Sheet}
-% \begin{multicols}{2}
-%     \begin{GrayBox}{Limits}{}
-%         $\lim_{x\to c}f(x)=L$
-%     \end{GrayBox}
-% \end{multicols}
 
-\section*{\ref{prac:3.4-1}---}
-\label{ans:3.4-1}
-% TODO: make practice problems for these :D
+\section*{\ref{prac:3.4-1}---Concavity}\label{ans:3.4-1}
+Determine the intervals when \[f(x)=\frac{12}{x^3+1}\] is concave up
+or concave down
+\br
+We gotta take the second derivative of $f(x)$:
+\begin{align*}
+	f(x) =  & 12\cdot(x^3+1)^{-1}                        \\
+	f'(x)=  & \frac{d}{dx}f(x)                           \\
+	=       & 12\cdot(3x^2)(-1)(x^3+1)^{-2}              \\
+	=       & -\frac{36x^2}{\left(x^3+1\right)^2}        \\
+	f''(x)= & \frac{d}{dx}f'(x)                          \\
+	=       & -\frac{72x(-2x^3+1)}{\left(x^3+1\right)^3}
+\end{align*}
+\continued{}
 
-\section*{\ref{prac:3.4-2}---}
-\label{ans:3.4-2}
-% TODO: make practice problems for these :D
+Now we must solve for when $f''(x)=0\lor\text{DNE}$:
+\marginnote{$x=-1$ is implied, though the work for it isn't shown}
+\begin{align*}
+	0 = & -\frac{72x(-2x^3+1)}{(x^3+1)^3} \\
+	0 = & -72x(-2x^3+1)                   \\
+	x = & \{-1, 0,\frac{1}{\sqrt[3]{2}}\}
+\end{align*}
+
+Now we need to find the concavities of $f(x)$ using the second derivative test:
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c|c}
+		-2    & -1 & $-\frac{1}{2}$ & 0 & $\frac{1}{2}$ & $\frac{1}{\sqrt[3]{2}}$ & 1     \\
+		\midrule
+		$< 0$ & 0  & $> 0$          & 0 & $< 0$         & 0                       & $> 0$
+	\end{tabular}
+\end{center}
+
+\begin{multicols}{2}
+	\centering
+	Concave Down: $(-\infty,0)\cup(0,\frac{1}{\sqrt[3]{2}})$
+
+	Concave Up: $(-1,0)\cup(\frac{1}{\sqrt[3]{2}},\infty)$
+\end{multicols}
 
 \section*{\ref{prac:3.5-1}---Maximum Price}
 \label{ans:3.5-1}
@@ -2096,8 +2231,6 @@ Let $u=$number of units, $p=$price of each unit, $r=$ revenue
 		Constraint      & $0\leq x\leq 20$
 	\end{tabular}
 \end{center}
-% TODO: finish this problem
-
 
 \section*{\ref{prac:3.6-1}---Volume of Balloon}\label{ans:3.6-1}
 The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
@@ -2115,5 +2248,30 @@ The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
 	   & =\pm 16.085 \text{in}^3
 \end{align*}
 
+\section*{\ref{prac:linear-approx}---Linear Approximination}\label{ans:linear-approx}
+Approximate the value of $\sqrt{26}$
+\br
+You can use the point-slope form to solve this problem! Recall that it comes in
+the form \[y-y_1=m(x-x_1)\] Firstly, set $f(x)=\sqrt{x}$. The nearest $x$ that
+results in $f(x)$ being an easy-to-compute number would be $x=25$ ($f(25)=5$)
+With that information, let's find $f'(25)$ for $m$:
+
+\begin{align*}
+    f'(x) =& \frac{d}{dx}f(x)\\
+     =& \frac{1}{2\sqrt{x}} \\
+    f'(25) =& \frac{1}{2\sqrt{25}} \\
+    f'(25) =& \frac{1}{10} 
+\end{align*}
+
+Let's plug in everything we know to get an approxmiation for $\sqrt{26}$:
+\begin{align*}
+    y-(5) =& (\frac{1}{10})(26-25)\\
+    y =& 5 + (\frac{1}{10})(1)\\
+    y =& 5.1
+\end{align*}
+
+So $\sqrt{26}\approx 5.1$\emoji{smiling-face-with-hearts}\newline
+That's quite accurate to its actual value: $\sqrt{26}=5.09902\ldots$
 
 \end{document}
+

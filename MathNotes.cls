@@ -13,6 +13,8 @@
 ]{geometry}
 \setlength\parindent{0pt}
 \RequirePackage{multicol}
+\RequirePackage{multirow}
+\RequirePackage{booktabs}
 \RequirePackage[document]{ragged2e}
 \RequirePackage{marginnote}
 
@@ -21,6 +23,7 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{tcolorbox}
 \RequirePackage{amsmath, amssymb, amsthm, amsfonts}
+\RequirePackage{arydshln}
 \RequirePackage{pgfplots}
 \RequirePackage[attach]{asymptote}
 \RequirePackage[dvips]{attachfile2}
