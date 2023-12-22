@@ -35,7 +35,7 @@
 \pagenumbering{gobble}
 \tableofcontents
 \newpage
-\section*{Author's Notes}
+\section*{Author's Notes}\label{sec:author-notes}
 This is my very first project that I wrote in \LaTeX, but I hope you enjoy
 the notes that I poured my blood, sweat, and tears into \emoji{sob}
 \br
@@ -53,39 +53,37 @@ email me at \newline\href{mailto:minh.nguyen7@utdallas.edu}{mdn220004@utdallas.e
 Thank you so much to Jing Guo and Aaron Kelly for contributing to some of the
 practice problems as well as corrections for these notes. You have my sincere
 gratitude!
-
-\section*{Class Specific Information}
-The first exam will cover up to section \ref{sec:3.3} on September 29, 2023.
-I recommend that you also do the exam review on top of the practice problems
-in these notes if you so choose. Good luck!
 \newpage
 \pagenumbering{arabic}
 
-\section{Limits}\label{sec:1}
+\section{Limits}\label{sec:limits}
 \subsection{Finding Limits Graphically \& Numerically}
+\label{sec:graphic-numeric-limits}
 
 \begin{multicols}{2}[]
-	\begin{theorem}{Informal Definition of Limit}
+	\begin{definition}{Informal Definition of Limit}\label{def:informal-def-limit}
 		\[\lim_{x\to c}f(x)=L\]
 		As $x$ gets closer to $c$, the value of $f(x)$ becomes $L$
-	\end{theorem}
+	\end{definition}
 
+	Limits also depend on what direction you're coming from:
 
-	Limits also depend on what direction\footnote{If the limits from the left and
-		right don't match, then the limit \textit{doesn't exist}} you're coming from:
-	\begin{tabular}{ |l|c| }
-		\hline
+	\begin{tabular}{lc}\label{tab:directional-limit}
 		Meaning        & Math Expression       \\
-		\hline
-		\hline
+		\midrule
 		From the right & $\lim_{x\to c^+}f(x)$ \\
-		\hline
 		From the left  & $\lim_{x\to c^-}f(x)$ \\
-		\hline
 	\end{tabular}
 \end{multicols}
 
-\begin{example}{Estimating Graphically and Numerically}\label{ex:1.1}
+\begin{note}{Limits Don't Exist When\ldots}\label{note:limit-doesnt-exist-when}
+	\begin{itemize}
+		\item $\lim_{x\to c^-}f(x)\neq \lim_{x\to c^+}f(x)$
+		\item $f(x)$ is a violently oscillating function (ex: $f(x)=\sin\left(\frac{1}{x}\right)$)
+	\end{itemize}
+\end{note}
+
+\begin{example}{Estimating Graphically and Numerically}\label{ex:estimating-limit}
 	Consider the function $f(x)=\frac{x^3-1}{x-1}$:
 	\begin{center}
 		\input{assets/graphical-limit.tex}
@@ -103,43 +101,35 @@ in these notes if you so choose. Good luck!
 	approaching $f(x)=3$ when $x=1$
 \end{example}
 
-\subsubsection{When Limits Fail to Exist}
-\begin{note}{Limits Don't Exist When}
-	\begin{itemize}
-		\item $\lim_{x\to c^-}f(x)\neq \lim_{x\to c^+}f(x)$
-		\item $f(x)$ is a violently oscillating function
-	\end{itemize}
-\end{note}
-
 \newpage
-\subsubsection{A Formal Definition}
+\subsubsection{A Formal Definition}\label{sec:formal-def-limit}
 
 \begin{multicols}{2}
-	\begin{theorem}{Limits via. $\varepsilon - \delta$}
-		The statement $\lim_{x\to c}f(x)=L$ means that for each $\varepsilon > 0$ there
-		exists $ \delta>0 $ such that if $0<\lvert x-c \rvert < \delta$ then
-		$\lvert f(x)-L \rvert < \varepsilon$
+	\begin{theorem}{Limits via. $\varepsilon - \delta$}\label{th:limit-def}
+		The statement $\lim_{x\to c}f(x)=L$ means that for each
+		$\varepsilon > 0$ there exists $ \delta>0 $ such that if
+		$0<\lvert x-c \rvert < \delta$ then $\lvert f(x)-L \rvert < \varepsilon$
 	\end{theorem}
 
 	\centering
 	\input{assets/formal-def-limit.tex}
 \end{multicols}
-Refer back to finding limits numerically (example \ref{ex:1.1}):
+Refer back to finding limits numerically (example \ref{ex:estimating-limit}):
 \begin{itemize}
 	\item $\pm\varepsilon$ would be the values on the row $f(x)$
 	\item $\pm\delta$ would be the values on the row $x$
 \end{itemize}
 
 
-\begin{practice}{\hyperref[ans:1.1.2-1]{1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
-	\label{prac:1.1.2-1}
+\begin{practice}{\hyperref[ans:proving-limit-with-formal-def]{1}}{Proving Limits via. $\varepsilon-\delta$ Definition}
+	\label{prac:proving-limit-with-formal-def}
 	Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the
 	$\epsilon-\delta$ definition
 \end{practice}
 
-\subsection{Evaluating Limits Analytically}
+\subsection{Evaluating Limits Analytically}\label{sec:evaluating-limits-analytically}
 
-\subsubsection{Properties of Limits}
+\subsubsection{Properties of Limits}\label{sec:limit-properties}
 
 \marginnote{$\mathbb{R}=$all real numbers\\$\mathbb{N}=$all natural numbers}
 \begin{multicols}{2}[]
@@ -153,7 +143,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 		\end{enumerate}
 	\end{theorem}
 
-	\begin{example}{Evaluating Basic Limits}
+	\begin{example}{Evaluating Basic Limits}\label{ex:evaluating-basic-limits}
 		\begin{center}
 			\begin{align*}
 				\lim_{x\to 2}5   & =5  \\
@@ -166,7 +156,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 
 \newpage
 \marginnote{$f(g(x))$ may also be written as $f\circ g$ }
-\begin{theorem}{Limit Properties}
+\begin{theorem}{Limit Properties}\label{th:limit-properties}
 	Let $\{b, c\}=\mathbb{R}$, $n=\mathbb{N}$, and $f$ and $g$ are functions
 	with limits:
 	\begin{displaymath}
@@ -184,7 +174,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 	\end{enumerate}
 \end{theorem}
 
-\begin{example}{Limit of Polynomial}
+\begin{example}{Limit of Polynomial}\label{ex:limit-polynomial}
 	\begin{align*}
 		\lim_{x\to 5}[ 3x^3+4 ] & = \lim_{x\to 5} 3x^3 + \lim_{x\to 5}4       \\
 		                        & = 3 \cdot \lim_{x\to 5}x^3 + \lim_{x\to 5}4 \\
@@ -192,7 +182,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 	\end{align*}
 \end{example}
 
-\begin{theorem}{Limits of Polynomial/Rationals}
+\begin{theorem}{Limits of Polynomial/Rationals}\label{th:limit-polynomial}
 	Let $c=\mathbb{R}$ and $p$ be a polynomial function:
 	\begin{displaymath}
 		\lim_{x\to c}p(x)=p(c)
@@ -207,14 +197,14 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 \end{theorem}
 
 \newpage
-\subsubsection{Squeeze Theorem}\label{sec:1.2.2}
+\subsubsection{Squeeze Theorem}\label{sec:squeeze-theorem}
 
 \marginnote{
 	Open/closed interval continuity will be discussed later in section
-	\ref{sec:1.3.1}.
+	\ref{sec:open-closed-intervals}.
 }
 \begin{multicols}{2}[]
-	\begin{theorem}{The Squeeze Theorem}
+	\begin{theorem}{The Squeeze Theorem}\label{th:squeeze-theorem}
 		Suppose $h(x)\leq f(x) \leq g(x)$ for all $x$ in an open interval
 		\textit{except} when $x=c$
 		\br
@@ -226,7 +216,7 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 		This would mean that $\lim_{x\to c}f(x)=L$
 	\end{theorem}
 
-	\begin{theorem}{Trigonomic Limits}
+	\begin{theorem}{Trigonomic Limits}\label{th:trigonomic-limits}
 		\begin{enumerate}
 			\item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$
 			\item $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x} = 0$
@@ -237,22 +227,22 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 	\input{assets/squeeze-theorem.tex}
 \end{multicols}
 
-\begin{practice}{\hyperref[ans:1.2.2-1]{1}}{Squeeze Theorem}\label{prac:1.2.2-1}
+\begin{practice}{\hyperref[ans:squeeze-theorem]{1}}{Squeeze Theorem}\label{prac:squeeze-theorem}
 	Show that
 	$\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
 	using the Squeeze Theorem
 \end{practice}
-\begin{practice}{\hyperref[ans:1.2.2-2]{2}}{Trigonomic Limit}\label{prac:1.2.2-2}
+\begin{practice}{\hyperref[ans:trigonomic-limit]{2}}{Trigonomic Limit}\label{prac:trigonomic-limit}
 	Evaluate:
 	$$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
 	\textbf{Hint:} Break it down to the trigonomic functions you know
 	how to take a limit of!
 \end{practice}
 
-\subsection{Continuity}
+\subsection{Continuity}\label{sec:continuity}
 
 \begin{multicols}{2}
-	\begin{definition}{Definition of Continuity}
+	\begin{definition}{Definition of Continuity}\label{def:continuity}
 		A function $f$ is continuous if:
 		\begin{enumerate}
 			\item $f(c)$ exists
@@ -261,12 +251,12 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 		\end{enumerate}
 	\end{definition}
 
-	\begin{practice}{\hyperref[ans:1.3-1]{1}}{Determine Continuity}\label{prac:1.3-1}
+	\begin{practice}{\hyperref[ans;continuity]{1}}{Determine Continuity}\label{prac:continuity}
 		Determine if the function is continuous at $x=2$
 	\end{practice}
 \end{multicols}
 
-\begin{note}{Continuous Functions}
+\begin{note}{Continuous Functions}\label{note:continuous-functions}
 	The following functions are always continuous \textit{everywhere
 		they're defined}:
 	\begin{itemize}
@@ -277,35 +267,37 @@ Refer back to finding limits numerically (example \ref{ex:1.1}):
 	\end{itemize}
 \end{note}
 
-\subsubsection{Open and Closed Intervals}\label{sec:1.3.1}
-A function is continuous on an \textbf{open interval} $(a, b)$ if
-$f(x)=c$ for each $c$ in $(a, b)$
+\begin{definition}{Open and Closed Intervals}\label{def:open-closed-intervals}
+	A function is continuous on an \textbf{open interval} $(a, b)$ if:
+	\begin{itemize}
+		\item $f(x)=c$ for each $c$ in $(a, b)$
+	\end{itemize}
 
-A function is continuous on a \textbf{closed interval} $[a, b]$ if:
-\begin{itemize}
-	\item $f(x)$ is continuous on $(a, b)$
-	\item $\lim_{x\to b^-}f(x)=f(b)$
-	\item $\lim_{x\to a^+}f(x)=f(a)$
-\end{itemize}
+	A function is continuous on a \textbf{closed interval} $[a, b]$ if:
+	\begin{itemize}
+		\item $f(x)$ is continuous on $(a, b)$
+		\item $\lim_{x\to b^-}f(x)=f(b)$
+		\item $\lim_{x\to a^+}f(x)=f(a)$
+	\end{itemize}
+\end{definition}
 
-\begin{theorem}{Intermediate Value Theorem}
+\begin{theorem}{Intermediate Value Theorem}\label{th:intermediate-value-theorem}
 	If $f(x)$ is continuous on $[a, b], a\neq b$, and $k$ is any number
 	between $f(a)$ and $f(b)$, then there exists a number $c$ in
-	$[a, b]$ such that: $$f(c)=k$$
+    $[a, b]$ such that: \[f(c)=k\]
 \end{theorem}
 
-\begin{practice}{\hyperref[ans:1.3.1-1]{1}}{Intermediate Value Thorem}
-	\label{prac:1.3.1-1}
+\begin{practice}{\hyperref[ans:intermediate-value-theorem]{1}}{Intermediate Value Thorem}\label{prac:intermediate-value-theorem}
 	Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
-	one solution on the interval $(-1, 2)$
+	one solution on the interval $ (-1, 2) $
 \end{practice}
 
-\subsubsection{Discontinuities}
+\subsubsection{Discontinuities}\label{sec:discontinuities}
 
 \begin{center}
 	\begin{multicols}{2}[
 			There are two cases where discontinuities happen: \marginnote{Another
-				example of removable discontinuity is in example \ref{ex:1.1}}
+				example of removable discontinuity is in example~\ref{ex:estimating-limit}}
 		]
 		\input{assets/nonremovable-discontinuity.tex}
 		\input{assets/nonremovable-discontinuity.tex}
@@ -313,7 +305,7 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \end{center}
 
 \newpage
-\subsubsection{Asymptotes}
+\subsubsection{Asymptotes}\label{sec:asymptotes}
 \begin{multicols}{2}[
 		\begin{definition}{Asymptotes}
 			\begin{multicols}{2}{
@@ -345,7 +337,7 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 	}
 \end{multicols}
 
-\begin{note}{}
+\begin{note}{About Vertical Asympototes\ldots}\label{note:vertical-asymptote}
 	We can infer something from vertical asymptotes from this graph:
 	As the denominator becomes closer to zero, and it's a positive number, then
 	the $f(x)$ will approach $\infty$. If the denominator approaches zero and
@@ -353,14 +345,14 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \end{note}
 
 \begin{multicols}{2}
-	\begin{practice}{\hyperref[ans:1.3.3-1]{1}}{Curveball Asymptote}\label{prac:1.3.3-1}
+	\begin{practice}{\hyperref[ans:curveball-asymptote]{1}}{Curveball Asymptote}\label{prac:curveball-asymptote}
 		Find the asymptotes:
 		\begin{displaymath}
 			f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
 		\end{displaymath}
 	\end{practice}
 
-	\begin{practice}{\hyperref[ans:1.3.3-2]{2}}{Curveball Trigonometry}\label{prac:1.3.3-2}
+	\begin{practice}{\hyperref[ans:curveball-trig]{2}}{Curveball Trigonometry}\label{prac:curveball-trig}
 		Find the asymptotes:
 		\begin{displaymath}
 			f(x)=\frac{\sin(x)}{x^3-x}
@@ -369,7 +361,7 @@ A function is continuous on a \textbf{closed interval} $[a, b]$ if:
 \end{multicols}
 
 \newpage
-\section{Differentiation}
+\section{Differentiation}\label{sec:differentiation}
 Derivatives are essentially the \textit{slope} of the function at a
 certain point
 
@@ -377,14 +369,14 @@ They also \textit{cannot exist} where the limit doesn't exist at the
 function
 
 \marginnote{This comes in handy when solving physics problems!}
-\begin{note}{Derivatives and Rate of Change}
+\begin{note}{Derivatives and Rate of Change}\label{note:derivatives-rate-of-change}
 	To elaborate more on this, the derivative of a function $f(x)$ at point $x=c$
-	is the instantaneous rate of change: $$f'(x)\Big|_{x=c}$$ The average rate of
+    is the instantaneous rate of change: \[f'(x)\Big|_{x=c}\] The average rate of
 	change of the function on the interval $[a, b]$ is written as such:
-	$$\frac{f(b)-f(a)}{b-a}$$
+    \[\frac{f(b)-f(a)}{b-a}\]
 \end{note}
 
-\subsection{Derivatives and Tangent Lines}
+\subsection{Derivatives and Tangent Lines}\label{sec:tangent-lines}
 \begin{multicols}{2}
 	Some mathematicians were trying to find out how to draw a line that intersects
 	a function at \textit{only one point}:
@@ -397,14 +389,14 @@ However, it takes \textit{two points} to draw a line, so they were confuzzled.
 
 You can just Google up the rest of the lore behind the definition of a limit,
 but it boils down to this:
-\begin{theorem}{Derivative via. Limits}
+\begin{theorem}{Derivative via. Limits}\label{th:derivative-limit-def}
 	\begin{displaymath}
 		\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=f'(c)\text{ and }
 		\lim_{x\to a}\frac{f(x)-f(a)}{x-a}=f'(c)
 	\end{displaymath}
 \end{theorem}
 
-\begin{note}{Alternative Ways of Writing a Derivative}
+\begin{note}{Alternative Ways of Writing a Derivative}\label{note:derivative-representations}
 	There are other ways that mathematicians defined derivative:
 	\begin{multicols}{2}[]
 		\begin{itemize}
@@ -418,21 +410,21 @@ but it boils down to this:
 	mathematicians may express derivatives
 \end{note}
 
-\begin{theorem}{Continuity of Derivatives}
-	If function $f(x)$ is differentiable at $x=c$, then it is
-	\textit{also continuous} at $x=c$
+\begin{theorem}{Continuity of Derivatives}\label{th:derivative-continuity}
+	If function $f(x)$ is differentiable at $x = c$, then it is
+	\textit{also continuous} at $ x=c $
 \end{theorem}
 
-\begin{practice}{\hyperref[ans:2.1-1]{1}}{Finding the Tangent Line}\label{prac:2.1-1}
-	Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$
+\begin{practice}{\hyperref[ans:find-tangent-line]{1}}{Finding the Tangent Line}\label{prac:find-tangent-line}
+	Find the tangent lines to $f(x) = x^2 + 1$ at $ (-2, 5) $
 \end{practice}
 
-\subsection{Rules of Derivatives}
+\subsection{Rules of Derivatives}\label{sec:derivative-rules}
 Finding derivatives with the limit definition can get pretty exhausting, so
 mathematicians came up with a lot of shortcuts to evaluate derivatives much
 quicker. Here are the rules in short:
 
-\begin{theorem}{Derivative Rules}
+\begin{theorem}{Derivative Rules}\label{th:derivative-rules}
 	\begin{align*}
 		\text{Let: } f(x) & = \text{a function}       \\
 		g(x)              & = \text{another function} \\
@@ -458,7 +450,7 @@ quicker. Here are the rules in short:
 \end{theorem}
 
 \marginnote{You don't have to simplify completely on open-ended questions!}
-\begin{example}{Power Rule}
+\begin{example}{Power Rule}\label{ex:power-rule}
 	\begin{multicols}{2}
 		\begin{enumerate}
 			\item $\displaystyle\frac{d}{dx}(3x^2+4x)=6x+4$
@@ -470,7 +462,7 @@ quicker. Here are the rules in short:
 	\end{multicols}
 \end{example}
 
-\begin{example}{Product and Quotient Rule}
+\begin{example}{Product and Quotient Rule}\label{ex:product-quotient-rule}
 	\begin{enumerate}
 		\item $\displaystyle\frac{d}{dx}(2x+3)(3x^2+1)=(2x+3)(6x)+(3x^2+1)(2)$
 		\item $\displaystyle\frac{d}{dx}\frac{x^2+3}{2x-1}
@@ -480,7 +472,7 @@ quicker. Here are the rules in short:
 
 \newpage
 \marginnote{$u$-substitution is a good method for solving chain rule problems:}
-\begin{example}{Chain Rule}
+\begin{example}{Chain Rule}\label{ex:chain-rule}
 	$$
 		\frac{d}{dx}\sin(x^2+1) \\
 	$$
@@ -495,7 +487,7 @@ quicker. Here are the rules in short:
 	\end{align*}
 \end{example}
 \marginnote{Remember: $\sin^2(\theta)+\cos^2(\theta)=1$}
-\begin{example}{$\sin$ and $\cos$ Rule}
+\begin{example}{$\sin$ and $\cos$ Rule}\label{ex:sin-cos-rule}
 	\begin{enumerate}
 		\item $\displaystyle\frac{d}{dx}
 			      \bigl(2\sin(\theta)+3\cos(\theta)-\frac{4}{\theta}\bigr)=
@@ -510,23 +502,22 @@ quicker. Here are the rules in short:
 \end{example}
 
 \begin{multicols}{2}
-	\begin{practice}{\hyperref[ans:2.2-1]{1}}{Find Horizontal Tangents}
-		\label{prac:2.2-1}
+	\begin{practice}{\hyperref[ans:horizontal-tangents]{1}}{Find Horizontal Tangents}
+		\label{prac:horizontal-tangents}
 		Find the horizontal tangents of $f(x)=x^4-2x^2+3$
 	\end{practice}
-	\begin{practice}{\hyperref[ans:2.2-2]{2}}{Find the Derivative}
-		\label{prac:2.2-2}
+	\begin{practice}{\hyperref[ans:find-derivative]{2}}{Find the Derivative}\label{prac:find-derivative}
 		Find the derivative of \newline$\displaystyle f(x)=\big((x^2+3)^5+x\big)^2$
 	\end{practice}
 \end{multicols}
 
-\subsection{Higher Order Derivatives}
+\subsection{Higher Order Derivatives}\label{sec:higher-order-derivative}
 You can take a derivative of derivative:
 \begin{displaymath}
 	\frac{d}{dx}\big[\frac{d}{dx}f(x)\big]=\frac{d^2}{dx^2}\big[f(x)\big]
 	=f''(x)
 \end{displaymath}
-\begin{example}{Finding the Second Derivative}
+\begin{example}{Finding the Second Derivative}\label{ex:second-derivative}
 	Finding $f''(x)$ when $f(x)=\frac{2x}{x+1}$:
 	\begin{align*}
 		f'(x)  & =\frac{2\cdot(x+1)-(2x)\cdot 1}{(x+1)^2} \\
@@ -535,19 +526,20 @@ You can take a derivative of derivative:
 		f''(x) & =-\frac{4(x+1)}{(x+4)^4}
 	\end{align*}
 \end{example}
-\begin{practice}{\hyperref[ans:2.3.1-1]{1}}{Velocity and Acceleration}
-	\label{prac:2.3.1-1}
+\begin{practice}{\hyperref[ans:velocity-acceleration]{1}}{Velocity and Acceleration}
+	\label{prac:velocity-acceleration}
 	A ball is thrown up into the air, and its position can be modeled into
 	of feet as a function of time: $f(t)=-5(t-2)^2+20$. Find the acceleration
 	of the ball just as it's about to hit the ground again.
 \end{practice}
-\begin{note}{Taking Beyond the Third Derivative}
+
+\begin{note}{Taking Beyond the Third Derivative}\label{note:beyond-third-derivative}
 	Taking $f'''(x)$ and beyond, it'll start to be tedious writing all of those
 	apostrophes. Mathematicians often write it like this:
 	$$\frac{d^n}{dx^n}\big[f(x)\big]=f^{(n)}(x)$$
 \end{note}
 
-\subsection{Implicit Differentiation}
+\subsection{Implicit Differentiation}\label{sec:implicit-differentiation}
 So far, we've been using \textit{explicit differentiation}, which is when $y$
 can be isolated on one side of the equation where $y$ is a function of $x$.
 
@@ -571,7 +563,7 @@ apply to terms of $x$. The example on the next page shows an implicit
 differentiation using the product rule on \textit{x and y}:
 \newpage
 \marginnote{$\frac{dx}{dx}=1$. I'm only showing it in this example $\frac{dx}{dx}$}
-\begin{example}{Implicit Differentiation with Product Rule}
+\begin{example}{Implicit Differentiation with Product Rule}\label{ex:implicit-differentiation}
 	Let's follow those steps to find the derivative of
 	$\displaystyle x^2y+y^2x=-2$:
 
@@ -584,30 +576,32 @@ differentiation using the product rule on \textit{x and y}:
 		x^2\frac{dy}{dx}+2xy+y^2+2yx\frac{dy}{dx}       & =0              \\
 	\end{align*}
 	Next, isolate terms with $\frac{dy}{dx}$:
-	$$x^2\frac{dy}{dx}+2yx\frac{dy}{dx}=-2xy-y^2$$
+    \[x^2\frac{dy}{dx}+2yx\frac{dy}{dx}=-2xy-y^2\]
 	Factor out $\frac{dy}{dx}$
-	$$(x^2+2yx)\frac{dy}{dx}=-2xy-y^2$$
+    \[(x^2+2yx)\frac{dy}{dx}=-2xy-y^2\]
 	Solve for $\frac{dy}{dx}$
-	$$\frac{dy}{dx}=\frac{-2xy-y^2}{x^2+2yx}$$
+    \[\frac{dy}{dx}=\frac{-2xy-y^2}{x^2+2yx}\]
 \end{example}
+
 \begin{multicols}{2}
-	\begin{practice}{\hyperref[ans:2.4-1]{1}}{Tangent Lines and Circles}
-		\label{prac:2.4-1}
+    \begin{practice}{\hyperref[ans:trig-implicit-differentiation]{1}}{Tangent Lines and Circles}
+		\label{prac:trig-implicit-differentiation}
 		Find the tangent line at $(4,-3)$ of \textit{the circle}:
 		$$x^2+y^2=5^2$$
 	\end{practice}
-	\begin{practice}{\hyperref[ans:2.4-2]{2}}{Differentiate}\label{prac:2.4-2}
+
+	\begin{practice}{\hyperref[ans:differentiate]{2}}{Differentiate}\label{prac:differentiate}
 		Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
 	\end{practice}
 \end{multicols}
 
-\subsection{Related Rates}
+\subsection{Related Rates}\label{sec:related-rates}
 Solving related-rate problems are similar to solving implicit differentiation.
 However, in this case, related-rate problems are typically differentiated in
 \textit{respect to time}. Additionally, related-rate problems provide given
 quantities as well as quantities to find:
 
-\begin{note}{Guideline for Related-Rate Problems}
+\begin{note}{Guideline for Related-Rate Problems}\label{note:related-rates-guide}
 	\begin{enumerate}
 		\item Take note of all quantities \textit{given} and quantities
 		      \textit{yet to find} within the problem. Create a sketch if it
@@ -621,7 +615,7 @@ quantities as well as quantities to find:
 	\end{enumerate}
 \end{note}
 
-\begin{example}{Related Rate with Cylindrical Glass}
+\begin{example}{Related Rate with Cylindrical Glass}\label{ex:related-rates}
 	The radius $r$ of a circle is increasing at a rate of 8 centimeters per
 	minute. Find the rate of change of the area when $r = 45$ centimeters.
 
@@ -657,19 +651,19 @@ quantities as well as quantities to find:
 	The rate of change of the volume of the barrel is $720\pi\frac{cm^2}{min}$.
 \end{example}
 
-\begin{practice}{\hyperref[ans:2.5-1]{1}}{Triangles Galore}
-	\label{prac:2.5-1}
+\begin{practice}{\hyperref[ans:related-rates]{1}}{Triangles Galore}\label{prac:related-rates}
 	A ladder 25 feet long is leaning against the wall of a house. The base
 	of the ladder is pulled away from the wall at a rate of 2 feet per
 	second. Find the rate at which the angle between the wall of the house and the
 	ladder are changing when the base of the ladder is 7 feet from the wall.
 \end{practice}
 
-\section{Applications of Differentiation}
-\subsection{Extrema on an Interval}
+\newpage
+\section{Applications of Differentiation}\label{applications-of-differentiation}
+\subsection{Extrema on an Interval}\label{sec:extrema-on-interval}
 \marginnote{Absolute maximum/minimum is also known as the \textit{global}
 	maximum/minimum}
-\begin{definition}{Extrema}
+\begin{definition}{Extrema}\label{def:extrema}
 	Let function $f$ be defined on an interval $I$ containing $c$:
 	\begin{itemize}
 		\item $f(c)$ is an \textit{absolute minimum of $f$ on $I$} when $f(c)\leq f(x)$
@@ -682,7 +676,7 @@ quantities as well as quantities to find:
 	there will only be one absolute minimum or maximum.
 \end{definition}
 
-\begin{note}{Minimums and Maximums}
+\begin{note}{Minimums and Maximums}\label{note:minimums-and-maximums}
 	Minimums and maximums occur when the slope of a function changes
 	from positive to negative, or vice versa.
 	\begin{itemize}
@@ -703,7 +697,7 @@ interval.
 
 \newpage
 \begin{multicols}{2}
-	\begin{definition}{Critical Value}
+    \begin{definition}{Critical Value}\label{def:critical-value}
 		If $f(x)$ is defined at $x=c$, then $c$ is a \textit{critical number} if
 		either:
 		\begin{multicols}{2}
@@ -717,7 +711,8 @@ interval.
 		Critical values are also known as \textit{critical points}. The terms will
 		be used interchangeably throughout the textbook.
 	\end{definition}
-	\begin{note}{Finding Absolute Extrema}
+
+    \begin{note}{Finding Absolute Extrema}\label{note:find-abs-extrema}
 		To find the absolute extrema of $f(x)$ at the interval $[a, b]$
 		\begin{enumerate}
 			\item Find all critical points
@@ -731,7 +726,7 @@ interval.
 
 \marginnote{Make sure when doing these problems that the critical values you find
 	are \textit{still on the interval} of the function}
-\begin{example}{Finding Absolute Extrema}
+\begin{example}{Finding Absolute Extrema}\label{ex:find-abs-extrema}
 	To find the absolute extrema of $f(x)=3x^4-16x^3+18x^2$ on the interval
 	$[-1, 4]$, we must first find all of its critical points:
 	\begin{align*}
@@ -758,22 +753,21 @@ interval.
 \end{example}
 
 \begin{multicols}{2}
-	\begin{practice}{\hyperref[ans:3.1-1]{1}}{Finding Absolute Extrema}
-		\label{prac:3.1-1}
+	\begin{practice}{\hyperref[ans:find-abs-extrema]{1}}{Finding Absolute Extrema}\label{prac:find-abs-extrema}
 		Find the absolute extrema of $f(\theta)=\sin(\theta)-cos^2(\theta)$ on
 		the interval $[0, 2\pi]$
 	\end{practice}
-	\begin{practice}{\hyperref[ans:3.1-2]{2}}{Critical Values of a Trigonomic Function}
-		\label{prac:3.1-2}
+
+	\begin{practice}{\hyperref[ans:critical-values]{2}}{Critical Values of a Trigonomic Function}\label{prac:critical-values}
 		Find all $\theta$ where $\displaystyle f(\theta)=2\cos\theta+\sin^2\theta$
 		is a critical value.
 	\end{practice}
 \end{multicols}
 
 \newpage
-\subsection{Rolle's Theorem \& Mean Value Theorem}
+\subsection{Rolle's Theorem \& Mean Value Theorem}\label{sec:rolles-and-mvt}
 \begin{multicols}{2}
-	\begin{theorem}{Mean Value Theorem}
+    \begin{theorem}{Mean Value Theorem}\label{th:mvt}
 		If $f(x)$ is:
 		\begin{itemize}
 			\item continuous on $[a, b]$
@@ -796,7 +790,7 @@ interval.
 	\begin{center}
 		\input{assets/rolles-theorem.tex}
 	\end{center}
-	\begin{theorem}{Rolle's Theorem}
+    \begin{theorem}{Rolle's Theorem}\label{th:rolles-theorem}
 		If $f(x)$ is:
 		\begin{itemize}
 			\item continuous on $[a, b]$
@@ -807,27 +801,28 @@ interval.
 	\end{theorem}
 \end{multicols}
 \begin{multicols}{2}
-	\begin{practice}{\hyperref[ans:3.2-1]{1}}{Inequalities}\label{prac:3.2-1}
+	\begin{practice}{\hyperref[ans:inequalities]{1}}{Inequalities}\label{prac:inequalities}
 		Use the \textit{Mean Value Theorem} to verify the following inequality:
-		$$\sqrt{b}-\sqrt{a}<\frac{b-a}{2\sqrt{b}},b-a>0$$
+        \[\sqrt{b}-\sqrt{a}<\frac{b-a}{2\sqrt{b}},b-a>0\]
 		\textbf{Hint:} Divide both sides by $b-a$
 	\end{practice}
-	\begin{practice}{\hyperref[ans:3.2-2]{2}}{MVT with $f(x)$}\label{prac:3.2-2}
+
+    \begin{practice}{\hyperref[ans:mvt]{2}}{MVT with $f(x)$}\label{prac:mvt}
 		The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the
 		interval $[-1, 8]$. If so, find all $c$ that apply. If the theorem cannot
 		be applied, explain why.
 	\end{practice}
 \end{multicols}
-\begin{practice}{\hyperref[ans:3.2-3]{3}}{IVT \& Rolle's Theorem}\label{prac:3.2-3}
+\begin{practice}{\hyperref[ans:ivt-rolles]{3}}{IVT \& Rolle's Theorem}\label{prac:ivt-rolles}
 	Use the \textit{Intermediate Value Theorem} and \textit{Rolle's Theorem} to
 	prove that the following equation has exactly one real solution:
-	$$6x^7+2x^5+3x+6=0$$
+    \[6x^7+2x^5+3x+6=0\]
 \end{practice}
 
 \newpage
-\subsection{Increasing \& Decreasing Functions---First Derivative Test}\label{sec:3.3}
+\subsection{Increasing \& Decreasing Functions---First Derivative Test}\label{sec:first-derivative-test}
 
-\begin{theorem}{Decreasing and Increasing Functions}
+\begin{theorem}{Decreasing and Increasing Functions}\label{th:increasing-decreasing-functions}
 	Let $f$ be a continuous function on the closed interval $[a, b]$, and
 	differentiable on the open interval $(a, b)$:\newline
 	\begin{center}
@@ -843,7 +838,7 @@ interval.
 	\end{center}
 \end{theorem}
 
-\begin{theorem}{The First Derivative Test}
+\begin{theorem}{The First Derivative Test}\label{th:first-derivative-test}
 	This is used to tell if a \textit{critical point} $x$ is a relative
 	maximum, relative minimum, or neither. If $f'(x)$ is changing from\ldots
 
@@ -856,8 +851,8 @@ interval.
 	If $f'(x)$ isn't changing at a critical point, then it's neither a
 	relative minimum nor maximum
 \end{theorem}
-\begin{practice}{\hyperref[ans:3.3-1]{1}}{The First Derivative Test}
-	\label{prac:3.3-1}
+\begin{practice}{\hyperref[ans:first-derivative-test]{1}}{The First Derivative Test}
+	\label{prac:first-derivative-test}
 	Given $\displaystyle f(x)=3x^5-4x^3$, find:
 	\begin{enumerate}
 		\item All open interval(s) where $f(x)$ is decreasing or increasing
@@ -866,12 +861,11 @@ interval.
 \end{practice}
 
 \newpage
-
-\subsection{Concavity---The Second Derivative Test}
+\subsection{Concavity---The Second Derivative Test}\label{sec:second-derivative-test}
 \marginnote{Inflection points only occur when \newline$f''=0\lor DNE$. In the case of this
 	graph, it's at (0, 0)}
 \begin{multicols}{2}
-	\begin{definition}{Concavity}
+    \begin{definition}{Concavity}\label{def:concavity}
 		Let $f$ be a function that's differentiable on an open interval $I$:
 		\begin{itemize}
 			\item $f$ is concave upward when $f'$ is increasing
@@ -884,7 +878,7 @@ interval.
 	\end{center}
 \end{multicols}
 
-\begin{theorem}{Second Derivative Test}
+\begin{theorem}{Second Derivative Test}\label{th:second-derivative-test}
 	Let $f$ be a function whose $f'(c)=0$ and its second derivative exists on an
 	open interval cnotaining $c$:
 	\begin{itemize}
@@ -894,8 +888,7 @@ interval.
 	If $f''(c)=0$ then the test fails. Use the first derivative test instead.
 \end{theorem}
 
-\begin{practice}{\hyperref[ans:3.4-1]{1}}{Concavity}
-	\label{prac:3.4-1}
+\begin{practice}{\hyperref[ans:concavity]{1}}{Concavity}\label{prac:concavity}
 	Determine the intervals when \[f(x)=\frac{12}{x^3+1}\] is concave up
 	or concave down
 \end{practice}
@@ -926,10 +919,10 @@ interval.
 	and relative maximum is at $\big(0, f(0)\big)$
 \end{example}
 
-\subsection{Optimization}
+\subsection{Optimization}\label{sec:optimization}
 Some of the more common applications of calculus involve finding maximum and
 minimum values. There's a couple of steps in doing so:
-\begin{note}{Optimization Problems}
+\begin{note}{Optimization Problems}\label{note:optimization-guide}
 	\begin{enumerate}
 		\item Identify all given values, and, draw a sketch if you need
 		\item Write an equation that you want to find the maximum / minimum of
@@ -938,7 +931,8 @@ minimum values. There's a couple of steps in doing so:
 		\item Find the minimums / maximums of that primary equation
 	\end{enumerate}
 \end{note}
-\begin{example}{Largest Area}
+
+\begin{example}{Largest Area}\label{ex:max-area}
 	A farmer has 2400ft of fencing and wants to fence off a rectangular field that
 	borders a straight river. No fencing needed along river. What are the dimensions
 	with the largest area?
@@ -971,11 +965,11 @@ minimum values. There's a couple of steps in doing so:
 	The dimensons are x=600ft, y=1200ft
 \end{example}
 
-\begin{practice}{\hyperref[ans:3.5-1]{1}}{Maximum Revenue}\label{prac:3.5-1}
+\begin{practice}{\hyperref[ans:max-revenue]{1}}{Maximum Revenue}\label{prac:max-revenue}
 	A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
 \end{practice}
-% TODO: draw a diagram for this problem
-\begin{example}{Maximum Volume}
+
+\begin{example}{Maximum Volume}\label{ex:max-volume}
 	There's a box with as square base that is open at the top. Find the dimensions of the box with the maximum area, given that the box only has $102\text{in}^2$ of surface area:\newline
 	\begin{center}
 		\begin{tabular}{ll}
@@ -1004,22 +998,24 @@ minimum values. There's a couple of steps in doing so:
 % \subsection{Curve Sketching}
 % \subsection{Newton's Method} Guessing this isn't covered in the textbook
 
-\subsection{Differentials}
-\begin{definition}{Differential}
+\subsection{Differentials}\label{sec:differentials}
+\begin{definition}{Differential}\label{def:differential}
 	Let $y=f(x)$ be a function that is differentiable on the open interval $x$:
 	\begin{itemize}
 		\item The \textit{differential of x} (dx, or \Delta x) is $x\in\mathbb{R}, x\neq 0$
 		\item The \textit{differential of y} (dy, or \Delta y) is $dy=f'(x)dx$
 	\end{itemize}
 \end{definition}
-\begin{theorem}{Linear Approximination}
+
+\begin{theorem}{Linear Approximination}\label{th:linear-approx}
 	We can find the change of $y=f(x)$ when $x$ changes by:
 	\begin{align*}
 		y & =\Delta y           \\
 		  & =f(x+\Delta x)-f(x)
 	\end{align*}
 \end{theorem}
-\begin{example}{Differential}
+
+\begin{example}{Differential}\label{ex:differential}
 	Given $\displaystyle y=f(x)=\frac{2x-3}{x+1}$:
 	\begin{enumerate}
 		\item Find the differential $dy$\\\[\]
@@ -1035,7 +1031,8 @@ minimum values. There's a couple of steps in doing so:
 		=          & \frac{5}{9}
 	\end{align*}
 \end{example}
-\begin{practice}{\hyperref[ans:3.6-1]{1}}{Volume of Balloon}
+
+\begin{practice}{\hyperref[ans:volume-of-balloon]{1}}{Volume of Balloon}\label{prac:volume-of-balloon}
 	The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
 	\begin{enumerate}
 		\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
@@ -1043,6 +1040,7 @@ minimum values. There's a couple of steps in doing so:
 		\item Approximate the percent error in parts 1 and 2
 	\end{enumerate}
 \end{practice}
+
 \begin{practice}{\hyperref[ans:linear-approx]{2}}{Linear Approximination}
 	\label{prac:linear-approx}
 	Approximate the value of $\displaystyle\sqrt{26}$
@@ -1050,8 +1048,6 @@ minimum values. There's a couple of steps in doing so:
 
 
 \newpage
-
-
 \section{Trigs Galore}
 \begin{table}[h!]\label{tab:trigonomic-reference}
 	\centering
@@ -1156,8 +1152,8 @@ Which gets you the area of an ellipse
 \newpage
 \section{Practice Problem Answers}
 
-\subsection*{\ref{prac:1.1.2-1}---Proving Limits via. $\varepsilon-\delta$ Definition}
-\label{ans:1.1.2-1}
+\subsection*{\ref{prac:proving-limit-with-formal-def}---Proving Limits via. $\varepsilon-\delta$ Definition}
+\label{ans:proving-limit-with-formal-def}
 Consider $f(x)=10x-6$, prove that $\displaystyle\lim_{x\to 3}f(x)=24$ using the
 $\epsilon-\delta$ definition:
 \br
@@ -1175,7 +1171,7 @@ The first thing we would have to do is to find $\delta$:
 Notice how $\delta=\frac{\epsilon}{10}$. This guarantees that
 $\lvert f(x)-L \rvert < \epsilon$ whenever $0<\lvert x-c \rvert<\delta$
 
-\subsection*{\ref{prac:1.2.2-1}---Squeeze Theorem}\label{ans:1.2.2-1}
+\subsection*{\ref{prac:squeeze-theorem}---Squeeze Theorem}\label{ans:squeeze-theorem}
 Show that
 $\displaystyle\lim_{x\to 0}(\cos(\frac{2\pi}{3x})\cdot\sqrt{x^3+x^2})=0$
 using the Squeeze Theorem
@@ -1196,7 +1192,7 @@ We know that $\displaystyle-1\leq\cos(\frac{2\pi}{3x})\leq 1$:
 
 Because of the Squeeze Theorem, $\displaystyle\lim_{x\to 0}\cos(\frac{2\pi}{3x})=0$
 
-\subsection*{\ref{prac:1.2.2-1}---Trigonomic Limit}\label{ans:1.2.2-2}
+\subsection*{\ref{prac:trigonomic-limit}---Trigonomic Limit}\label{ans:trigonomic-limit}
 Evaluate:
 $$\lim_{x\to 0}\frac{\tan(3x)}{4x+\sin(2x)}$$
 \br
@@ -1221,7 +1217,7 @@ $\displaystyle\frac{\frac{1}{x}}{\frac{1}{x}}$
 
 That problem was quite tricky, but we did it \emoji{smiling-face-with-hearts}
 
-\subsection*{\ref{prac:1.3-1}---Determine Continuity}\label{ans:1.3-1}
+\subsection*{\ref{prac:continuity}---Determine Continuity}\label{ans:continuity}
 Determine if the function is continuous at $x=2$
 
 \begin{displaymath}
@@ -1252,7 +1248,8 @@ are the same: $3\neq2$
 $\therefore f(x)$ is \textit{not continuous} at $x=2$!
 
 \newpage
-\subsection*{\ref{prac:1.3.1-1}---Intermediate Value Theorem}\label{ans:1.3.1-1}
+
+\subsection*{\ref{prac:intermediate-value-theorem}---Intermediate Value Theorem}\label{ans:intermediate-value-theorem}
 Use the Intermediate Value Theorem to prove that $x^3+x^2=1$ has at least
 one solution on the interval $(-1, 2)$
 \br
@@ -1269,7 +1266,7 @@ Now that we know that $f(-1)$ and $f(2)$ are not equal, and $f(-1)<1<f(2)$, we
 can conclude that there is a number '$c$' in the interval $(-1, 2)$ such that
 $f(c)=1$
 
-\subsection*{\ref{prac:1.3.3-1}---Curveball Asymptote}\label{ans:1.3.3-1}
+\subsection*{\ref{prac:curveball-asymptote}---Curveball Asymptote}\label{ans:curveball-asymptote}
 Find the asymptotes:
 \begin{displaymath}
 	f(x)=\frac{\sqrt{(x-1)(x-3)}}{(x-2)(x-4)}
@@ -1281,7 +1278,7 @@ consider the \textit{domain} at which $f(x)$ exists.
 Because this is a square root function, $(x-1)(x-3)$ \textit{cannot be a
 	negative number}. Plugging in $x=2$ would result in a negative square root.
 
-\subsection*{\ref{prac:1.3.3-2}---Curveball Trigonometry}\label{ans:1.3.3-2}
+\subsection*{\ref{prac:curveball-trig}---Curveball Trigonometry}\label{ans:curveball-trig}
 Find the asymptotes:
 \begin{displaymath}
 	f(x)=\frac{\sin(x)}{x^3-x}
@@ -1297,7 +1294,7 @@ $\lim_{x\to 0}f(x)=1$ --- $f(x)$ can also be re-written as this:
 $\lim_{x\to 0}[\frac{\sin x}{x}] \cdot \lim_{x\to 0}[\frac{1}{(x-1)^2}]=-1$
 
 \newpage
-\subsection*{\ref{prac:2.1-1}---Finding the Tangent Line}\label{ans:2.1-1}
+\subsection*{\ref{prac:find-tangent-line}---Finding the Tangent Line}\label{ans:find-tangent-line}
 Find the tangent lines to $f(x)=x^2+1$ at $(-2, 5)$:
 \br
 Let's start by finding the derivative of the function at $x=-2$:
@@ -1333,7 +1330,7 @@ Tangent line to $f(x)=x^2+1$ at $(-2, 5)$ has equation: $$y-5=-4(x+2)$$
 \end{note}
 
 \newpage
-\subsection*{\ref{prac:2.2-1}---Find Horizontal Tangents}\label{ans:2.2-1}
+\subsection*{\ref{prac:horizontal-tangents}---Find Horizontal Tangents}\label{ans:horizontal-tangents}
 Find the horizontal tangents of $f(x)=x^4-2x^2+3$:
 \br
 The question is essentially asking us to find the tangent lines whose
@@ -1354,7 +1351,7 @@ Now we plug in these values into $f(x)$ to get the tangent lines:
 \end{align*}
 So the horizontal tangent lines are at $y=3$ and $y=2$
 
-\subsection*{\ref{prac:2.2-2}---Find the Derivative}\label{ans:2.2-2}
+\subsection*{\ref{prac:find-derivative}---Find the Derivative}\label{ans:find-derivative}
 Find the derivative of $$f(x)=\big((x^2+3)^5+x\big)^2$$
 \br
 This seems to be a chain rule problem, but instead of just nesting once,
@@ -1373,7 +1370,7 @@ Now we multiply each of those bottom terms together to reach the answer:
 $$f'(x)=\big(5(x^2+3)^4\cdot 2x+1\big)\cdot2\big((x^2+3)^5+x\big)$$
 
 \newpage
-\subsection*{\ref{prac:2.3.1-1}---Velocity and Acceleration}\label{ans:2.3.1-1}
+\subsection*{\ref{prac:velocity-acceleration}---Velocity and Acceleration}\label{ans:velocity-acceleration}
 A ball is thrown up into the air, and its position can be modeled into
 of feet as a function of time: $p(t)=-5(t-2)^2+20$. Find the velocity and
 acceleration of the ball just as it's about to hit the ground again.
@@ -1409,9 +1406,9 @@ $\displaystyle\frac{\text{ft}}{\text{s}}$, and the acceleration of the ball as
 it hits the ground is -10 $\frac{\text{ft}}{\text{s}^2}$
 
 \newpage
-\subsection*{\ref{prac:2.4-1}---Tangent Lines and Circles}\label{ans:2.4-1}
+\subsection*{\ref{prac:trig-implicit-differentiation}---Tangent Lines and Circles}\label{ans:trig-implicit-differentation}
 Find the tangent line at $(4,-3)$ of \textit{the circle}
-$$x^2+y^2=5^2$$
+\[x^2+y^2=5^2\]
 \br
 Start by taking the derivative of all terms in \textit{respect to x}:
 \begin{align*}
@@ -1443,8 +1440,8 @@ values:
 \end{align*}
 
 \newpage
-\subsection*{\ref{prac:2.4-2}---Differentiate}\label{ans:2.4-2}
-Find the derivative of this function: $$(4x+4y)^3=64x^3+64y^3$$
+\subsection*{\ref{prac:differentiate}---Differentiate}\label{ans:differentiate}
+Find the derivative of this function: \[(4x+4y)^3=64x^3+64y^3\]
 \br
 Though chain rule could be applied first (and there's nothing stopping you from
 going down that route for implicit differentiation), I believe that expanding
@@ -1471,7 +1468,8 @@ Now that it looks much more manageable, we can continue as usual:
 	\frac{dy}{dx}                             & =-\frac{y(2x+y)}{x(x+2y)} \\
 \end{align*}
 It was lengthy, but we did it!
-\subsection*{\ref{prac:2.5-1}---Triangles Galore}\label{ans:2.5-1}
+
+\subsection*{\ref{prac:related-rates}---Triangles Galore}\label{ans:related-rates}
 A ladder 25 feet long is leaning against the wall of a house. The base
 of the ladder is pulled away from the wall at a rate of 2 feet per
 second. Find the rate at which the angle between the wall of the house and the
@@ -1500,7 +1498,7 @@ Let's identify what we need to find:
 \end{itemize}
 
 An equation that relates to all of these values would be:
-$$\sin\theta=\frac{b}{l}$$
+\[\sin\theta=\frac{b}{l}\]
 Let's take the derivative of it so that we can solve for $\frac{d\theta}{dt}$:
 \begin{align*}
 	\cos\theta\cdot\frac{d\theta}{dt} & =\frac{l\cdot\frac{db}{dt}-b\cdot\frac{dl}{dt}}{l^2} \\
@@ -1527,7 +1525,7 @@ Now let's continue solving for $\frac{d\theta}{dt}$:
 
 Moral of the story: learn your trig. identities!
 \newpage
-\subsection*{\ref{prac:3.1-1}---Finding Absolute Extrema}\label{ans:3.1-1}
+\subsection*{\ref{prac:find-abs-extrema}---Finding Absolute Extrema}\label{ans:find-abs-extrema}
 Find the absolute extrema of $f(\theta)=\sin(\theta)-cos^2(\theta)$ on
 the interval $[0, 2\pi]$
 \br
@@ -1563,8 +1561,8 @@ Let's evaluate the points at the critical values and endpoints now:
 	                         & (\frac{11\pi}{6}, -\frac{5}{4})
 \end{align*}
 
-\subsection*{\ref{prac:3.1-2}---Critical Values of a Trigonomic Function}
-\label{ans:3.1-2}
+\subsection*{\ref{prac:critical-values}---Critical Values of a Trigonomic Function}
+\label{ans:critical-values}
 Find all $\theta$ where $\displaystyle f(\theta)=2\cos\theta+\sin^2\theta$
 is a critical value.
 \br
@@ -1585,7 +1583,7 @@ So the critical values can only happen when:
 $\therefore$ Critical values of $f(x)=2k\pi,k\in\mathbb{Z}$
 
 \newpage
-\section*{\ref{prac:3.2-1}---Inequalities}\label{ans:3.2-1}
+\section*{\ref{prac:inequalities}---Inequalities}\label{ans:inequalities}
 Use the \textit{Mean Value Theorem} to verify the following inequality:
 $$\sqrt{b}-\sqrt{a}<\frac{b-a}{2\sqrt{b}},b-a>0$$
 \textbf{Hint:} Divide both sides by $b-a$
@@ -1616,7 +1614,7 @@ From this we can infer:
 This problem was quite the verbage wasn't it! Moral of the story: sometimes
 math isn't just all about numbers. And when it isn't, don't give up!
 
-\section*{\ref{prac:3.2-2}---MVT with $f(x)$}\label{ans:3.2-2}
+\section*{\ref{prac:mvt}---MVT with $f(x)$}\label{ans:mvt}
 The \textit{Mean Value Theorem} applies to $f(x)=x^{\frac{2}{3}}$ on the
 interval $[-1, 8]$. If so, find all $c$ that apply. If the theorem cannot
 be applied, explain why.
@@ -1645,7 +1643,7 @@ Now we need to find where $f'(c)=\frac{5}{9}$:
 	c                           & =\frac{216}{125}                                       \\
 \end{align*}
 
-\section*{\ref{prac:3.2-3}---IVT \& Rolle's Theorem}\label{ans:3.2-3}
+\section*{\ref{prac:ivt-rolles}---IVT \& Rolle's Theorem}\label{ans:ivt-rolles}
 Use the \textit{Intermediate Value Theorem} and \textit{Rolle's Theorem} to
 prove that the following equation has exactly one real solution:
 $$6x^7+2x^5+3x+6=0$$
@@ -1694,7 +1692,7 @@ $\therefore$ our assumption is \textit{incorrect}, and so \textit{there must be}
 only one solution to $f(x)=0$
 
 
-\section*{\ref{prac:3.3-1}---The First Derivative Test}\label{ans:3.3-1}
+\section*{\ref{prac:first-derivative-test}---The First Derivative Test}\label{ans:first-derivative-test}
 Given $\displaystyle f(x)=4x^5-2x^3$, find:
 \begin{enumerate}
 	\item All open interval(s) where $f(x)$ is decreasing or increasing
@@ -1729,7 +1727,7 @@ $f(x)$ is increasing and decreasing:
 	Increasing: $(-\frac{1}{\sqrt{2}},0)\cup(0,\frac{1}{\sqrt{2}})$
 \end{multicols}
 
-\section*{\ref{prac:3.4-1}---Concavity}\label{ans:3.4-1}
+\section*{\ref{prac:concavity}---Concavity}\label{ans:concavity}
 Determine the intervals when \[f(x)=\frac{12}{x^3+1}\] is concave up
 or concave down
 \br
@@ -1768,8 +1766,8 @@ Now we need to find the concavities of $f(x)$ using the second derivative test:
 	Concave Up: $(-1,0)\cup(\frac{1}{\sqrt[3]{2}},\infty)$
 \end{multicols}
 
-\section*{\ref{prac:3.5-1}---Maximum Price}
-\label{ans:3.5-1}
+\section*{\ref{prac:max-revenue}---Maximum Revenue}
+\label{ans:max-revenue}
 A company makes 1000 units a week, and sells an average of 500 units a week at \$50 a unit. If the price is reduced by a dollar, 25 more units can be sold. What should the price of a unit be for the maximum revenue?
 \br
 Let $u=$number of units, $p=$price of each unit, $r=$ revenue
@@ -1783,7 +1781,7 @@ Let $u=$number of units, $p=$price of each unit, $r=$ revenue
 	\end{tabular}
 \end{center}
 
-\section*{\ref{prac:3.6-1}---Volume of Balloon}\label{ans:3.6-1}
+\section*{\ref{prac:volume-of-balloon}---Volume of Balloon}\label{ans:volume-of-balloon}
 The radius of a spherical balloon is 8 inches $\pm 0.02$ inches
 \begin{enumerate}
 	\item Use differentials to approximate the possible propagated error in computing the volume of the balloon
@@ -1825,6 +1823,3 @@ So $\sqrt{26}\approx 5.1$\emoji{smiling-face-with-hearts}\newline
 That's quite accurate to its actual value: $\sqrt{26}=5.09902\ldots$
 
 \end{document}
-
-
-
